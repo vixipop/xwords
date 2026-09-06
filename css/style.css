@@ -4,6 +4,15 @@
    The whole edition fits one viewport height (no page scroll).
    ========================================================= */
 
+/* Self-hosted masthead face (Manufacturing Consent, from Google Fonts). */
+@font-face {
+  font-family: "Manufacturing Consent";
+  src: url("/assets/fonts/ManufacturingConsent-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --ink:        #201d18;
   --ink-soft:   #46413a;
@@ -17,7 +26,7 @@
   --correct:    #2c5233;
   --wrong:      #8f2b1f;
 
-  --f-masthead: "Pinyon Script", "Snell Roundhand", cursive;
+  --f-masthead: "Manufacturing Consent", "Playfair Display", Georgia, serif;
   --f-display:  "Playfair Display", Georgia, serif;
   --f-print:    "Special Elite", "Courier New", monospace;
   --f-hand:     "Caveat", "Bradley Hand", cursive;
