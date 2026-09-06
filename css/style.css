@@ -4,10 +4,17 @@
    The whole edition fits one viewport height (no page scroll).
    ========================================================= */
 
-/* Self-hosted masthead face (Manufacturing Consent, from Google Fonts). */
+/* Self-hosted faces (from Google Fonts) — masthead + the solver's pencil. */
 @font-face {
   font-family: "Manufacturing Consent";
   src: url("/assets/fonts/ManufacturingConsent-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Homemade Apple";
+  src: url("/assets/fonts/HomemadeApple-Regular.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -29,7 +36,7 @@
   --f-masthead: "Manufacturing Consent", "Playfair Display", Georgia, serif;
   --f-display:  "Playfair Display", Georgia, serif;
   --f-print:    "Special Elite", "Courier New", monospace;
-  --f-hand:     "Caveat", "Bradley Hand", cursive;
+  --f-hand:     "Homemade Apple", "Bradley Hand", cursive;
 }
 
 * { box-sizing: border-box; }
@@ -312,9 +319,10 @@ body {
   border: 0;
   background: transparent;
   text-align: center;
-  text-transform: uppercase;
+  text-transform: lowercase;         /* always small letters, never capital */
   font-family: var(--f-hand);
-  font-size: clamp(18px, 4.4vh, 30px);
+  font-size: clamp(15px, 3.6vh, 25px); /* Homemade Apple runs large — fit the cell */
+  line-height: 1;
   color: var(--pencil);
   caret-color: transparent;
   cursor: pointer;
