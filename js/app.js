@@ -519,14 +519,16 @@ function showResult({ title, msg, cta }) {
   ov.querySelector(".modal__ok").focus();
 }
 
-// Lightweight self-contained confetti burst (no dependency). Honors reduced motion.
+// Lightweight self-contained confetti burst (no dependency).
 function confettiBurst() {
-  if (window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches) return;
   const canvas = document.createElement("canvas");
-  canvas.style.cssText = "position:fixed;inset:0;pointer-events:none;z-index:300";
+  // Explicit CSS size (viewport) with a dpr-scaled backing store so it renders
+  // correctly on retina/high-DPI screens.
+  canvas.style.cssText =
+    "position:fixed;top:0;left:0;width:100vw;height:100vh;pointer-events:none;z-index:9999";
   const dpr = Math.min(devicePixelRatio || 1, 2);
-  canvas.width = innerWidth * dpr;
-  canvas.height = innerHeight * dpr;
+  canvas.width = Math.floor(innerWidth * dpr);
+  canvas.height = Math.floor(innerHeight * dpr);
   const ctx = canvas.getContext("2d");
   ctx.scale(dpr, dpr);
   document.body.appendChild(canvas);
