@@ -4,8 +4,10 @@
 const BLOCK = "#";
 
 async function loadPuzzle() {
-  // For the daily build this becomes /data/<today>.json; the sample ships for now.
-  const res = await fetch("data/sample.json");
+  // For the daily build this becomes data/<today>.json; the sample ships for now.
+  // BASE_URL keeps the path correct if the site is ever served from a sub-path.
+  const base = import.meta.env.BASE_URL;
+  const res = await fetch(`${base}data/sample.json`);
   if (!res.ok) throw new Error("Could not load puzzle");
   return res.json();
 }

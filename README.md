@@ -30,11 +30,21 @@ self-host alternatives:
 ## Run it
 
 ```
-python3 -m http.server 8099
-# open http://localhost:8099
+npm install       # first time only
+npm run dev        # http://localhost:5173 (hot reload, opens automatically)
 ```
 
-Pure static HTML/CSS/JS — no build step, deploys anywhere (GitHub Pages, Netlify, etc.).
+Other scripts:
+
+```
+npm run build      # production build -> dist/
+npm run preview    # serve the built dist/ locally
+```
+
+Still plain HTML/CSS/JS — Vite just adds the dev server + build. Static
+files (the puzzle JSON and the paper texture) live in `public/` and are served
+at the site root (`/data/...`, `/assets/...`). The built `dist/` deploys
+anywhere (GitHub Pages, Netlify, Vercel, etc.).
 
 ## Roadmap
 
