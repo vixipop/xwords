@@ -1,4 +1,4 @@
-# The Daily Cross
+# The Word Gazette
 
 A free, ad-free daily crossword with a newspaper aesthetic. Because the
 crossword shouldn't be behind a paywall.

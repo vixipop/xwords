@@ -1,5 +1,5 @@
 /* =========================================================
-   The Daily Cross — vintage newsprint stylesheet
+   The Word Gazette — vintage newsprint stylesheet
    Layers: wood desk (bg) -> paper sheet -> ink baked onto paper.
    The whole edition fits one viewport height (no page scroll).
    ========================================================= */
@@ -30,7 +30,7 @@ body {
   overflow: hidden;                 /* no page scroll — the sheet fits the screen */
   color: var(--ink);
   font-family: var(--f-print);
-  background: #3a2415 url("/assets/textures/wood.jpg") center / cover fixed no-repeat;
+  background: #3a2415 url("/assets/textures/wood.webp") center / cover fixed no-repeat;
 }
 
 /* ===== Stage centers the sheet on the desk ===== */
@@ -52,7 +52,7 @@ body {
   width: min(1280px, 97vw);
   max-height: 100%;
   padding: clamp(16px, 2.4vw, 40px) clamp(24px, 4vw, 66px) clamp(12px, 1.6vw, 24px);
-  background: url("/assets/textures/paper.png") center / 100% 100% no-repeat;
+  background: url("/assets/textures/paper.webp") center / 100% 100% no-repeat;
   filter: drop-shadow(0 14px 26px rgba(0, 0, 0, 0.5));
 }
 

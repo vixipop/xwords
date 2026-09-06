@@ -1,4 +1,4 @@
-// The Daily Cross — client (prototype)
+// The Word Gazette — client (prototype)
 // Loads a puzzle JSON, renders a numbered newspaper grid, and lets you solve it.
 
 const BLOCK = "#";

@@ -1,13 +1,11 @@
 # Textures
 
-Two stacked background layers. Replace either by uploading a file with the
-**same name** to this folder (`public/assets/textures/`):
+Two stacked background layers, referenced from `css/style.css`:
 
-- **`wood.jpg`** — the desk the newspaper lies on (outermost background).
-- **`paper.png`** — the newspaper sheet that sits on the wood; the whole UI
-  prints onto it. A PNG with transparent / torn edges around the sheet looks
-  best, since the sheet's drop shadow follows the image's alpha.
+- **`wood.webp`** — the desk the newspaper lies on (outermost background).
+- **`paper.webp`** — the newspaper sheet the UI prints onto. Keeps an alpha
+  channel so its torn edges show the wood through them.
 
-Both are referenced from `css/style.css`. Committed placeholders are here so
-the app runs; your uploads overwrite them. Tell me if you want different
-names or file types and I'll update the two CSS references.
+These are compressed/downscaled WebP (the originals were ~23 MB of JPG/PNG;
+now ~0.9 MB total). To change a texture, send me a new file in any format
+(PNG/JPG/WebP) and I'll downscale + convert it and update the reference.
