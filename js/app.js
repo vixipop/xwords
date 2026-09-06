@@ -70,8 +70,10 @@ class Puzzle {
     this.clueText = { across: {}, down: {} };
     this.autocheck = false;
     this.solved = false;
-    this.onSolved = null;   // fired once when fully & correctly filled
-    this.onChange = null;   // fired whenever the grid state changes (for persistence)
+    this.wasFull = false;
+    this.onSolved = null;      // fired once when fully & correctly filled
+    this.onIncomplete = null;  // fired when fully filled but some words are wrong
+    this.onChange = null;      // fired whenever the grid state changes (for persistence)
   }
 
   render() {
@@ -215,7 +217,7 @@ class Puzzle {
       this.cells[`${r},${c}`].classList.add("cell--correct");
       this.cells[`${r},${c}`].classList.remove("cell--wrong");
     }
-    this.checkSolved();
+    this.evaluateCompletion();
     this.changed();
   }
   clear(scope) {
@@ -231,15 +233,39 @@ class Puzzle {
     if (on) this.check("puzzle"); else this.changed();
   }
 
-  checkSolved() {
+  allFilled() {
+    let full = true;
+    this.eachWhite((r, c) => { if (!this.inputs[`${r},${c}`].value) full = false; });
+    return full;
+  }
+  isAllCorrect() {
+    let ok = true;
+    this.eachWhite((r, c) => { if (this.inputs[`${r},${c}`].value !== this.grid[r][c]) ok = false; });
+    return ok;
+  }
+  incorrectWordCount() {
+    let n = 0;
+    for (const dir of ["across", "down"]) {
+      for (const cl of this.data.clues[dir]) {
+        const s = this.startOf(dir, cl.num);
+        const cells = entryCells(this.grid, s.r, s.c, dir);
+        if (cells.some(({ r, c }) => this.inputs[`${r},${c}`].value !== this.grid[r][c])) n++;
+      }
+    }
+    return n;
+  }
+  // Called after each fill. Fires onSolved (all correct) or onIncomplete (all
+  // filled but some wrong) — the latter only once per time the grid fills up.
+  evaluateCompletion() {
     if (this.solved) return;
-    let done = true;
-    this.eachWhite((r, c) => {
-      if (this.inputs[`${r},${c}`].value !== this.grid[r][c]) done = false;
-    });
-    if (done) {
+    if (!this.allFilled()) { this.wasFull = false; return; }
+    if (this.isAllCorrect()) {
       this.solved = true;
+      this.wasFull = true;
       if (this.onSolved) this.onSolved();
+    } else if (!this.wasFull) {
+      this.wasFull = true;
+      if (this.onIncomplete) this.onIncomplete(this.incorrectWordCount());
     }
   }
 
@@ -259,7 +285,7 @@ class Puzzle {
     this.clearMark(r, c);
     if (this.autocheck && e.target.value) this.markCell(r, c);
     if (e.target.value) this.advance(r, c, 1);
-    this.checkSolved();
+    this.evaluateCompletion();
     this.changed();
   }
 
@@ -305,7 +331,7 @@ class Puzzle {
       e.preventDefault();
       this.setLetter(r, c, key);
       this.advance(r, c, 1);
-      this.checkSolved();
+      this.evaluateCompletion();
       this.changed();
       return;
     }
@@ -474,6 +500,71 @@ function showInfo(html) {
   ov.addEventListener("click", (e) => { if (e.target === ov) close(); });
 }
 
+// Result banner (solved / not-quite) with a single call-to-action button.
+function showResult({ title, msg, cta }) {
+  const ov = document.createElement("div");
+  ov.className = "modal";
+  ov.innerHTML = `
+    <div class="modal__box modal__box--center" role="dialog" aria-modal="true">
+      <h3 class="modal__title">${title}</h3>
+      <p class="modal__msg">${msg}</p>
+      <div class="modal__row modal__row--center"><button class="pill pill--solid modal__ok">${cta}</button></div>
+    </div>`;
+  document.body.appendChild(ov);
+  const close = () => { ov.remove(); document.removeEventListener("keydown", onKey); };
+  const onKey = (e) => { if (e.key === "Escape" || e.key === "Enter") close(); };
+  ov.querySelector(".modal__ok").onclick = close;
+  ov.addEventListener("click", (e) => { if (e.target === ov) close(); });
+  document.addEventListener("keydown", onKey);
+  ov.querySelector(".modal__ok").focus();
+}
+
+// Lightweight self-contained confetti burst (no dependency). Honors reduced motion.
+function confettiBurst() {
+  if (window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  const canvas = document.createElement("canvas");
+  canvas.style.cssText = "position:fixed;inset:0;pointer-events:none;z-index:300";
+  const dpr = Math.min(devicePixelRatio || 1, 2);
+  canvas.width = innerWidth * dpr;
+  canvas.height = innerHeight * dpr;
+  const ctx = canvas.getContext("2d");
+  ctx.scale(dpr, dpr);
+  document.body.appendChild(canvas);
+
+  const colors = ["#f2c94c", "#2a3b74", "#8f2b1f", "#2c5233", "#1a1712", "#d9cfba"];
+  const make = (originX) => Array.from({ length: 90 }, () => ({
+    x: originX, y: innerHeight + 10,
+    vx: (Math.random() - 0.5) * 9,
+    vy: -(12 + Math.random() * 9),
+    g: 0.28 + Math.random() * 0.1,
+    size: 5 + Math.random() * 7,
+    rot: Math.random() * Math.PI, vr: (Math.random() - 0.5) * 0.35,
+    color: colors[(Math.random() * colors.length) | 0],
+    life: 1,
+  }));
+  // two cannons from the bottom corners
+  const parts = make(innerWidth * 0.15).concat(make(innerWidth * 0.85));
+  const DURATION = 2600;
+  const start = performance.now();
+  (function frame(t) {
+    const elapsed = t - start;
+    ctx.clearRect(0, 0, innerWidth, innerHeight);
+    for (const p of parts) {
+      p.vy += p.g; p.x += p.vx; p.y += p.vy; p.rot += p.vr;
+      if (elapsed > DURATION * 0.55) p.life -= 0.018;
+      ctx.save();
+      ctx.globalAlpha = Math.max(0, p.life);
+      ctx.translate(p.x, p.y);
+      ctx.rotate(p.rot);
+      ctx.fillStyle = p.color;
+      ctx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size * 0.6);
+      ctx.restore();
+    }
+    if (elapsed < DURATION) requestAnimationFrame(frame);
+    else canvas.remove();
+  })(start);
+}
+
 function dateline() {
   const d = new Date();
   const opts = { weekday: "long", year: "numeric", month: "long", day: "numeric" };
@@ -535,7 +626,20 @@ async function main() {
     try { localStorage.setItem(STORE_KEY, JSON.stringify(state)); } catch {}
   }
   puz.onChange = persist;
-  puz.onSolved = () => { timer.done(); persist(); };
+  puz.onSolved = () => {
+    timer.done();
+    persist();
+    confettiBurst();
+    const t = `${(timer.secs / 60) | 0}:${String(timer.secs % 60).padStart(2, "0")}`;
+    showResult({ title: "Solved!", msg: `You finished The Daily 7 in ${t}. Nicely done.`, cta: "Hooray" });
+  };
+  puz.onIncomplete = (n) => {
+    showResult({
+      title: "Not quite…",
+      msg: `The grid is full, but ${n === 1 ? "1 word is" : n + " words are"} incorrect.`,
+      cta: "Keep trying",
+    });
+  };
 
   // Timer: run on load (resuming saved time) unless already solved.
   if (puz.solved) timer.done();
