@@ -18,57 +18,61 @@
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-  <div class="paper">
-    <!-- ===== Masthead ===== -->
-    <header class="masthead">
-      <div class="masthead__rule masthead__rule--top">
-        <span>VOL. I . . . No. 1</span>
-        <span>NEW YORK, SUNDAY</span>
-        <span>FREE FOREVER</span>
-      </div>
-      <h1 class="masthead__title">The Daily Cross</h1>
-      <div class="masthead__rule masthead__rule--bottom">
-        <span id="dateline">Loading&hellip;</span>
-        <span>&ldquo;All the Squares Fit to Print&rdquo;</span>
-        <span>No Subscription Required</span>
-      </div>
-    </header>
-
-    <!-- ===== Body: grid + clues in newspaper columns ===== -->
-    <main class="edition">
-      <section class="puzzle">
-        <div class="puzzle__head">
-          <h2 id="puzzle-title">The Daily Crossword</h2>
-          <p class="byline" id="byline">Constructed by the Machine</p>
+  <!-- wood desk (bg) -> paper sheet -> the whole edition prints on the paper -->
+  <div class="stage">
+    <div class="paper">
+      <!-- ===== Masthead ===== -->
+      <header class="masthead">
+        <div class="masthead__rule masthead__rule--top">
+          <span>VOL. I . . . No. 1</span>
+          <span>NEW YORK, SUNDAY</span>
+          <span>FREE FOREVER</span>
         </div>
-
-        <div class="grid-wrap">
-          <div id="grid" class="grid" role="grid" aria-label="Crossword grid"></div>
+        <h1 class="masthead__title">The Daily Cross</h1>
+        <div class="masthead__rule masthead__rule--bottom">
+          <span id="dateline">Loading&hellip;</span>
+          <span>&ldquo;All the Squares Fit to Print&rdquo;</span>
+          <span>No Subscription Required</span>
         </div>
+      </header>
 
-        <div class="puzzle__foot">
-          <button id="check-btn" class="pill">Check</button>
-          <button id="reveal-btn" class="pill">Reveal</button>
-          <button id="clear-btn" class="pill">Clear</button>
-        </div>
-      </section>
-
-      <section class="clues">
-        <div class="clues__col">
-          <h3 class="clues__head">Across</h3>
-          <ol id="clues-across" class="clues__list"></ol>
-        </div>
-        <div class="clues__col">
+      <!-- ===== Three columns: Down | Puzzle | Across ===== -->
+      <main class="edition">
+        <section class="clues clues--down">
           <h3 class="clues__head">Down</h3>
           <ol id="clues-down" class="clues__list"></ol>
-        </div>
-      </section>
-    </main>
+        </section>
 
-    <footer class="fineprint">
-      <p>The Daily Cross is a free, ad-free daily crossword. A new puzzle every morning.
-      Set in stand-ins for the fonts fit to print. &copy; <span id="year"></span> The Daily Cross.</p>
-    </footer>
+        <section class="puzzle">
+          <div id="cluebar" class="cluebar" aria-live="polite"></div>
+          <div class="puzzle__head">
+            <h2 id="puzzle-title">The Daily Crossword</h2>
+            <p class="byline" id="byline">Constructed by the Machine</p>
+          </div>
+
+          <div class="grid-wrap">
+            <div id="grid" class="grid" role="grid" aria-label="Crossword grid"></div>
+          </div>
+
+          <div class="puzzle__foot">
+            <button id="check-btn" class="pill">Check</button>
+            <button id="reveal-btn" class="pill">Reveal</button>
+            <button id="clear-btn" class="pill">Clear</button>
+            <span id="timer" class="timer" title="Time">00:00</span>
+          </div>
+        </section>
+
+        <section class="clues clues--across">
+          <h3 class="clues__head">Across</h3>
+          <ol id="clues-across" class="clues__list"></ol>
+        </section>
+      </main>
+
+      <footer class="fineprint">
+        <p>The Daily Cross is a free, ad-free daily crossword. A new puzzle every morning.
+        Set in stand-ins for the fonts fit to print. &copy; <span id="year"></span> The Daily Cross.</p>
+      </footer>
+    </div>
   </div>
 
   <script src="js/app.js" type="module"></script>

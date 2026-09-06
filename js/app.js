@@ -62,6 +62,9 @@ class Puzzle {
     this.active = null; // {r,c}
     this.inputs = {};   // "r,c" -> input el
     this.cells = {};    // "r,c" -> cell el
+    this.clueText = { across: {}, down: {} }; // num -> clue string
+    this.onSolved = null;
+    this.solved = false;
   }
 
   render() {
@@ -114,6 +117,7 @@ class Puzzle {
       const ol = document.getElementById(listId);
       ol.innerHTML = "";
       for (const clue of arr) {
+        this.clueText[dir][clue.num] = clue.clue;
         const li = document.createElement("li");
         li.dataset.num = clue.num;
         li.dataset.dir = dir;
@@ -167,11 +171,29 @@ class Puzzle {
     word.forEach(({ r: wr, c: wc }) => this.cells[`${wr},${wc}`].classList.add("cell--inword"));
     this.cells[`${r},${c}`].classList.add("cell--active");
 
-    // Sync clue list highlight.
+    // Sync clue list highlight + the clue bar above the grid.
     const start = word[0];
     const startNum = this.nums[start.r][start.c];
     const li = document.querySelector(`.clues__list li[data-num="${startNum}"][data-dir="${this.dir}"]`);
     if (li) li.classList.add("active");
+
+    const bar = document.getElementById("cluebar");
+    if (bar) {
+      const txt = this.clueText[this.dir][startNum] || "";
+      bar.innerHTML = `<span class="num">${startNum}</span><span>${txt}</span>`;
+    }
+  }
+
+  checkSolved() {
+    if (this.solved) return;
+    let done = true;
+    this.eachWhite((r, c) => {
+      if (this.inputs[`${r},${c}`].value !== this.grid[r][c]) done = false;
+    });
+    if (done) {
+      this.solved = true;
+      if (this.onSolved) this.onSolved();
+    }
   }
 
   onInput(e, r, c) {
@@ -179,6 +201,7 @@ class Puzzle {
     e.target.value = v.slice(-1);
     this.cells[`${r},${c}`].classList.remove("cell--correct", "cell--wrong");
     if (e.target.value) this.advance(r, c, 1);
+    this.checkSolved();
   }
 
   advance(r, c, step) {
@@ -234,6 +257,7 @@ class Puzzle {
       this.cells[`${r},${c}`].classList.add("cell--correct");
       this.cells[`${r},${c}`].classList.remove("cell--wrong");
     });
+    this.checkSolved();
   }
 
   clear() {
@@ -251,6 +275,20 @@ function dateline() {
   document.getElementById("year").textContent = d.getFullYear();
 }
 
+// Count-up timer, starts on the solver's first keystroke, stops when solved.
+function makeTimer(el) {
+  let secs = 0, id = null;
+  const fmt = (s) => `${String((s / 60) | 0).padStart(2, "0")}:${String(s % 60).padStart(2, "0")}`;
+  return {
+    start() {
+      if (id) return;
+      id = setInterval(() => { secs += 1; el.textContent = fmt(secs); }, 1000);
+    },
+    stop() { clearInterval(id); id = null; },
+    done() { this.stop(); el.classList.add("done"); },
+  };
+}
+
 async function main() {
   dateline();
   try {
@@ -259,6 +297,11 @@ async function main() {
     document.getElementById("byline").textContent = `Constructed by ${data.author || "the Machine"}`;
     const puz = new Puzzle(data);
     puz.render();
+
+    const timer = makeTimer(document.getElementById("timer"));
+    puz.onSolved = () => timer.done();
+    document.getElementById("grid").addEventListener("keydown", () => timer.start(), { once: true });
+
     document.getElementById("check-btn").addEventListener("click", () => puz.check());
     document.getElementById("reveal-btn").addEventListener("click", () => puz.reveal());
     document.getElementById("clear-btn").addEventListener("click", () => puz.clear());
