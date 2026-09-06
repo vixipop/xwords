@@ -78,6 +78,12 @@
         </div>
       </header>
 
+      <!-- Puzzle title sits above the columns; the Down / clue / Across row aligns below it. -->
+      <div class="puzzle__head">
+        <h2 id="puzzle-title">The Daily Crossword</h2>
+        <p class="byline" id="byline">Constructed by the Machine</p>
+      </div>
+
       <!-- ===== Three columns: Down | Puzzle | Across ===== -->
       <main class="edition">
         <section class="clues clues--down">
@@ -86,13 +92,8 @@
         </section>
 
         <section class="puzzle">
-          <div class="puzzle__head">
-            <h2 id="puzzle-title">The Daily Crossword</h2>
-            <p class="byline" id="byline">Constructed by the Machine</p>
-          </div>
-          <!-- Selected-word hint sits right above the grid -->
+          <!-- Selected-word hint aligns with the Down / Across headings, above the grid -->
           <div id="cluebar" class="cluebar" aria-live="polite"></div>
-
           <div class="grid-wrap">
             <div id="grid" class="grid" role="grid" aria-label="Crossword grid"></div>
           </div>
