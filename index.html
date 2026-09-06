@@ -25,14 +25,57 @@
       <header class="masthead">
         <div class="masthead__rule masthead__rule--top">
           <span>VOL. I . . . No. 1</span>
-          <span>NEW YORK, SUNDAY</span>
+          <span id="dateline">Loading&hellip;</span>
           <span>FREE FOREVER</span>
         </div>
         <h1 class="masthead__title">The Daily Cross</h1>
-        <div class="masthead__rule masthead__rule--bottom">
-          <span id="dateline">Loading&hellip;</span>
-          <span>&ldquo;All the Squares Fit to Print&rdquo;</span>
-          <span>No Subscription Required</span>
+
+        <!-- Toolbar replaces the old sub-rule: settings, timer, actions. -->
+        <div class="toolbar">
+          <div class="toolbar__left">
+            <button class="tool tool--icon" id="settings-btn" title="Settings" aria-label="Settings"></button>
+          </div>
+
+          <div class="toolbar__center">
+            <button class="tool tool--icon" id="timer-toggle" title="Pause / play" aria-label="Pause or play timer"></button>
+            <span id="timer" class="timer">0:00</span>
+            <button class="tool tool--icon" id="timer-reset" title="Reset timer" aria-label="Reset timer"></button>
+          </div>
+
+          <div class="toolbar__right">
+            <div class="menu" data-menu>
+              <button class="tool menu__btn">Check<span class="caret"></span></button>
+              <div class="menu__list" role="menu">
+                <button class="menu__item" data-toggle="autocheck" role="menuitemcheckbox">
+                  <span class="tick" data-autocheck-ind></span>Autocheck
+                </button>
+                <div class="menu__sep"></div>
+                <button class="menu__item" data-act="check:letter">Check Letter</button>
+                <button class="menu__item" data-act="check:word">Check Word</button>
+                <button class="menu__item" data-act="check:puzzle">Check Puzzle</button>
+              </div>
+            </div>
+
+            <div class="menu" data-menu>
+              <button class="tool menu__btn">Reveal<span class="caret"></span></button>
+              <div class="menu__list" role="menu">
+                <button class="menu__item" data-act="reveal:letter">Reveal Letter</button>
+                <button class="menu__item" data-act="reveal:word">Reveal Word</button>
+                <button class="menu__item" data-act="reveal:puzzle">Reveal Puzzle</button>
+              </div>
+            </div>
+
+            <div class="menu" data-menu>
+              <button class="tool menu__btn">Clear<span class="caret"></span></button>
+              <div class="menu__list" role="menu">
+                <button class="menu__item" data-act="clear:letter">Clear Letter</button>
+                <button class="menu__item" data-act="clear:word">Clear Word</button>
+                <div class="menu__sep"></div>
+                <button class="menu__item" data-act="clear:puzzle">Clear Puzzle</button>
+                <button class="menu__item" data-act="clear:puzzle+timer">Clear Puzzle &amp; Timer</button>
+              </div>
+            </div>
+          </div>
         </div>
       </header>
 
@@ -44,21 +87,15 @@
         </section>
 
         <section class="puzzle">
-          <div id="cluebar" class="cluebar" aria-live="polite"></div>
           <div class="puzzle__head">
             <h2 id="puzzle-title">The Daily Crossword</h2>
             <p class="byline" id="byline">Constructed by the Machine</p>
           </div>
+          <!-- Selected-word hint sits right above the grid -->
+          <div id="cluebar" class="cluebar" aria-live="polite"></div>
 
           <div class="grid-wrap">
             <div id="grid" class="grid" role="grid" aria-label="Crossword grid"></div>
-          </div>
-
-          <div class="puzzle__foot">
-            <button id="check-btn" class="pill">Check</button>
-            <button id="reveal-btn" class="pill">Reveal</button>
-            <button id="clear-btn" class="pill">Clear</button>
-            <span id="timer" class="timer" title="Time">00:00</span>
           </div>
         </section>
 

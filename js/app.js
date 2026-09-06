@@ -3,9 +3,15 @@
 
 const BLOCK = "#";
 
+// ---- small icon set (inline SVG so it inks like everything else) ----
+const ICON = {
+  gear: `<svg viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M12 8a4 4 0 100 8 4 4 0 000-8zm9 4a7 7 0 00-.1-1.2l2-1.6-2-3.4-2.4 1a7 7 0 00-2-1.2l-.4-2.6H9.9L9.5 3a7 7 0 00-2 1.2l-2.4-1-2 3.4 2 1.6A7 7 0 003 12c0 .4 0 .8.1 1.2l-2 1.6 2 3.4 2.4-1c.6.5 1.3.9 2 1.2l.4 2.6h4.2l.4-2.6c.7-.3 1.4-.7 2-1.2l2.4 1 2-3.4-2-1.6c.1-.4.1-.8.1-1.2z"/></svg>`,
+  pause: `<svg viewBox="0 0 24 24" width="14" height="14"><rect x="6" y="5" width="4" height="14" fill="currentColor"/><rect x="14" y="5" width="4" height="14" fill="currentColor"/></svg>`,
+  play: `<svg viewBox="0 0 24 24" width="14" height="14"><path fill="currentColor" d="M7 5l12 7-12 7z"/></svg>`,
+  reset: `<svg viewBox="0 0 24 24" width="14" height="14"><path fill="currentColor" d="M12 5V2L7 6l5 4V7a5 5 0 11-5 5H5a7 7 0 107-7z"/></svg>`,
+};
+
 async function loadPuzzle() {
-  // For the daily build this becomes data/<today>.json; the sample ships for now.
-  // BASE_URL keeps the path correct if the site is ever served from a sub-path.
   const base = import.meta.env.BASE_URL;
   const res = await fetch(`${base}data/sample.json`);
   if (!res.ok) throw new Error("Could not load puzzle");
@@ -16,11 +22,10 @@ async function loadPuzzle() {
 function numberGrid(grid) {
   const n = grid.length;
   const nums = grid.map((row) => row.map(() => 0));
-  const acrossStart = {}; // num -> {r,c}
+  const acrossStart = {};
   const downStart = {};
   let counter = 0;
   const isWhite = (r, c) => r >= 0 && c >= 0 && r < n && c < n && grid[r][c] !== BLOCK;
-
   for (let r = 0; r < n; r++) {
     for (let c = 0; c < n; c++) {
       if (!isWhite(r, c)) continue;
@@ -37,7 +42,6 @@ function numberGrid(grid) {
   return { nums, acrossStart, downStart };
 }
 
-// Collect the cell path for an entry starting at (r,c) in a direction.
 function entryCells(grid, r, c, dir) {
   const n = grid.length;
   const cells = [];
@@ -59,19 +63,20 @@ class Puzzle {
     this.acrossStart = acrossStart;
     this.downStart = downStart;
     this.dir = "across";
-    this.active = null; // {r,c}
-    this.inputs = {};   // "r,c" -> input el
-    this.cells = {};    // "r,c" -> cell el
-    this.clueText = { across: {}, down: {} }; // num -> clue string
-    this.onSolved = null;
+    this.active = null;
+    this.inputs = {};
+    this.cells = {};
+    this.clueText = { across: {}, down: {} };
+    this.autocheck = false;
     this.solved = false;
+    this.onSolved = null;   // fired once when fully & correctly filled
+    this.onChange = null;   // fired whenever the grid state changes (for persistence)
   }
 
   render() {
     const gridEl = document.getElementById("grid");
     gridEl.style.gridTemplateColumns = `repeat(${this.size}, 1fr)`;
     gridEl.innerHTML = "";
-
     for (let r = 0; r < this.size; r++) {
       for (let c = 0; c < this.size; c++) {
         const cell = document.createElement("div");
@@ -91,8 +96,7 @@ class Puzzle {
         }
         const input = document.createElement("input");
         input.maxLength = 1;
-        input.dataset.r = r;
-        input.dataset.c = c;
+        input.inputMode = "text";
         input.autocomplete = "off";
         input.addEventListener("focus", () => this.setActive(r, c));
         input.addEventListener("mousedown", () => {
@@ -107,7 +111,6 @@ class Puzzle {
       }
     }
     this.renderClues();
-    // Start on 1-Across.
     const first = this.acrossStart[1] || this.downStart[1];
     if (first) this.focus(first.r, first.c);
   }
@@ -151,7 +154,6 @@ class Puzzle {
   }
 
   currentWordCells(r, c) {
-    // Walk back to the entry start in the active direction, then forward.
     let rr = r, cc = c;
     const back = this.dir === "across" ? [0, -1] : [-1, 0];
     while (true) {
@@ -171,17 +173,60 @@ class Puzzle {
     word.forEach(({ r: wr, c: wc }) => this.cells[`${wr},${wc}`].classList.add("cell--inword"));
     this.cells[`${r},${c}`].classList.add("cell--active");
 
-    // Sync clue list highlight + the clue bar above the grid.
     const start = word[0];
     const startNum = this.nums[start.r][start.c];
     const li = document.querySelector(`.clues__list li[data-num="${startNum}"][data-dir="${this.dir}"]`);
-    if (li) li.classList.add("active");
+    if (li) { li.classList.add("active"); li.scrollIntoView({ block: "nearest" }); }
 
     const bar = document.getElementById("cluebar");
     if (bar) {
       const txt = this.clueText[this.dir][startNum] || "";
       bar.innerHTML = `<span class="num">${startNum}</span><span>${txt}</span>`;
     }
+  }
+
+  // ---- scopes ----
+  allCells() { const a = []; this.eachWhite((r, c) => a.push({ r, c })); return a; }
+  scopeCells(scope) {
+    if (scope === "letter") return this.active ? [this.active] : [];
+    if (scope === "word") return this.active ? this.currentWordCells(this.active.r, this.active.c) : [];
+    return this.allCells(); // puzzle
+  }
+
+  markCell(r, c) {
+    const el = this.inputs[`${r},${c}`], cell = this.cells[`${r},${c}`];
+    cell.classList.remove("cell--correct", "cell--wrong");
+    if (!el.value) return;
+    cell.classList.add(el.value === this.grid[r][c] ? "cell--correct" : "cell--wrong");
+  }
+  clearMark(r, c) {
+    this.cells[`${r},${c}`].classList.remove("cell--correct", "cell--wrong");
+  }
+
+  check(scope) {
+    for (const { r, c } of this.scopeCells(scope)) this.markCell(r, c);
+    this.changed();
+  }
+  reveal(scope) {
+    for (const { r, c } of this.scopeCells(scope)) {
+      this.inputs[`${r},${c}`].value = this.grid[r][c];
+      this.cells[`${r},${c}`].classList.add("cell--correct");
+      this.cells[`${r},${c}`].classList.remove("cell--wrong");
+    }
+    this.checkSolved();
+    this.changed();
+  }
+  clear(scope) {
+    for (const { r, c } of this.scopeCells(scope)) {
+      this.inputs[`${r},${c}`].value = "";
+      this.clearMark(r, c);
+    }
+    this.changed();
+  }
+
+  setAutocheck(on) {
+    this.autocheck = on;
+    if (on) this.check("puzzle"); else this.changed();
   }
 
   checkSolved() {
@@ -196,12 +241,16 @@ class Puzzle {
     }
   }
 
+  changed() { if (this.onChange) this.onChange(); }
+
   onInput(e, r, c) {
     const v = e.target.value.toUpperCase().replace(/[^A-Z]/g, "");
     e.target.value = v.slice(-1);
-    this.cells[`${r},${c}`].classList.remove("cell--correct", "cell--wrong");
+    this.clearMark(r, c);
+    if (this.autocheck && e.target.value) this.markCell(r, c);
     if (e.target.value) this.advance(r, c, 1);
     this.checkSolved();
+    this.changed();
   }
 
   advance(r, c, step) {
@@ -215,7 +264,8 @@ class Puzzle {
     const key = e.key;
     if (key === "Backspace") {
       if (!e.target.value) { e.preventDefault(); this.advance(r, c, -1); }
-      this.cells[`${r},${c}`].classList.remove("cell--correct", "cell--wrong");
+      this.clearMark(r, c);
+      this.changed();
       return;
     }
     const moves = {
@@ -241,74 +291,222 @@ class Puzzle {
         if (this.grid[r][c] !== BLOCK) fn(r, c);
   }
 
-  check() {
+  // ---- persistence ----
+  serialize() {
+    const entries = {};
     this.eachWhite((r, c) => {
-      const el = this.inputs[`${r},${c}`];
-      const cell = this.cells[`${r},${c}`];
-      cell.classList.remove("cell--correct", "cell--wrong");
-      if (!el.value) return;
-      cell.classList.add(el.value === this.grid[r][c] ? "cell--correct" : "cell--wrong");
+      const v = this.inputs[`${r},${c}`].value;
+      if (v) entries[`${r},${c}`] = v;
     });
+    return { entries, autocheck: this.autocheck, solved: this.solved };
   }
+  restoreEntries(entries) {
+    if (!entries) return;
+    for (const [key, v] of Object.entries(entries)) {
+      if (this.inputs[key]) this.inputs[key].value = v;
+    }
+    if (this.autocheck) this.check("puzzle");
+  }
+}
 
-  reveal() {
-    this.eachWhite((r, c) => {
-      this.inputs[`${r},${c}`].value = this.grid[r][c];
-      this.cells[`${r},${c}`].classList.add("cell--correct");
-      this.cells[`${r},${c}`].classList.remove("cell--wrong");
-    });
-    this.checkSolved();
+// ============================ Timer ============================
+function makeTimer(timeEl, toggleBtn, onChange) {
+  let secs = 0, id = null, running = false;
+  const fmt = (s) => `${(s / 60) | 0}:${String(s % 60).padStart(2, "0")}`;
+  function paint() {
+    timeEl.textContent = fmt(secs);
+    if (toggleBtn) {
+      toggleBtn.innerHTML = running ? ICON.pause : ICON.play;
+      toggleBtn.title = running ? "Pause" : "Play";
+    }
   }
+  const api = {
+    get secs() { return secs; },
+    get running() { return running; },
+    set(s) { secs = s | 0; paint(); },
+    start() { if (id) return; running = true; id = setInterval(() => { secs++; paint(); onChange && onChange(); }, 1000); paint(); },
+    pause() { clearInterval(id); id = null; running = false; paint(); },
+    toggle() { running ? this.pause() : this.start(); onChange && onChange(); },
+    reset() { this.pause(); secs = 0; paint(); onChange && onChange(); },
+    done() { this.pause(); timeEl.classList.add("done"); },
+  };
+  paint();
+  return api;
+}
 
-  clear() {
-    this.eachWhite((r, c) => {
-      this.inputs[`${r},${c}`].value = "";
-      this.cells[`${r},${c}`].classList.remove("cell--correct", "cell--wrong");
+// ========================= UI helpers =========================
+// Dropdown menus: click to open, click-away / Esc to close.
+function wireMenus(onAction, onToggle) {
+  const menus = [...document.querySelectorAll(".menu")];
+  const closeAll = (except) => menus.forEach((m) => { if (m !== except) m.classList.remove("open"); });
+  menus.forEach((menu) => {
+    const btn = menu.querySelector(".menu__btn");
+    btn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const willOpen = !menu.classList.contains("open");
+      closeAll(menu);
+      menu.classList.toggle("open", willOpen);
     });
-  }
+    menu.querySelectorAll(".menu__item").forEach((item) => {
+      item.addEventListener("click", (e) => {
+        e.stopPropagation();
+        menu.classList.remove("open");
+        if (item.dataset.toggle) onToggle(item.dataset.toggle);
+        else if (item.dataset.act) onAction(item.dataset.act);
+      });
+    });
+  });
+  document.addEventListener("click", () => closeAll(null));
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeAll(null); });
+}
+
+// Modal confirm -> Promise<boolean>
+function showConfirm(message) {
+  return new Promise((resolve) => {
+    const ov = document.createElement("div");
+    ov.className = "modal";
+    ov.innerHTML = `
+      <div class="modal__box" role="dialog" aria-modal="true">
+        <p class="modal__msg">${message}</p>
+        <div class="modal__row">
+          <button class="pill modal__cancel">Cancel</button>
+          <button class="pill pill--solid modal__ok">Yes, do it</button>
+        </div>
+      </div>`;
+    document.body.appendChild(ov);
+    const done = (v) => { ov.remove(); document.removeEventListener("keydown", onKey); resolve(v); };
+    const onKey = (e) => { if (e.key === "Escape") done(false); if (e.key === "Enter") done(true); };
+    ov.querySelector(".modal__cancel").onclick = () => done(false);
+    ov.querySelector(".modal__ok").onclick = () => done(true);
+    ov.addEventListener("click", (e) => { if (e.target === ov) done(false); });
+    document.addEventListener("keydown", onKey);
+    ov.querySelector(".modal__ok").focus();
+  });
+}
+
+function showInfo(html) {
+  const ov = document.createElement("div");
+  ov.className = "modal";
+  ov.innerHTML = `
+    <div class="modal__box" role="dialog" aria-modal="true">
+      ${html}
+      <div class="modal__row"><button class="pill pill--solid modal__ok">Got it</button></div>
+    </div>`;
+  document.body.appendChild(ov);
+  const close = () => ov.remove();
+  ov.querySelector(".modal__ok").onclick = close;
+  ov.addEventListener("click", (e) => { if (e.target === ov) close(); });
 }
 
 function dateline() {
   const d = new Date();
   const opts = { weekday: "long", year: "numeric", month: "long", day: "numeric" };
-  document.getElementById("dateline").textContent = d.toLocaleDateString("en-US", opts);
+  document.getElementById("dateline").textContent =
+    d.toLocaleDateString("en-US", opts).toUpperCase();
   document.getElementById("year").textContent = d.getFullYear();
 }
 
-// Count-up timer, starts on the solver's first keystroke, stops when solved.
-function makeTimer(el) {
-  let secs = 0, id = null;
-  const fmt = (s) => `${String((s / 60) | 0).padStart(2, "0")}:${String(s % 60).padStart(2, "0")}`;
-  return {
-    start() {
-      if (id) return;
-      id = setInterval(() => { secs += 1; el.textContent = fmt(secs); }, 1000);
-    },
-    stop() { clearInterval(id); id = null; },
-    done() { this.stop(); el.classList.add("done"); },
-  };
-}
+// Actions that touch the whole puzzle need an "are you sure?" first.
+const CONFIRM = {
+  "check:puzzle": "Check the whole puzzle?",
+  "reveal:puzzle": "Reveal the entire solution? This fills in every answer.",
+  "clear:puzzle": "Clear every square? Your progress will be erased.",
+  "clear:puzzle+timer": "Clear every square and reset the timer to zero?",
+};
 
 async function main() {
   dateline();
+  document.getElementById("settings-btn").innerHTML = ICON.gear;
+  document.getElementById("timer-reset").innerHTML = ICON.reset;
+
+  let data;
   try {
-    const data = await loadPuzzle();
-    document.getElementById("puzzle-title").textContent = data.title || "The Daily Crossword";
-    document.getElementById("byline").textContent = `Constructed by ${data.author || "the Machine"}`;
-    const puz = new Puzzle(data);
-    puz.render();
-
-    const timer = makeTimer(document.getElementById("timer"));
-    puz.onSolved = () => timer.done();
-    document.getElementById("grid").addEventListener("keydown", () => timer.start(), { once: true });
-
-    document.getElementById("check-btn").addEventListener("click", () => puz.check());
-    document.getElementById("reveal-btn").addEventListener("click", () => puz.reveal());
-    document.getElementById("clear-btn").addEventListener("click", () => puz.clear());
+    data = await loadPuzzle();
   } catch (err) {
     document.getElementById("grid").textContent = "Today's puzzle could not be loaded.";
     console.error(err);
+    return;
   }
+
+  document.getElementById("puzzle-title").textContent = data.title || "The Daily Crossword";
+  document.getElementById("byline").textContent = `Constructed by ${data.author || "the Machine"}`;
+
+  const STORE_KEY = `tdc:${data.id || "sample"}`;
+  const loadSaved = () => { try { return JSON.parse(localStorage.getItem(STORE_KEY)); } catch { return null; } };
+  const saved = loadSaved();
+
+  const puz = new Puzzle(data);
+  puz.render();
+
+  const timer = makeTimer(
+    document.getElementById("timer"),
+    document.getElementById("timer-toggle"),
+    () => persist()
+  );
+
+  // Restore saved progress (grid, autocheck, timer, solved) so refresh doesn't reset.
+  if (saved) {
+    puz.autocheck = !!saved.autocheck;
+    puz.restoreEntries(saved.entries);
+    if (typeof saved.secs === "number") timer.set(saved.secs);
+    puz.solved = !!saved.solved;
+  }
+  updateAutocheckUI();
+
+  function persist() {
+    const state = puz.serialize();
+    state.secs = timer.secs;
+    try { localStorage.setItem(STORE_KEY, JSON.stringify(state)); } catch {}
+  }
+  puz.onChange = persist;
+  puz.onSolved = () => { timer.done(); persist(); };
+
+  // Timer: run on load (resuming saved time) unless already solved.
+  if (puz.solved) timer.done();
+  else timer.start();
+
+  document.getElementById("timer-toggle").addEventListener("click", () => timer.toggle());
+  document.getElementById("timer-reset").addEventListener("click", () => timer.reset());
+
+  document.getElementById("settings-btn").addEventListener("click", () => {
+    showInfo(`<h3 class="modal__title">How to play</h3>
+      <p class="modal__msg" style="text-align:left">
+        Click a square and type. Click again (or press space) to switch between
+        Across and Down. Use <b>Check</b> to test letters, <b>Reveal</b> to give up
+        a letter, and <b>Clear</b> to wipe squares. Turn on <b>Autocheck</b> to be
+        told immediately when a letter is wrong. Your progress and time are saved
+        automatically.</p>`);
+  });
+
+  function updateAutocheckUI() {
+    document.querySelectorAll("[data-autocheck-ind]").forEach((el) =>
+      el.classList.toggle("on", puz.autocheck));
+  }
+
+  wireMenus(
+    async (act) => {
+      if (CONFIRM[act]) {
+        const ok = await showConfirm(CONFIRM[act]);
+        if (!ok) return;
+      }
+      const [op, scope] = act.split(":");
+      if (op === "check") puz.check(scope);
+      else if (op === "reveal") puz.reveal(scope);
+      else if (op === "clear") {
+        if (scope === "puzzle+timer") { puz.clear("puzzle"); timer.reset(); }
+        else puz.clear(scope);
+      }
+    },
+    (toggle) => {
+      if (toggle === "autocheck") {
+        puz.setAutocheck(!puz.autocheck);
+        updateAutocheckUI();
+        persist();
+      }
+    }
+  );
+
+  if (puz.autocheck) puz.check("puzzle");
 }
 
 main();

@@ -1,23 +1,22 @@
 /* =========================================================
    The Daily Cross — vintage newsprint stylesheet
    Layers: wood desk (bg) -> paper sheet -> ink baked onto paper.
-   The paper PNG backs the content exactly (no hard CSS rectangle);
-   ink multiplies onto it so nothing looks like a pasted cutout.
+   The whole edition fits one viewport height (no page scroll).
    ========================================================= */
 
 :root {
-  --ink:        #201d18;    /* brown-black printing ink */
+  --ink:        #201d18;
   --ink-soft:   #46413a;
-  --rule:       #29251e;    /* hairline rules */
-  --fill:       #1e1b16;    /* black squares (multiply onto paper) */
-  --pencil:     #2a3b74;    /* solver's blue-black pencil */
-  --hi:         rgba(150, 120, 40, 0.30);   /* active-cell wash */
-  --hi-word:    rgba(150, 120, 40, 0.15);   /* active-word wash */
-  --timer:      #f2c94c;    /* highlighter-yellow timer pill */
+  --rule:       #29251e;
+  --fill:       #1e1b16;
+  --pencil:     #2a3b74;
+  --hi:         rgba(150, 120, 40, 0.30);
+  --hi-word:    rgba(150, 120, 40, 0.15);
+  --timer:      #f2c94c;
+  --menu-bg:    #ece3cd;   /* solid popover paper */
   --correct:    #2c5233;
   --wrong:      #8f2b1f;
 
-  /* Type — ALL PLACEHOLDERS (see README) */
   --f-masthead: "Pinyon Script", "Snell Roundhand", cursive;
   --f-display:  "Playfair Display", Georgia, serif;
   --f-print:    "Special Elite", "Courier New", monospace;
@@ -27,48 +26,50 @@
 * { box-sizing: border-box; }
 
 html, body { margin: 0; height: 100%; }
-
-/* ===== Wood desk (outermost background) ===== */
 body {
-  min-height: 100vh;
+  overflow: hidden;                 /* no page scroll — the sheet fits the screen */
   color: var(--ink);
   font-family: var(--f-print);
   background: #3a2415 url("/assets/textures/wood.jpg") center / cover fixed no-repeat;
 }
+
+/* ===== Stage centers the sheet on the desk ===== */
 .stage {
-  min-height: 100vh;
+  height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: flex-start;
-  padding: clamp(16px, 3vw, 48px);
+  align-items: center;
+  padding: clamp(10px, 2vw, 26px);
+  overflow: hidden;
 }
 
-/* ===== Paper sheet: the PNG backs the content exactly ===== */
+/* ===== Paper sheet backs the content exactly (no hard rectangle) ===== */
 .paper {
   position: relative;
-  isolation: isolate;                 /* keep ink multiply on the paper, not the wood */
-  width: min(1280px, 96vw);
-  padding: clamp(28px, 4vw, 60px) clamp(30px, 5vw, 74px);
-  /* Stretch the sheet to the content box so it always sits under everything. */
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  width: min(1280px, 97vw);
+  max-height: 100%;
+  padding: clamp(16px, 2.4vw, 40px) clamp(24px, 4vw, 66px) clamp(12px, 1.6vw, 24px);
   background: url("/assets/textures/paper.png") center / 100% 100% no-repeat;
-  /* Lift the sheet off the desk (follows the PNG's alpha edges). */
   filter: drop-shadow(0 14px 26px rgba(0, 0, 0, 0.5));
 }
 
-/* Ink that bakes into the paper: multiply blend everywhere printed. */
-.masthead__rule, .masthead__title, .clues, .puzzle, .cluebar,
-#puzzle-title, .clues__head, .byline, .fineprint, .cell__num, .grid, .pill {
+/* Ink that bakes into the paper. */
+.masthead__rule, .masthead__title, .toolbar .tool, .clues, .puzzle, .cluebar,
+#puzzle-title, .clues__head, .byline, .fineprint, .cell__num, .grid {
   mix-blend-mode: multiply;
 }
 
 /* ===== Masthead ===== */
-.masthead { text-align: center; }
+.masthead { text-align: center; flex: 0 0 auto; }
 .masthead__title {
   font-family: var(--f-masthead);
   font-weight: 400;
-  font-size: clamp(48px, 8vw, 96px);
+  font-size: clamp(38px, 6.5vw, 82px);
   line-height: 0.95;
-  margin: 2px 0 10px;
+  margin: 0 0 6px;
   color: var(--ink);
 }
 .masthead__rule {
@@ -76,98 +77,198 @@ body {
   justify-content: space-between;
   align-items: center;
   font-family: var(--f-print);
-  font-size: clamp(10px, 1vw, 12px);
+  font-size: clamp(9px, 0.95vw, 11px);
   letter-spacing: 0.05em;
   text-transform: uppercase;
   color: var(--ink-soft);
-  padding: 6px 0;
+  padding: 5px 0;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
 }
-.masthead__rule--top    { border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
-.masthead__rule--bottom { border-top: 3px double var(--rule); border-bottom: 3px double var(--rule); }
 
-/* ===== Three-column edition: Down | Puzzle | Across ===== */
+/* ===== Toolbar (replaces the old sub-rule) ===== */
+.toolbar {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 2px;
+  margin-top: 6px;
+  border-top: 3px double var(--rule);
+  border-bottom: 3px double var(--rule);
+}
+.toolbar__left   { justify-self: start;  display: flex; gap: 8px; align-items: center; }
+.toolbar__center { justify-self: center; display: flex; gap: 10px; align-items: center; }
+.toolbar__right  { justify-self: end;    display: flex; gap: 4px; align-items: center; }
+
+.tool {
+  font-family: var(--f-print);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background: transparent;
+  border: 0;
+  color: var(--ink);
+  cursor: pointer;
+  padding: 6px 9px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.tool--icon { padding: 6px; }
+.tool:hover { color: #000; }
+.tool svg { display: block; }
+.caret {
+  width: 0; height: 0;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 5px solid currentColor;
+  margin-left: 3px;
+}
+
+/* Timer pill sits centered in the toolbar. */
+.timer {
+  font-family: var(--f-print);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  min-width: 52px;
+  text-align: center;
+  padding: 5px 12px;
+  border-radius: 999px;
+  background: var(--timer);
+  border: 1px solid #b8912a;
+  color: #2a2410;
+}
+.timer.done { background: var(--correct); color: #eafaef; border-color: #1e3a24; }
+
+/* ===== Dropdown menus ===== */
+.menu { position: relative; }
+.menu__list {
+  position: absolute;
+  top: 100%; right: 0;
+  margin-top: 6px;
+  min-width: 200px;
+  background: var(--menu-bg);
+  border: 1px solid var(--ink);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.4);
+  padding: 5px;
+  display: none;
+  z-index: 30;
+}
+.menu.open .menu__list { display: block; }
+.menu__item {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  width: 100%;
+  text-align: left;
+  background: transparent;
+  border: 0;
+  font-family: var(--f-print);
+  font-size: 13px;
+  color: var(--ink);
+  padding: 8px 10px;
+  cursor: pointer;
+}
+.menu__item:hover { background: var(--hi); }
+.menu__sep { height: 1px; background: var(--rule); opacity: 0.35; margin: 4px 2px; }
+.tick {
+  width: 14px; height: 14px;
+  border: 1px solid var(--ink);
+  display: inline-block;
+  position: relative;
+  flex: 0 0 auto;
+}
+.tick.on::after {
+  content: "✓";
+  position: absolute;
+  left: 1px; top: -4px;
+  font-size: 14px;
+  line-height: 1;
+}
+
+/* ===== Three-column edition ===== */
 .edition {
   display: grid;
   grid-template-columns: 1fr auto 1fr;
-  gap: clamp(20px, 3vw, 48px);
-  align-items: start;
-  margin-top: clamp(20px, 3vw, 34px);
+  gap: clamp(16px, 2.6vw, 44px);
+  align-items: stretch;
+  margin-top: clamp(12px, 2vw, 26px);
+  flex: 1 1 auto;
+  min-height: 0;                    /* let columns shrink so lists scroll internally */
 }
 @media (max-width: 860px) {
+  body { overflow: auto; }
   .edition { grid-template-columns: 1fr; }
   .puzzle { order: -1; }
 }
 
-/* ===== Clue columns ===== */
+/* ===== Clue columns (scroll inside, not the page) ===== */
+.clues { display: flex; flex-direction: column; min-height: 0; }
 .clues__head {
   font-family: var(--f-display);
   font-weight: 700;
-  font-size: clamp(16px, 1.6vw, 20px);
+  font-size: clamp(15px, 1.5vw, 20px);
   letter-spacing: 0.04em;
   text-transform: uppercase;
   border-bottom: 2px solid var(--ink);
   padding-bottom: 5px;
-  margin: 4px 0 10px;
+  margin: 0 0 8px;
+  flex: 0 0 auto;
 }
 .clues__list {
   list-style: none;
   margin: 0;
-  padding: 0;
+  padding: 0 6px 0 0;
+  overflow-y: auto;
+  min-height: 0;
   font-family: var(--f-print);
-  font-size: clamp(12px, 1.15vw, 14.5px);
-  line-height: 1.6;
+  font-size: clamp(11.5px, 1.1vw, 14px);
+  line-height: 1.55;
 }
-.clues__list li {
-  display: flex;
-  gap: 8px;
-  padding: 2px 4px;
-  cursor: pointer;
-}
+.clues__list li { display: flex; gap: 8px; padding: 2px 4px; cursor: pointer; }
 .clues__list li:hover { background: var(--hi-word); }
 .clues__list li.active { background: var(--hi); }
 .clues__list .num { font-weight: 700; min-width: 22px; text-align: right; }
 
 /* ===== Center puzzle ===== */
-.puzzle { display: flex; flex-direction: column; align-items: center; }
+.puzzle { display: flex; flex-direction: column; align-items: center; min-height: 0; }
+.puzzle__head { text-align: center; margin-bottom: 8px; flex: 0 0 auto; }
+#puzzle-title {
+  font-family: var(--f-display);
+  font-weight: 900;
+  font-size: clamp(18px, 2vw, 26px);
+  margin: 0;
+  text-transform: uppercase;
+}
+.byline { font-family: var(--f-print); font-size: 12px; color: var(--ink-soft); margin: 4px 0 0; }
+
 .cluebar {
   width: 100%;
-  min-height: 34px;
+  min-height: 32px;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
   text-align: center;
   font-family: var(--f-print);
-  font-size: clamp(14px, 1.5vw, 19px);
+  font-size: clamp(13px, 1.4vw, 18px);
   border-top: 1px solid var(--rule);
   border-bottom: 1px solid var(--rule);
   padding: 6px 10px;
   margin-bottom: 14px;
+  flex: 0 0 auto;
 }
 .cluebar .num { font-weight: 700; }
-.puzzle__head { text-align: center; margin-bottom: 12px; }
-#puzzle-title {
-  font-family: var(--f-display);
-  font-weight: 900;
-  font-size: clamp(20px, 2.2vw, 27px);
-  letter-spacing: 0.01em;
-  margin: 0;
-  text-transform: uppercase;
-}
-.byline {
-  font-family: var(--f-print);
-  font-size: 12px;
-  color: var(--ink-soft);
-  margin: 5px 0 0;
-}
 
 /* ===== Grid (transparent so the paper shows through) ===== */
-.grid-wrap { display: flex; justify-content: center; }
+.grid-wrap { display: flex; justify-content: center; align-items: center; flex: 1 1 auto; min-height: 0; }
 .grid {
   display: grid;
   gap: 0;
   border: 2.5px solid var(--ink);
-  width: min(78vw, 420px);
+  width: min(46vh, 42vw, 440px);
   aspect-ratio: 1 / 1;
 }
 .cell {
@@ -188,14 +289,13 @@ body {
   color: var(--ink-soft);
 }
 .cell input {
-  width: 100%;
-  height: 100%;
+  width: 100%; height: 100%;
   border: 0;
   background: transparent;
   text-align: center;
   text-transform: uppercase;
   font-family: var(--f-hand);
-  font-size: clamp(20px, 5vw, 30px);
+  font-size: clamp(18px, 4.4vh, 30px);
   color: var(--pencil);
   caret-color: transparent;
   cursor: pointer;
@@ -206,8 +306,7 @@ body {
 .cell--correct input { color: var(--correct); }
 .cell--wrong   input { color: var(--wrong); }
 
-/* ===== Controls + timer ===== */
-.puzzle__foot { display: flex; gap: 10px; justify-content: center; align-items: center; margin-top: 18px; }
+/* ===== Buttons (modal) ===== */
 .pill {
   font-family: var(--f-print);
   font-size: 12px;
@@ -219,28 +318,39 @@ body {
   color: var(--ink);
   cursor: pointer;
 }
-.pill:hover { background: var(--ink); color: #d9cfba; mix-blend-mode: normal; }
-.timer {
-  font-family: var(--f-print);
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  padding: 7px 14px;
-  border-radius: 999px;
-  background: var(--timer);
-  border: 1px solid #b8912a;
-  color: #2a2410;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.25);
+.pill:hover { background: var(--ink); color: var(--menu-bg); }
+.pill--solid { background: var(--ink); color: var(--menu-bg); }
+
+/* ===== Modal / confirm dialog ===== */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(20, 15, 8, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
 }
-.timer.done { background: var(--correct); color: #eafaef; border-color: #1e3a24; }
+.modal__box {
+  background: var(--menu-bg);
+  border: 1px solid var(--ink);
+  box-shadow: 0 14px 44px rgba(0, 0, 0, 0.55);
+  padding: 22px 24px;
+  max-width: 400px;
+  width: calc(100% - 40px);
+}
+.modal__title { font-family: var(--f-display); font-size: 20px; margin: 0 0 8px; text-transform: uppercase; }
+.modal__msg { font-family: var(--f-print); font-size: 14px; line-height: 1.55; margin: 0 0 18px; }
+.modal__row { display: flex; gap: 10px; justify-content: flex-end; }
 
 /* ===== Fine print ===== */
 .fineprint {
-  margin-top: clamp(22px, 3vw, 34px);
-  padding-top: 12px;
+  margin-top: clamp(10px, 1.4vw, 20px);
+  padding-top: 10px;
   border-top: 1px solid var(--rule);
   font-family: var(--f-print);
-  font-size: clamp(9px, 1vw, 11px);
+  font-size: clamp(8px, 0.9vw, 10.5px);
   color: var(--ink-soft);
   text-align: center;
+  flex: 0 0 auto;
 }
