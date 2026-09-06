@@ -6,12 +6,12 @@
 
 :root {
   /* Aged newsprint palette (fallbacks when the texture photo is absent) */
-  --paper-tone: #cbbd9c;   /* warm aged-paper fallback */
-  --paper-warm: #d8cbab;
-  --ink:        #22201b;    /* brown-black printing ink */
-  --ink-soft:   #4a443a;
-  --rule:       #2b271f;    /* hairline rules */
-  --fill:       #211f1a;    /* black squares (multiply onto paper) */
+  --paper-tone: #bdb6a6;   /* cool grey-taupe, matches the scan */
+  --paper-warm: #cfc7b5;
+  --ink:        #201d18;    /* brown-black printing ink */
+  --ink-soft:   #46413a;
+  --rule:       #29251e;    /* hairline rules */
+  --fill:       #1e1b16;    /* black squares (multiply onto paper) */
   --pencil:     #2a3b74;    /* solver's blue-black pencil */
   --hi:         rgba(150, 120, 40, 0.28);   /* active-cell wash (aged highlighter) */
   --hi-word:    rgba(150, 120, 40, 0.14);   /* active-word wash */
@@ -42,10 +42,10 @@ html, body {
   padding: 44px 52px 30px;
   color: var(--ink);
 
-  /* The uploaded newspaper photo (add assets/textures/paper.jpg); tone shows through until then. */
+  /* The uploaded newspaper photo; tone shows through if it's ever missing. */
   background-color: var(--paper-tone);
   background-image:
-    url("../assets/textures/paper.jpg"),
+    url("../assets/textures/paper-texture.jpg"),
     url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/></svg>");
   background-size: cover, 180px 180px;
   background-position: center, center;

@@ -1,30 +1,44 @@
 {
   "id": "sample",
-  "title": "The Mini",
+  "title": "The Daily 7",
   "author": "The Machine",
   "date": "2026-09-06",
-  "size": 5,
+  "size": 7,
   "grid": [
-    ["#", "S", "E", "T", "#"],
-    ["S", "T", "A", "R", "E"],
-    ["E", "A", "T", "E", "N"],
-    ["T", "R", "E", "N", "D"],
-    ["#", "E", "N", "D", "#"]
+    ["B", "O", "G", "#", "P", "E", "W"],
+    ["A", "I", "R", "#", "O", "V", "A"],
+    ["G", "L", "A", "S", "S", "E", "S"],
+    ["#", "#", "N", "O", "T", "#", "#"],
+    ["B", "E", "T", "W", "E", "E", "N"],
+    ["O", "R", "E", "#", "R", "Y", "E"],
+    ["W", "A", "D", "#", "S", "E", "W"]
   ],
   "clues": {
     "across": [
-      { "num": 1, "clue": "Volleyball trio, or a movie backdrop", "answer": "SET" },
-      { "num": 4, "clue": "Look at rudely", "answer": "STARE" },
-      { "num": 6, "clue": "Consumed, as supper", "answer": "EATEN" },
-      { "num": 7, "clue": "What's suddenly all over social media", "answer": "TREND" },
-      { "num": 8, "clue": "Rope's finish", "answer": "END" }
+      { "num": 1,  "clue": "Marshy, spongy ground", "answer": "BOG" },
+      { "num": 4,  "clue": "Long bench in a church", "answer": "PEW" },
+      { "num": 7,  "clue": "What you breathe", "answer": "AIR" },
+      { "num": 8,  "clue": "Eggs, to a biologist", "answer": "OVA" },
+      { "num": 9,  "clue": "Specs for sharper sight", "answer": "GLASSES" },
+      { "num": 11, "clue": "\"___ so fast!\"", "answer": "NOT" },
+      { "num": 12, "clue": "In the space separating two things", "answer": "BETWEEN" },
+      { "num": 16, "clue": "Rock you extract metal from", "answer": "ORE" },
+      { "num": 17, "clue": "Whiskey grain, or a deli bread", "answer": "RYE" },
+      { "num": 18, "clue": "Thick roll of banknotes", "answer": "WAD" },
+      { "num": 19, "clue": "Mend with needle and thread", "answer": "SEW" }
     ],
     "down": [
-      { "num": 1, "clue": "Gawk unabashedly", "answer": "STARE" },
-      { "num": 2, "clue": "Devoured", "answer": "EATEN" },
-      { "num": 3, "clue": "Fashion of the moment", "answer": "TREND" },
-      { "num": 4, "clue": "Tennis match segment", "answer": "SET" },
-      { "num": 5, "clue": "Aim, or terminus", "answer": "END" }
+      { "num": 1,  "clue": "Grocery carrier", "answer": "BAG" },
+      { "num": 2,  "clue": "Slippery stuff in an engine", "answer": "OIL" },
+      { "num": 3,  "clue": "Officially awarded; or \"admittedly\"", "answer": "GRANTED" },
+      { "num": 4,  "clue": "Band or movie wall décor", "answer": "POSTERS" },
+      { "num": 5,  "clue": "The night before a holiday", "answer": "EVE" },
+      { "num": 6,  "clue": "Used to be", "answer": "WAS" },
+      { "num": 10, "clue": "Scatter seeds", "answer": "SOW" },
+      { "num": 12, "clue": "Archer's weapon, or a violinist's tool", "answer": "BOW" },
+      { "num": 13, "clue": "A distinct period of history", "answer": "ERA" },
+      { "num": 14, "clue": "Needle's hole, or what you see with", "answer": "EYE" },
+      { "num": 15, "clue": "Fresh out of the box", "answer": "NEW" }
     ]
   }
 }

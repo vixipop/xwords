@@ -1,13 +1,6 @@
 # Textures
 
-Drop the newspaper paper texture here as **`paper.jpg`** (this exact name/path):
-
-    assets/textures/paper.jpg
-
-The stylesheet references `assets/textures/paper.jpg` as the page background.
-A large-ish photo works best (aim ~1600px+ wide, a seamless/uniform aged
-newsprint scan). Until the file exists, the site falls back to a procedural
-paper tone + noise so nothing looks broken.
-
-If you'd rather use a `.png` or a different name, tell me and I'll update the
-CSS reference.
+**`paper-texture.jpg`** is the page background — the whole newspaper prints
+onto it. It's referenced from `css/style.css`. To swap it, replace the file
+(keep the name) or tell me the new name and I'll update the one CSS reference.
+A cool grey `--paper-tone` fallback shows if the image is ever missing.
