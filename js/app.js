@@ -225,6 +225,8 @@ class Puzzle {
       this.inputs[`${r},${c}`].value = "";
       this.clearMark(r, c);
     }
+    // Emptying squares un-solves the grid so a fresh solve celebrates again.
+    if (!this.allFilled()) { this.solved = false; this.wasFull = false; }
     this.changed();
   }
 
@@ -426,10 +428,10 @@ function makeTimer(timeEl, toggleBtn, onChange) {
     get secs() { return secs; },
     get running() { return running; },
     set(s) { secs = s | 0; paint(); },
-    start() { if (id) return; running = true; id = setInterval(() => { secs++; paint(); onChange && onChange(); }, 1000); paint(); },
+    start() { if (id) return; running = true; timeEl.classList.remove("done"); id = setInterval(() => { secs++; paint(); onChange && onChange(); }, 1000); paint(); },
     pause() { clearInterval(id); id = null; running = false; paint(); },
     toggle() { running ? this.pause() : this.start(); onChange && onChange(); },
-    reset() { this.pause(); secs = 0; paint(); onChange && onChange(); },
+    reset() { this.pause(); secs = 0; timeEl.classList.remove("done"); paint(); onChange && onChange(); },
     done() { this.pause(); timeEl.classList.add("done"); },
   };
   paint();
@@ -677,6 +679,8 @@ async function main() {
       else if (op === "clear") {
         if (scope === "puzzle+timer") { puz.clear("puzzle"); timer.reset(); }
         else puz.clear(scope);
+        // If clearing un-solved the grid, resume timing (drops the green "done" state).
+        if (!puz.solved) timer.start();
       }
     },
     (toggle) => {

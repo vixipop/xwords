@@ -21,10 +21,10 @@
 }
 
 :root {
-  --ink:        #1a1712;
-  --ink-soft:   #3d382f;
-  --rule:       #29251e;
-  --fill:       #1e1b16;
+  --ink:        #423a30;   /* soft, faded newsprint ink (not harsh black) */
+  --ink-soft:   #5f5648;
+  --rule:       #4a4236;
+  --fill:       #2c261e;    /* black squares — dark but warm */
   --pencil:     #2a3b74;
   --hi:         rgba(150, 120, 40, 0.30);   /* menu / clue-list highlight */
   --hi-word:    rgba(150, 120, 40, 0.15);
