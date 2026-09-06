@@ -1,0 +1,30 @@
+{
+  "id": "sample",
+  "title": "The Mini",
+  "author": "The Machine",
+  "date": "2026-09-06",
+  "size": 5,
+  "grid": [
+    ["#", "S", "E", "T", "#"],
+    ["S", "T", "A", "R", "E"],
+    ["E", "A", "T", "E", "N"],
+    ["T", "R", "E", "N", "D"],
+    ["#", "E", "N", "D", "#"]
+  ],
+  "clues": {
+    "across": [
+      { "num": 1, "clue": "Volleyball trio, or a movie backdrop", "answer": "SET" },
+      { "num": 4, "clue": "Look at rudely", "answer": "STARE" },
+      { "num": 6, "clue": "Consumed, as supper", "answer": "EATEN" },
+      { "num": 7, "clue": "What's suddenly all over social media", "answer": "TREND" },
+      { "num": 8, "clue": "Rope's finish", "answer": "END" }
+    ],
+    "down": [
+      { "num": 1, "clue": "Gawk unabashedly", "answer": "STARE" },
+      { "num": 2, "clue": "Devoured", "answer": "EATEN" },
+      { "num": 3, "clue": "Fashion of the moment", "answer": "TREND" },
+      { "num": 4, "clue": "Tennis match segment", "answer": "SET" },
+      { "num": 5, "clue": "Aim, or terminus", "answer": "END" }
+    ]
+  }
+}

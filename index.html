@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Daily Cross &middot; A Free Crossword</title>
+
+  <!-- Free stand-ins for the NYT type system.
+       Masthead blackletter, Cheltenham-ish display serif, Franklin-ish sans for fine print,
+       and a handwritten face for the solver's pencil. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Libre+Franklin:wght@400;500;600;700&family=Caveat:wght@600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="paper">
+    <!-- ===== Masthead ===== -->
+    <header class="masthead">
+      <div class="masthead__rule masthead__rule--top">
+        <span>VOL. I . . . No. 1</span>
+        <span>NEW YORK, SUNDAY</span>
+        <span>FREE FOREVER</span>
+      </div>
+      <h1 class="masthead__title">The Daily Cross</h1>
+      <div class="masthead__rule masthead__rule--bottom">
+        <span id="dateline">Loading&hellip;</span>
+        <span>&ldquo;All the Squares Fit to Print&rdquo;</span>
+        <span>No Subscription Required</span>
+      </div>
+    </header>
+
+    <!-- ===== Body: grid + clues in newspaper columns ===== -->
+    <main class="edition">
+      <section class="puzzle">
+        <div class="puzzle__head">
+          <h2 id="puzzle-title">The Daily Crossword</h2>
+          <p class="byline" id="byline">Constructed by the Machine</p>
+        </div>
+
+        <div class="grid-wrap">
+          <div id="grid" class="grid" role="grid" aria-label="Crossword grid"></div>
+        </div>
+
+        <div class="puzzle__foot">
+          <button id="check-btn" class="pill">Check</button>
+          <button id="reveal-btn" class="pill">Reveal</button>
+          <button id="clear-btn" class="pill">Clear</button>
+        </div>
+      </section>
+
+      <section class="clues">
+        <div class="clues__col">
+          <h3 class="clues__head">Across</h3>
+          <ol id="clues-across" class="clues__list"></ol>
+        </div>
+        <div class="clues__col">
+          <h3 class="clues__head">Down</h3>
+          <ol id="clues-down" class="clues__list"></ol>
+        </div>
+      </section>
+    </main>
+
+    <footer class="fineprint">
+      <p>The Daily Cross is a free, ad-free daily crossword. A new puzzle every morning.
+      Set in stand-ins for the fonts fit to print. &copy; <span id="year"></span> The Daily Cross.</p>
+    </footer>
+  </div>
+
+  <script src="js/app.js" type="module"></script>
+</body>
+</html>
