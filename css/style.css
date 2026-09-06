@@ -26,8 +26,10 @@
   --rule:       #29251e;
   --fill:       #1e1b16;
   --pencil:     #2a3b74;
-  --hi:         rgba(150, 120, 40, 0.30);
+  --hi:         rgba(150, 120, 40, 0.30);   /* menu / clue-list highlight */
   --hi-word:    rgba(150, 120, 40, 0.15);
+  --cell-active: rgba(242, 198, 70, 0.90);  /* selected square — strong */
+  --cell-word:   rgba(214, 184, 96, 0.30);  /* current word — light wash */
   --timer:      #f2c94c;
   --menu-bg:    #ece3cd;   /* solid popover paper */
   --correct:    #2c5233;
@@ -328,8 +330,8 @@ body {
   cursor: pointer;
 }
 .cell input:focus { outline: none; }
-.cell--active   { background: var(--hi); }
-.cell--inword   { background: var(--hi-word); }
+.cell--inword       { background: var(--cell-word); }
+.cell.cell--active  { background: var(--cell-active); }  /* selected square wins over word */
 .cell--correct input { color: var(--correct); }
 .cell--wrong   input { color: var(--wrong); }
 

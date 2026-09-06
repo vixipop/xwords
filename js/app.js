@@ -96,7 +96,8 @@ class Puzzle {
           cell.appendChild(num);
         }
         const input = document.createElement("input");
-        input.maxLength = 1;
+        // No maxLength: letters are handled in keydown (so retyping overwrites);
+        // the input handler keeps only the last char for mobile/IME.
         input.inputMode = "text";
         input.autocomplete = "off";
         input.addEventListener("focus", () => this.setActive(r, c));
@@ -244,6 +245,14 @@ class Puzzle {
 
   changed() { if (this.onChange) this.onChange(); }
 
+  setLetter(r, c, ch) {
+    const el = this.inputs[`${r},${c}`];
+    el.value = ch.toUpperCase();
+    this.clearMark(r, c);
+    if (this.autocheck && el.value) this.markCell(r, c);
+  }
+
+  // Fallback for mobile / IME where keydown letters aren't reliable.
   onInput(e, r, c) {
     const v = e.target.value.toUpperCase().replace(/[^A-Z]/g, "");
     e.target.value = v.slice(-1);
@@ -261,14 +270,81 @@ class Puzzle {
     if (next) this.focus(next.r, next.c);
   }
 
+  // ---- clue-to-clue navigation (Tab / Shift+Tab / Enter) ----
+  entriesFlat() {
+    const a = this.data.clues.across.map((c) => ({ dir: "across", num: c.num }));
+    const d = this.data.clues.down.map((c) => ({ dir: "down", num: c.num }));
+    return a.concat(d);
+  }
+  startOf(dir, num) { return dir === "across" ? this.acrossStart[num] : this.downStart[num]; }
+  currentEntry() {
+    if (!this.active) return null;
+    const word = this.currentWordCells(this.active.r, this.active.c);
+    const s = word[0];
+    return { dir: this.dir, num: this.nums[s.r][s.c] };
+  }
+  gotoEntry(delta) {
+    const flat = this.entriesFlat();
+    if (!flat.length) return;
+    const cur = this.currentEntry();
+    let i = cur ? flat.findIndex((e) => e.dir === cur.dir && e.num === cur.num) : -1;
+    if (i < 0) i = delta > 0 ? -1 : 0;
+    const e = flat[(i + delta + flat.length) % flat.length];
+    this.dir = e.dir;
+    const start = this.startOf(e.dir, e.num);
+    const cells = entryCells(this.grid, start.r, start.c, e.dir);
+    const target = cells.find(({ r, c }) => !this.inputs[`${r},${c}`].value) || cells[0];
+    this.focus(target.r, target.c);
+  }
+
   onKey(e, r, c) {
     const key = e.key;
+
+    // Letter: overwrite the square and advance (NYT behavior).
+    if (/^[a-zA-Z]$/.test(key) && !e.ctrlKey && !e.metaKey && !e.altKey) {
+      e.preventDefault();
+      this.setLetter(r, c, key);
+      this.advance(r, c, 1);
+      this.checkSolved();
+      this.changed();
+      return;
+    }
+
     if (key === "Backspace") {
-      if (!e.target.value) { e.preventDefault(); this.advance(r, c, -1); }
+      e.preventDefault();
+      const el = this.inputs[`${r},${c}`];
+      if (el.value) {
+        el.value = "";
+        this.clearMark(r, c);
+        this.advance(r, c, -1);          // clear current, step back
+      } else {
+        const word = this.currentWordCells(r, c);
+        const idx = word.findIndex((p) => p.r === r && p.c === c);
+        const prev = word[idx - 1];
+        if (prev) {
+          this.inputs[`${prev.r},${prev.c}`].value = "";
+          this.clearMark(prev.r, prev.c);
+          this.focus(prev.r, prev.c);     // step back and clear that one
+        }
+      }
+      this.changed();
+      return;
+    }
+
+    if (key === "Delete") {
+      e.preventDefault();
+      this.inputs[`${r},${c}`].value = "";
       this.clearMark(r, c);
       this.changed();
       return;
     }
+
+    if (key === "Tab") { e.preventDefault(); this.gotoEntry(e.shiftKey ? -1 : 1); return; }
+    if (key === "Enter") { e.preventDefault(); this.gotoEntry(1); return; }
+    if (key === " ") { e.preventDefault(); this.toggleDir(); return; }
+
+    // Arrows: perpendicular arrow switches direction on the same square;
+    // a parallel arrow moves one white square in that direction.
     const moves = {
       ArrowRight: [0, 1, "across"], ArrowLeft: [0, -1, "across"],
       ArrowDown: [1, 0, "down"], ArrowUp: [-1, 0, "down"],
@@ -283,7 +359,6 @@ class Puzzle {
         nr += dr; nc += dc;
       }
     }
-    if (key === " ") { e.preventDefault(); this.toggleDir(); }
   }
 
   eachWhite(fn) {
