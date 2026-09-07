@@ -30,6 +30,8 @@
   --hi-word:    rgba(150, 120, 40, 0.15);
   --cell-active: rgba(242, 198, 70, 0.90);  /* selected square — strong */
   --cell-word:   rgba(214, 184, 96, 0.30);  /* current word — light wash */
+  --cell-correct: rgba(150, 200, 120, 0.60); /* checked & right — light green */
+  --cell-wrong:   rgba(206, 104, 92, 0.55);  /* checked & wrong — light red */
   --timer:      #f2c94c;
   --menu-bg:    #c7bea9;   /* matches the newsprint paper tone */
   --correct:    #2c5233;
@@ -332,8 +334,9 @@ body {
 .cell input:focus { outline: none; }
 .cell--inword       { background: var(--cell-word); }
 .cell.cell--active  { background: var(--cell-active); }  /* selected square wins over word */
-.cell--correct input { color: var(--correct); }
-.cell--wrong   input { color: var(--wrong); }
+/* Checked results tint the box, not the pencil (win over word/selected wash). */
+.cell.cell--correct { background: var(--cell-correct); }
+.cell.cell--wrong   { background: var(--cell-wrong); }
 
 /* ===== Buttons (modal) ===== */
 .pill {
