@@ -635,7 +635,11 @@ async function main() {
     persist();
     confettiBurst();
     const t = `${(timer.secs / 60) | 0}:${String(timer.secs % 60).padStart(2, "0")}`;
-    showResult({ title: "Solved!", msg: `You finished The Daily 7 in ${t}. Nicely done.`, cta: "Hooray" });
+    showResult({
+      title: "Solved!",
+      msg: `You finished The Daily 7 in ${t}. Nicely done.<br><br>Come back tomorrow for a new midi crossword.`,
+      cta: "Hooray",
+    });
   };
   puz.onIncomplete = (n) => {
     showResult({
