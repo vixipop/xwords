@@ -88,7 +88,10 @@ class Puzzle {
 
   render() {
     const gridEl = document.getElementById("grid");
-    gridEl.style.gridTemplateColumns = `repeat(${this.size}, 1fr)`;
+    // minmax(0,1fr) removes the content-based minimum so rows/cols stay equal
+    // (square cells) instead of stretching to fit the letter.
+    gridEl.style.gridTemplateColumns = `repeat(${this.size}, minmax(0, 1fr))`;
+    gridEl.style.gridTemplateRows = `repeat(${this.size}, minmax(0, 1fr))`;
     gridEl.innerHTML = "";
     for (let r = 0; r < this.size; r++) {
       for (let c = 0; c < this.size; c++) {
@@ -691,10 +694,11 @@ function updateAutocheckUI() {
 function mountIssue(data) {
   if (S.timer) S.timer.pause();
 
-  document.getElementById("puzzle-title").textContent = data.title || "The Daily Crossword";
-  document.getElementById("byline").textContent = `Constructed by ${data.author || "The Gazette"}`;
-  document.getElementById("issue-no").textContent = `VOL. I . . . No. ${data.issue ?? 1}`;
-  document.getElementById("dateline").textContent = data.date ? longDate(data.date) : "";
+  const setText = (id, t) => { const el = document.getElementById(id); if (el) el.textContent = t; };
+  setText("puzzle-title", data.title || "The Daily Crossword");
+  setText("byline", `Constructed by ${data.author || "The Gazette"}`);
+  setText("issue-no", `No. ${data.issue ?? 1}`);
+  setText("dateline", data.date ? longDate(data.date) : "");
 
   const STORE_KEY = `tdc:${data.id || "sample"}`;
   let saved = null;
@@ -754,7 +758,6 @@ function mountIssue(data) {
 async function main() {
   document.getElementById("settings-btn").innerHTML = ICON.gear;
   document.getElementById("timer-reset").innerHTML = ICON.reset;
-  document.getElementById("year").textContent = new Date().getFullYear();
 
   // Pick the newest published issue not in the future.
   let index;

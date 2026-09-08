@@ -17,19 +17,12 @@
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-  <!-- wood desk (bg) -> paper sheet -> the whole edition prints on the paper -->
   <div class="stage">
     <div class="paper">
-      <!-- ===== Masthead ===== -->
       <header class="masthead">
-        <div class="masthead__rule masthead__rule--top">
-          <span id="issue-no">VOL. I . . . No. 1</span>
-          <span id="dateline">Loading&hellip;</span>
-          <span>FREE FOREVER</span>
-        </div>
         <h1 class="masthead__title">The Word Gazette</h1>
 
-        <!-- Toolbar replaces the old sub-rule: settings, timer, actions. -->
+        <!-- Toolbar: settings, timer, actions. -->
         <div class="toolbar">
           <div class="toolbar__left">
             <button class="tool tool--icon" id="settings-btn" title="Settings" aria-label="Settings"></button>
@@ -79,10 +72,8 @@
         </div>
       </header>
 
-      <!-- Puzzle title sits above the columns; the Down / clue / Across row aligns below it. -->
       <div class="puzzle__head">
         <h2 id="puzzle-title">The Daily Crossword</h2>
-        <p class="byline" id="byline">Constructed by the Machine</p>
       </div>
 
       <!-- ===== Three columns: Down | Puzzle | Across ===== -->
@@ -110,11 +101,6 @@
           <ol id="clues-across" class="clues__list"></ol>
         </section>
       </main>
-
-      <footer class="fineprint">
-        <p>The Word Gazette is a free, ad-free daily crossword. A new puzzle every morning.
-        Set in stand-ins for the fonts fit to print. &copy; <span id="year"></span> The Word Gazette.</p>
-      </footer>
     </div>
   </div>
 
