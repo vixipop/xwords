@@ -93,8 +93,13 @@
         </section>
 
         <section class="puzzle">
-          <!-- Selected-word hint aligns with the Down / Across headings, above the grid -->
-          <div id="cluebar" class="cluebar" aria-live="polite"></div>
+          <!-- Selected-word hint aligns with the Down / Across headings, above the grid.
+               Prev/next arrows make it a clue navigator (essential on mobile). -->
+          <div class="cluebar">
+            <button class="cluebar__nav" id="clue-prev" aria-label="Previous clue" type="button">&lsaquo;</button>
+            <span id="cluebar" class="cluebar__text" aria-live="polite"></span>
+            <button class="cluebar__nav" id="clue-next" aria-label="Next clue" type="button">&rsaquo;</button>
+          </div>
           <div class="grid-wrap">
             <div id="grid" class="grid" role="grid" aria-label="Crossword grid"></div>
           </div>
@@ -111,6 +116,16 @@
         Set in stand-ins for the fonts fit to print. &copy; <span id="year"></span> The Word Gazette.</p>
       </footer>
     </div>
+  </div>
+
+  <!-- Mobile only: fixed clue bar + on-screen keyboard (built in app.js) -->
+  <div id="mobile-bar" aria-hidden="true">
+    <div class="mclue">
+      <button class="mclue__nav" id="mclue-prev" aria-label="Previous clue" type="button">&lsaquo;</button>
+      <span id="mobile-clue" class="mclue__text"></span>
+      <button class="mclue__nav" id="mclue-next" aria-label="Next clue" type="button">&rsaquo;</button>
+    </div>
+    <div class="keyboard" id="keyboard"></div>
   </div>
 
   <script src="js/app.js" type="module"></script>

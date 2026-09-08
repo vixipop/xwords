@@ -224,11 +224,7 @@ body {
   flex: 1 1 auto;
   min-height: 0;                    /* let columns shrink so lists scroll internally */
 }
-@media (max-width: 860px) {
-  body { overflow: auto; }
-  .edition { grid-template-columns: 1fr; }
-  .puzzle { order: -1; }
-}
+/* (mobile styles live at the end of the file so they override the base rules) */
 
 /* ===== Clue columns (scroll inside, not the page) ===== */
 .clues { display: flex; flex-direction: column; min-height: 0; }
@@ -278,19 +274,36 @@ body {
   width: 100%;
   min-height: 44px;                 /* matches .clues__head so the row lines up */
   display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  text-align: center;
+  align-items: stretch;
   font-family: var(--f-print);
   font-size: clamp(14px, 1.4vw, 18px);
   border-top: 1px solid var(--rule);
   border-bottom: 1px solid var(--rule);
-  padding: 4px 10px;
   margin-bottom: 12px;
   flex: 0 0 auto;
 }
-.cluebar .num { font-weight: 700; }
+.cluebar__text {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-align: center;
+  padding: 6px 8px;
+  cursor: pointer;
+}
+.cluebar__text .num { font-weight: 700; }
+.cluebar__nav {
+  background: transparent;
+  border: 0;
+  color: var(--ink);
+  font-family: var(--f-display);
+  font-size: 22px;
+  line-height: 1;
+  padding: 0 12px;
+  cursor: pointer;
+}
+.cluebar__nav:hover { background: var(--hi-word); }
 
 /* ===== Grid (transparent so the paper shows through) ===== */
 .grid-wrap { display: flex; justify-content: center; align-items: center; flex: 1 1 auto; min-height: 0; }
@@ -417,4 +430,97 @@ body {
   color: var(--ink-soft);
   text-align: center;
   flex: 0 0 auto;
+}
+
+/* ===== Mobile clue bar + on-screen keyboard (hidden on desktop) ===== */
+#mobile-bar { display: none; }
+.mclue {
+  display: flex;
+  align-items: stretch;
+  border-bottom: 1px solid var(--rule);
+  font-family: var(--f-print);
+  font-size: 16px;
+}
+.mclue__text {
+  flex: 1;
+  display: flex; align-items: center; justify-content: center;
+  gap: 8px; text-align: center; padding: 10px 8px;
+}
+.mclue__text .num { font-weight: 700; }
+.mclue__nav {
+  background: transparent; border: 0; color: var(--ink);
+  font-family: var(--f-display); font-size: 30px; line-height: 1;
+  padding: 4px 20px; cursor: pointer;
+}
+.keyboard { padding: 6px 4px calc(6px + env(safe-area-inset-bottom, 0px)); }
+.kb-row { display: flex; justify-content: center; gap: 5px; margin-bottom: 6px; }
+.kb-row:last-child { margin-bottom: 0; }
+.kb-key {
+  flex: 1 1 0;
+  max-width: 42px;
+  height: 46px;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--f-print);
+  font-size: 17px;
+  color: var(--ink);
+  background: #efe9db;
+  border: 1px solid #b7ad97;
+  border-radius: 6px;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.25);
+  cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+.kb-key:active { background: var(--hi); }
+.kb-key--wide { max-width: 64px; flex-grow: 1.6; }
+
+/* =========================================================
+   Mobile layout: big grid up top, fixed clue+keyboard at the bottom.
+   Placed last so these win over the base rules above.
+   ========================================================= */
+@media (max-width: 760px) {
+  /* App is a full-height column: scrollable board area + pinned keyboard. */
+  html { height: 100%; }
+  body {
+    height: 100vh; height: 100dvh;
+    display: flex; flex-direction: column;
+    overflow: hidden;
+  }
+  .stage {
+    flex: 1 1 auto; min-height: 0;
+    height: auto; overflow-y: auto;
+    align-items: stretch; padding: 8px;
+  }
+  .paper { max-height: none; width: 100%; padding: 14px 14px 16px; }
+
+  .masthead__title { font-size: clamp(26px, 8.5vw, 42px); margin-bottom: 2px; }
+  .masthead__rule { font-size: 8.5px; letter-spacing: 0.01em; padding: 3px 0; }
+  .byline { display: none; }              /* save vertical room on the solve screen */
+  #puzzle-title { font-size: 18px; }
+
+  /* Toolbar wraps instead of overflowing. */
+  .toolbar { display: flex; flex-wrap: wrap; justify-content: center; gap: 4px 8px; margin-top: 4px; }
+  .toolbar__left, .toolbar__center, .toolbar__right { justify-self: auto; }
+  .toolbar__right { flex-wrap: wrap; justify-content: center; }
+  .menu__list { right: auto; left: 50%; transform: translateX(-50%); }
+
+  /* Solve screen = grid only; clue lists + top clue bar move to the pinned bar. */
+  .edition { display: block; margin-top: 12px; }
+  .clues, .puzzle .cluebar, .fineprint { display: none; }
+  .puzzle__head { margin-bottom: 8px; }
+  /* Normal block flow so the grid reserves its aspect-ratio height (no overlap). */
+  .puzzle { display: block; min-height: auto; }
+  .grid-wrap { flex: none; min-height: auto; }
+
+  .grid { width: min(90vw, 58vh); margin: 0 auto; }
+  .cell input { font-size: 7vw; }
+
+  /* Clue bar + keyboard: last flex child, always visible at the bottom. */
+  #mobile-bar {
+    display: block;
+    flex: 0 0 auto;
+    background: var(--menu-bg);
+    border-top: 1px solid var(--ink);
+    box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.3);
+  }
 }

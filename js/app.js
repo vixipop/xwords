@@ -108,10 +108,12 @@ class Puzzle {
           cell.appendChild(num);
         }
         const input = document.createElement("input");
-        // No maxLength: letters are handled in keydown (so retyping overwrites);
-        // the input handler keeps only the last char for mobile/IME.
-        input.inputMode = "text";
+        // No maxLength: letters are handled in keydown (so retyping overwrites).
+        // inputMode "none" keeps the native mobile keyboard from popping up —
+        // on mobile we drive input with our own on-screen keyboard instead.
+        input.inputMode = "none";
         input.autocomplete = "off";
+        input.setAttribute("aria-label", `Row ${r + 1}, column ${c + 1}`);
         input.addEventListener("focus", () => this.setActive(r, c));
         input.addEventListener("mousedown", () => {
           if (this.active && this.active.r === r && this.active.c === c) this.toggleDir();
@@ -154,7 +156,12 @@ class Puzzle {
 
   focus(r, c) {
     const el = this.inputs[`${r},${c}`];
-    if (el) el.focus();
+    if (!el) return;
+    el.focus({ preventScroll: true });
+    // On mobile keep the active cell visible above the fixed keyboard.
+    if (window.innerWidth <= 760) {
+      this.cells[`${r},${c}`].scrollIntoView({ block: "nearest", inline: "nearest" });
+    }
   }
 
   toggleDir() {
@@ -192,11 +199,40 @@ class Puzzle {
     const li = document.querySelector(`.clues__list li[data-num="${startNum}"][data-dir="${this.dir}"]`);
     if (li) { li.classList.add("active"); li.scrollIntoView({ block: "nearest" }); }
 
+    const txt = this.clueText[this.dir][startNum] || "";
+    const html = `<span class="num">${startNum}</span><span>${txt}</span>`;
     const bar = document.getElementById("cluebar");
-    if (bar) {
-      const txt = this.clueText[this.dir][startNum] || "";
-      bar.innerHTML = `<span class="num">${startNum}</span><span>${txt}</span>`;
+    if (bar) bar.innerHTML = html;
+    const mbar = document.getElementById("mobile-clue");
+    if (mbar) mbar.innerHTML = html;
+  }
+
+  // On-screen keyboard entry points (mobile), mirroring physical typing.
+  inputLetter(ch) {
+    if (!this.active) return;
+    const { r, c } = this.active;
+    this.setLetter(r, c, ch);
+    this.advance(r, c, 1);
+    this.evaluateCompletion();
+    this.changed();
+  }
+  inputBackspace() {
+    if (!this.active) return;
+    const { r, c } = this.active;
+    const el = this.inputs[`${r},${c}`];
+    if (el.value) {
+      el.value = ""; this.clearMark(r, c); this.advance(r, c, -1);
+    } else {
+      const word = this.currentWordCells(r, c);
+      const idx = word.findIndex((p) => p.r === r && p.c === c);
+      const prev = word[idx - 1];
+      if (prev) {
+        this.inputs[`${prev.r},${prev.c}`].value = "";
+        this.clearMark(prev.r, prev.c);
+        this.focus(prev.r, prev.c);
+      }
     }
+    this.changed();
   }
 
   // ---- scopes ----
@@ -531,6 +567,37 @@ function showResult({ title, msg, cta }) {
   ov.querySelector(".modal__ok").focus();
 }
 
+// On-screen keyboard (mobile). Keys drive the currently-mounted puzzle via S.
+const KB_ROWS = ["QWERTYUIOP", "ASDFGHJKL", "ZXCVBNM"];
+function buildKeyboard() {
+  const kb = document.getElementById("keyboard");
+  if (!kb || kb.childElementCount) return;
+  const press = (fn) => (e) => { e.preventDefault(); if (S.puz) fn(); };
+  KB_ROWS.forEach((row, i) => {
+    const rowEl = document.createElement("div");
+    rowEl.className = "kb-row";
+    for (const ch of row) {
+      const key = document.createElement("button");
+      key.className = "kb-key";
+      key.type = "button";
+      key.textContent = ch;
+      key.addEventListener("pointerdown", press(() => S.puz.inputLetter(ch)));
+      rowEl.appendChild(key);
+    }
+    if (i === KB_ROWS.length - 1) {
+      const del = document.createElement("button");
+      del.className = "kb-key kb-key--wide";
+      del.type = "button";
+      del.setAttribute("aria-label", "Delete");
+      del.innerHTML =
+        `<svg viewBox="0 0 24 24" width="22" height="22"><path fill="currentColor" d="M22 5H7.5a2 2 0 0 0-1.6.8L1 12l4.9 6.2a2 2 0 0 0 1.6.8H22a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2zm-3.3 9.3-1.4 1.4L15 13.4l-2.3 2.3-1.4-1.4 2.3-2.3-2.3-2.3 1.4-1.4L15 10.6l2.3-2.3 1.4 1.4-2.3 2.3 2.3 2.3z"/></svg>`;
+      del.addEventListener("pointerdown", press(() => S.puz.inputBackspace()));
+      rowEl.appendChild(del);
+    }
+    kb.appendChild(rowEl);
+  });
+}
+
 // Archive ("Older Issues"): list published issues, newest first; pick to open.
 function showArchive(index, currentId, onPick) {
   const rows = index.map((e) => `
@@ -722,6 +789,17 @@ async function main() {
         told immediately when a letter is wrong. Your progress and time are saved
         automatically.</p>`);
   });
+
+  // Clue-bar navigator: arrows step through clues; tapping the text flips direction.
+  const flipDir = () => { if (S.puz.active) { S.puz.toggleDir(); S.puz.focus(S.puz.active.r, S.puz.active.c); } };
+  document.getElementById("clue-prev").addEventListener("click", () => S.puz.gotoEntry(-1));
+  document.getElementById("clue-next").addEventListener("click", () => S.puz.gotoEntry(1));
+  document.getElementById("cluebar").addEventListener("click", flipDir);
+  document.getElementById("mclue-prev").addEventListener("click", () => S.puz.gotoEntry(-1));
+  document.getElementById("mclue-next").addEventListener("click", () => S.puz.gotoEntry(1));
+  document.getElementById("mobile-clue").addEventListener("click", flipDir);
+
+  buildKeyboard();
 
   let currentId = current.id;
   document.getElementById("archive-btn").addEventListener("click", () => {
