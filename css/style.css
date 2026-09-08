@@ -378,6 +378,35 @@ body {
 .modal__box--center .modal__title { font-size: 26px; }
 .modal__row--center { justify-content: center; }
 
+/* ===== Archive ("Older Issues") ===== */
+.modal__box--archive { max-width: 440px; }
+.issue-list { max-height: 60vh; overflow-y: auto; margin: 4px 0 16px; border-top: 1px solid var(--rule); }
+.issue-row {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  width: 100%;
+  text-align: left;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--rule);
+  cursor: pointer;
+  padding: 11px 6px;
+  font-family: var(--f-print);
+  color: var(--ink);
+}
+.issue-row:hover { background: var(--hi-word); }
+.issue-row--current { background: var(--hi); }
+.issue-row__no { font-weight: 700; min-width: 58px; }
+.issue-row__date { flex: 1; font-size: 13px; color: var(--ink-soft); letter-spacing: 0.03em; }
+.issue-row__tag {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  border: 1px solid var(--ink);
+  padding: 2px 6px;
+}
+
 /* ===== Fine print ===== */
 .fineprint {
   margin-top: clamp(10px, 1.4vw, 20px);

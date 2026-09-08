@@ -5,3 +5,7 @@ scratch_*
 
 # build output
 dist/
+
+# python
+__pycache__/
+*.pyc

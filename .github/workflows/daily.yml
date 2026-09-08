@@ -1,0 +1,32 @@
+name: Publish daily issue
+
+on:
+  schedule:
+    - cron: "0 5 * * *" # 05:00 UTC every day
+  workflow_dispatch: # allow manual "publish now"
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: claude/daily-crossword-app-7clfxr
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: node tools/publish_daily.mjs
+      - name: Commit the new issue (if any)
+        run: |
+          if [ -n "$(git status --porcelain public/data)" ]; then
+            git config user.name "Gazette Bot"
+            git config user.email "actions@users.noreply.github.com"
+            git add public/data
+            git commit -m "Publish daily issue ($(date -u +%F))"
+            git push
+          else
+            echo "Nothing to publish today."
+          fi

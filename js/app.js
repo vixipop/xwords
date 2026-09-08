@@ -12,11 +12,21 @@ const ICON = {
   reset: `<svg viewBox="0 0 24 24" width="14" height="14"><path fill="currentColor" d="M12 5V2L7 6l5 4V7a5 5 0 11-5 5H5a7 7 0 107-7z"/></svg>`,
 };
 
-async function loadPuzzle() {
-  const base = import.meta.env.BASE_URL;
-  const res = await fetch(`${base}data/sample.json`);
-  if (!res.ok) throw new Error("Could not load puzzle");
+const BASE = import.meta.env.BASE_URL;
+async function fetchJSON(path) {
+  const res = await fetch(`${BASE}${path}`);
+  if (!res.ok) throw new Error(`Could not load ${path}`);
   return res.json();
+}
+function todayISO() {
+  const d = new Date();
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+}
+function longDate(iso) {
+  const [y, m, d] = iso.split("-").map(Number);
+  const dt = new Date(y, m - 1, d);
+  return dt.toLocaleDateString("en-US",
+    { weekday: "long", year: "numeric", month: "long", day: "numeric" }).toUpperCase();
 }
 
 // Assign standard crossword numbers and record where each entry starts.
@@ -521,6 +531,30 @@ function showResult({ title, msg, cta }) {
   ov.querySelector(".modal__ok").focus();
 }
 
+// Archive ("Older Issues"): list published issues, newest first; pick to open.
+function showArchive(index, currentId, onPick) {
+  const rows = index.map((e) => `
+    <button class="issue-row${e.id === currentId ? " issue-row--current" : ""}" data-id="${e.id}">
+      <span class="issue-row__no">No. ${e.issue}</span>
+      <span class="issue-row__date">${longDate(e.date)}</span>
+      ${e.id === currentId ? '<span class="issue-row__tag">Today</span>' : ""}
+    </button>`).join("");
+  const ov = document.createElement("div");
+  ov.className = "modal";
+  ov.innerHTML = `
+    <div class="modal__box modal__box--archive" role="dialog" aria-modal="true">
+      <h3 class="modal__title">Older Issues</h3>
+      <div class="issue-list">${rows}</div>
+      <div class="modal__row modal__row--center"><button class="pill modal__ok">Close</button></div>
+    </div>`;
+  document.body.appendChild(ov);
+  const close = () => ov.remove();
+  ov.querySelector(".modal__ok").onclick = close;
+  ov.addEventListener("click", (e) => { if (e.target === ov) close(); });
+  ov.querySelectorAll(".issue-row").forEach((btn) =>
+    btn.addEventListener("click", () => { close(); onPick(btn.dataset.id); }));
+}
+
 // Lightweight self-contained confetti burst (no dependency).
 function confettiBurst() {
   const canvas = document.createElement("canvas");
@@ -569,13 +603,6 @@ function confettiBurst() {
   })(start);
 }
 
-function dateline() {
-  const d = new Date();
-  const opts = { weekday: "long", year: "numeric", month: "long", day: "numeric" };
-  document.getElementById("dateline").textContent =
-    d.toLocaleDateString("en-US", opts).toUpperCase();
-  document.getElementById("year").textContent = d.getFullYear();
-}
 
 // Actions that touch the whole puzzle need an "are you sure?" first.
 const CONFIRM = {
@@ -585,26 +612,26 @@ const CONFIRM = {
   "clear:puzzle+timer": "Clear every square and reset the timer to zero?",
 };
 
-async function main() {
-  dateline();
-  document.getElementById("settings-btn").innerHTML = ICON.gear;
-  document.getElementById("timer-reset").innerHTML = ICON.reset;
+// Current issue's live objects; menus/toolbar reference these via S.
+const S = { puz: null, timer: null, persist: () => {} };
 
-  let data;
-  try {
-    data = await loadPuzzle();
-  } catch (err) {
-    document.getElementById("grid").textContent = "Today's puzzle could not be loaded.";
-    console.error(err);
-    return;
-  }
+function updateAutocheckUI() {
+  document.querySelectorAll("[data-autocheck-ind]").forEach((el) =>
+    el.classList.toggle("on", S.puz && S.puz.autocheck));
+}
+
+// Build the page for one issue (fresh grid, clues, timer, saved progress).
+function mountIssue(data) {
+  if (S.timer) S.timer.pause();
 
   document.getElementById("puzzle-title").textContent = data.title || "The Daily Crossword";
-  document.getElementById("byline").textContent = `Constructed by ${data.author || "the Machine"}`;
+  document.getElementById("byline").textContent = `Constructed by ${data.author || "The Gazette"}`;
+  document.getElementById("issue-no").textContent = `VOL. I . . . No. ${data.issue ?? 1}`;
+  document.getElementById("dateline").textContent = data.date ? longDate(data.date) : "";
 
   const STORE_KEY = `tdc:${data.id || "sample"}`;
-  const loadSaved = () => { try { return JSON.parse(localStorage.getItem(STORE_KEY)); } catch { return null; } };
-  const saved = loadSaved();
+  let saved = null;
+  try { saved = JSON.parse(localStorage.getItem(STORE_KEY)); } catch {}
 
   const puz = new Puzzle(data);
   puz.render();
@@ -615,14 +642,12 @@ async function main() {
     () => persist()
   );
 
-  // Restore saved progress (grid, autocheck, timer, solved) so refresh doesn't reset.
   if (saved) {
     puz.autocheck = !!saved.autocheck;
     puz.restoreEntries(saved.entries);
     if (typeof saved.secs === "number") timer.set(saved.secs);
     puz.solved = !!saved.solved;
   }
-  updateAutocheckUI();
 
   function persist() {
     const state = puz.serialize();
@@ -637,7 +662,7 @@ async function main() {
     const t = `${(timer.secs / 60) | 0}:${String(timer.secs % 60).padStart(2, "0")}`;
     showResult({
       title: "Solved!",
-      msg: `You finished The Daily 7 in ${t}. Nicely done.<br><br>Come back tomorrow for a new midi crossword.`,
+      msg: `You finished ${data.title} in ${t}. Nicely done.<br><br>Come back tomorrow for a new midi crossword.`,
       cta: "Hooray",
     });
   };
@@ -649,13 +674,45 @@ async function main() {
     });
   };
 
-  // Timer: run on load (resuming saved time) unless already solved.
   if (puz.solved) timer.done();
   else timer.start();
 
-  document.getElementById("timer-toggle").addEventListener("click", () => timer.toggle());
-  document.getElementById("timer-reset").addEventListener("click", () => timer.reset());
+  S.puz = puz;
+  S.timer = timer;
+  S.persist = persist;
+  updateAutocheckUI();
+  if (puz.autocheck) puz.check("puzzle");
+}
 
+async function main() {
+  document.getElementById("settings-btn").innerHTML = ICON.gear;
+  document.getElementById("timer-reset").innerHTML = ICON.reset;
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  // Pick the newest published issue not in the future.
+  let index;
+  try {
+    index = await fetchJSON("data/index.json");
+  } catch (err) {
+    document.getElementById("grid").textContent = "Today's puzzle could not be loaded.";
+    console.error(err);
+    return;
+  }
+  index.sort((a, b) => (a.date < b.date ? 1 : -1)); // newest first
+  const today = todayISO();
+  const current = index.find((e) => e.date <= today) || index[0];
+
+  try {
+    mountIssue(await fetchJSON(`data/${current.id}.json`));
+  } catch (err) {
+    document.getElementById("grid").textContent = "Today's puzzle could not be loaded.";
+    console.error(err);
+    return;
+  }
+
+  // Toolbar controls act on whichever issue is currently mounted.
+  document.getElementById("timer-toggle").addEventListener("click", () => S.timer.toggle());
+  document.getElementById("timer-reset").addEventListener("click", () => S.timer.reset());
   document.getElementById("settings-btn").addEventListener("click", () => {
     showInfo(`<h3 class="modal__title">How to play</h3>
       <p class="modal__msg" style="text-align:left">
@@ -666,10 +723,15 @@ async function main() {
         automatically.</p>`);
   });
 
-  function updateAutocheckUI() {
-    document.querySelectorAll("[data-autocheck-ind]").forEach((el) =>
-      el.classList.toggle("on", puz.autocheck));
-  }
+  let currentId = current.id;
+  document.getElementById("archive-btn").addEventListener("click", () => {
+    showArchive(index, currentId, async (id) => {
+      try {
+        mountIssue(await fetchJSON(`data/${id}.json`));
+        currentId = id;
+      } catch (err) { console.error(err); }
+    });
+  });
 
   wireMenus(
     async (act) => {
@@ -678,25 +740,22 @@ async function main() {
         if (!ok) return;
       }
       const [op, scope] = act.split(":");
-      if (op === "check") puz.check(scope);
-      else if (op === "reveal") puz.reveal(scope);
+      if (op === "check") S.puz.check(scope);
+      else if (op === "reveal") S.puz.reveal(scope);
       else if (op === "clear") {
-        if (scope === "puzzle+timer") { puz.clear("puzzle"); timer.reset(); }
-        else puz.clear(scope);
-        // If clearing un-solved the grid, resume timing (drops the green "done" state).
-        if (!puz.solved) timer.start();
+        if (scope === "puzzle+timer") { S.puz.clear("puzzle"); S.timer.reset(); }
+        else S.puz.clear(scope);
+        if (!S.puz.solved) S.timer.start();
       }
     },
     (toggle) => {
       if (toggle === "autocheck") {
-        puz.setAutocheck(!puz.autocheck);
+        S.puz.setAutocheck(!S.puz.autocheck);
         updateAutocheckUI();
-        persist();
+        S.persist();
       }
     }
   );
-
-  if (puz.autocheck) puz.check("puzzle");
 }
 
 main();

@@ -1,0 +1,189 @@
+{
+ "issue": 2,
+ "title": "The Daily 7",
+ "author": "The Gazette",
+ "size": 7,
+ "grid": [
+  [
+   "B",
+   "E",
+   "E",
+   "#",
+   "O",
+   "W",
+   "E"
+  ],
+  [
+   "O",
+   "W",
+   "L",
+   "#",
+   "P",
+   "I",
+   "G"
+  ],
+  [
+   "W",
+   "E",
+   "D",
+   "D",
+   "I",
+   "N",
+   "G"
+  ],
+  [
+   "#",
+   "#",
+   "E",
+   "O",
+   "N",
+   "#",
+   "#"
+  ],
+  [
+   "M",
+   "A",
+   "R",
+   "T",
+   "I",
+   "A",
+   "L"
+  ],
+  [
+   "O",
+   "I",
+   "L",
+   "#",
+   "O",
+   "R",
+   "E"
+  ],
+  [
+   "P",
+   "R",
+   "Y",
+   "#",
+   "N",
+   "E",
+   "T"
+  ]
+ ],
+ "clues": {
+  "across": [
+   {
+    "num": 1,
+    "clue": "Honey maker",
+    "answer": "BEE"
+   },
+   {
+    "num": 4,
+    "clue": "Be in debt",
+    "answer": "OWE"
+   },
+   {
+    "num": 7,
+    "clue": "Nocturnal hooter",
+    "answer": "OWL"
+   },
+   {
+    "num": 8,
+    "clue": "Farm oinker",
+    "answer": "PIG"
+   },
+   {
+    "num": 9,
+    "clue": "Marriage ceremony",
+    "answer": "WEDDING"
+   },
+   {
+    "num": 11,
+    "clue": "Very long time",
+    "answer": "EON"
+   },
+   {
+    "num": 12,
+    "clue": "___ arts",
+    "answer": "MARTIAL"
+   },
+   {
+    "num": 16,
+    "clue": "Slippery engine fluid",
+    "answer": "OIL"
+   },
+   {
+    "num": 17,
+    "clue": "Rock you mine metal from",
+    "answer": "ORE"
+   },
+   {
+    "num": 18,
+    "clue": "Snoop",
+    "answer": "PRY"
+   },
+   {
+    "num": 19,
+    "clue": "Goal's mesh",
+    "answer": "NET"
+   }
+  ],
+  "down": [
+   {
+    "num": 1,
+    "clue": "Archer's weapon",
+    "answer": "BOW"
+   },
+   {
+    "num": 2,
+    "clue": "Female sheep",
+    "answer": "EWE"
+   },
+   {
+    "num": 3,
+    "clue": "On in years",
+    "answer": "ELDERLY"
+   },
+   {
+    "num": 4,
+    "clue": "Point of view",
+    "answer": "OPINION"
+   },
+   {
+    "num": 5,
+    "clue": "Be victorious",
+    "answer": "WIN"
+   },
+   {
+    "num": 6,
+    "clue": "Breakfast staple",
+    "answer": "EGG"
+   },
+   {
+    "num": 10,
+    "clue": "Period, essentially",
+    "answer": "DOT"
+   },
+   {
+    "num": 12,
+    "clue": "Floor-cleaning tool",
+    "answer": "MOP"
+   },
+   {
+    "num": 13,
+    "clue": "What you breathe",
+    "answer": "AIR"
+   },
+   {
+    "num": 14,
+    "clue": "\"You ___ here\"",
+    "answer": "ARE"
+   },
+   {
+    "num": 15,
+    "clue": "Allow",
+    "answer": "LET"
+   }
+  ]
+ },
+ "id": "2026-09-07",
+ "date": "2026-09-07"
+}

@@ -1,0 +1,189 @@
+{
+ "issue": 1,
+ "title": "The Daily 7",
+ "author": "The Gazette",
+ "size": 7,
+ "grid": [
+  [
+   "B",
+   "A",
+   "N",
+   "#",
+   "A",
+   "L",
+   "E"
+  ],
+  [
+   "E",
+   "G",
+   "O",
+   "#",
+   "T",
+   "I",
+   "N"
+  ],
+  [
+   "D",
+   "E",
+   "V",
+   "O",
+   "T",
+   "E",
+   "D"
+  ],
+  [
+   "#",
+   "#",
+   "E",
+   "A",
+   "R",
+   "#",
+   "#"
+  ],
+  [
+   "V",
+   "O",
+   "L",
+   "T",
+   "A",
+   "G",
+   "E"
+  ],
+  [
+   "E",
+   "A",
+   "T",
+   "#",
+   "C",
+   "O",
+   "Y"
+  ],
+  [
+   "T",
+   "R",
+   "Y",
+   "#",
+   "T",
+   "O",
+   "E"
+  ]
+ ],
+ "clues": {
+  "across": [
+   {
+    "num": 1,
+    "clue": "Official prohibition",
+    "answer": "BAN"
+   },
+   {
+    "num": 4,
+    "clue": "Pub brew",
+    "answer": "ALE"
+   },
+   {
+    "num": 7,
+    "clue": "Sense of self",
+    "answer": "EGO"
+   },
+   {
+    "num": 8,
+    "clue": "Cookie container metal",
+    "answer": "TIN"
+   },
+   {
+    "num": 9,
+    "clue": "Loyally dedicated",
+    "answer": "DEVOTED"
+   },
+   {
+    "num": 11,
+    "clue": "Corn unit, or hearing organ",
+    "answer": "EAR"
+   },
+   {
+    "num": 12,
+    "clue": "Electrical force, in volts",
+    "answer": "VOLTAGE"
+   },
+   {
+    "num": 16,
+    "clue": "Have a meal",
+    "answer": "EAT"
+   },
+   {
+    "num": 17,
+    "clue": "Playfully shy",
+    "answer": "COY"
+   },
+   {
+    "num": 18,
+    "clue": "Attempt",
+    "answer": "TRY"
+   },
+   {
+    "num": 19,
+    "clue": "Foot digit",
+    "answer": "TOE"
+   }
+  ],
+  "down": [
+   {
+    "num": 1,
+    "clue": "Place to sleep",
+    "answer": "BED"
+   },
+   {
+    "num": 2,
+    "clue": "Years you've lived",
+    "answer": "AGE"
+   },
+   {
+    "num": 3,
+    "clue": "A new and unusual thing",
+    "answer": "NOVELTY"
+   },
+   {
+    "num": 4,
+    "clue": "Draw in",
+    "answer": "ATTRACT"
+   },
+   {
+    "num": 5,
+    "clue": "Fib",
+    "answer": "LIE"
+   },
+   {
+    "num": 6,
+    "clue": "Finish",
+    "answer": "END"
+   },
+   {
+    "num": 10,
+    "clue": "Porridge grain",
+    "answer": "OAT"
+   },
+   {
+    "num": 12,
+    "clue": "Animal doctor",
+    "answer": "VET"
+   },
+   {
+    "num": 13,
+    "clue": "Rowboat paddle",
+    "answer": "OAR"
+   },
+   {
+    "num": 14,
+    "clue": "Sticky stuff",
+    "answer": "GOO"
+   },
+   {
+    "num": 15,
+    "clue": "Needle's hole, or what you see with",
+    "answer": "EYE"
+   }
+  ]
+ },
+ "id": "2026-09-06",
+ "date": "2026-09-06"
+}

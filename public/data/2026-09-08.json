@@ -1,0 +1,189 @@
+{
+ "issue": 3,
+ "title": "The Daily 7",
+ "author": "The Gazette",
+ "size": 7,
+ "grid": [
+  [
+   "A",
+   "N",
+   "T",
+   "#",
+   "A",
+   "R",
+   "C"
+  ],
+  [
+   "P",
+   "E",
+   "R",
+   "#",
+   "C",
+   "O",
+   "O"
+  ],
+  [
+   "T",
+   "W",
+   "I",
+   "S",
+   "T",
+   "E",
+   "D"
+  ],
+  [
+   "#",
+   "#",
+   "N",
+   "O",
+   "R",
+   "#",
+   "#"
+  ],
+  [
+   "E",
+   "V",
+   "I",
+   "D",
+   "E",
+   "N",
+   "T"
+  ],
+  [
+   "L",
+   "I",
+   "T",
+   "#",
+   "S",
+   "I",
+   "R"
+  ],
+  [
+   "K",
+   "E",
+   "Y",
+   "#",
+   "S",
+   "P",
+   "Y"
+  ]
+ ],
+ "clues": {
+  "across": [
+   {
+    "num": 1,
+    "clue": "Picnic pest",
+    "answer": "ANT"
+   },
+   {
+    "num": 4,
+    "clue": "Curved path",
+    "answer": "ARC"
+   },
+   {
+    "num": 7,
+    "clue": "For each",
+    "answer": "PER"
+   },
+   {
+    "num": 8,
+    "clue": "Pigeon's sound",
+    "answer": "COO"
+   },
+   {
+    "num": 9,
+    "clue": "Wrung, or warped",
+    "answer": "TWISTED"
+   },
+   {
+    "num": 11,
+    "clue": "Neither's partner",
+    "answer": "NOR"
+   },
+   {
+    "num": 12,
+    "clue": "Plain to see",
+    "answer": "EVIDENT"
+   },
+   {
+    "num": 16,
+    "clue": "Illuminated",
+    "answer": "LIT"
+   },
+   {
+    "num": 17,
+    "clue": "Knight's title",
+    "answer": "SIR"
+   },
+   {
+    "num": 18,
+    "clue": "It opens a lock",
+    "answer": "KEY"
+   },
+   {
+    "num": 19,
+    "clue": "Secret agent",
+    "answer": "SPY"
+   }
+  ],
+  "down": [
+   {
+    "num": 1,
+    "clue": "Fitting",
+    "answer": "APT"
+   },
+   {
+    "num": 2,
+    "clue": "Fresh out of the box",
+    "answer": "NEW"
+   },
+   {
+    "num": 3,
+    "clue": "A group of three",
+    "answer": "TRINITY"
+   },
+   {
+    "num": 4,
+    "clue": "Woman with a film role",
+    "answer": "ACTRESS"
+   },
+   {
+    "num": 5,
+    "clue": "Fish eggs",
+    "answer": "ROE"
+   },
+   {
+    "num": 6,
+    "clue": "Fish in fish sticks",
+    "answer": "COD"
+   },
+   {
+    "num": 10,
+    "clue": "Piece of turf",
+    "answer": "SOD"
+   },
+   {
+    "num": 12,
+    "clue": "Large antlered deer",
+    "answer": "ELK"
+   },
+   {
+    "num": 13,
+    "clue": "Compete",
+    "answer": "VIE"
+   },
+   {
+    "num": 14,
+    "clue": "Small bite",
+    "answer": "NIP"
+   },
+   {
+    "num": 15,
+    "clue": "Attempt",
+    "answer": "TRY"
+   }
+  ]
+ },
+ "id": "2026-09-08",
+ "date": "2026-09-08"
+}

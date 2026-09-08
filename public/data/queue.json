@@ -1,0 +1,1311 @@
+[
+ {
+  "issue": 4,
+  "title": "The Daily 7",
+  "author": "The Gazette",
+  "size": 7,
+  "grid": [
+   [
+    "B",
+    "I",
+    "G",
+    "#",
+    "R",
+    "O",
+    "T"
+   ],
+   [
+    "O",
+    "N",
+    "E",
+    "#",
+    "E",
+    "W",
+    "E"
+   ],
+   [
+    "A",
+    "N",
+    "T",
+    "E",
+    "N",
+    "N",
+    "A"
+   ],
+   [
+    "#",
+    "#",
+    "T",
+    "E",
+    "E",
+    "#",
+    "#"
+   ],
+   [
+    "R",
+    "A",
+    "I",
+    "L",
+    "W",
+    "A",
+    "Y"
+   ],
+   [
+    "U",
+    "R",
+    "N",
+    "#",
+    "A",
+    "G",
+    "E"
+   ],
+   [
+    "B",
+    "E",
+    "G",
+    "#",
+    "L",
+    "O",
+    "W"
+   ]
+  ],
+  "clues": {
+   "across": [
+    {
+     "num": 1,
+     "clue": "Large",
+     "answer": "BIG"
+    },
+    {
+     "num": 4,
+     "clue": "Decay",
+     "answer": "ROT"
+    },
+    {
+     "num": 7,
+     "clue": "The loneliest number",
+     "answer": "ONE"
+    },
+    {
+     "num": 8,
+     "clue": "Female sheep",
+     "answer": "EWE"
+    },
+    {
+     "num": 9,
+     "clue": "TV signal catcher",
+     "answer": "ANTENNA"
+    },
+    {
+     "num": 11,
+     "clue": "Golf ball's perch",
+     "answer": "TEE"
+    },
+    {
+     "num": 12,
+     "clue": "Train's network of tracks",
+     "answer": "RAILWAY"
+    },
+    {
+     "num": 16,
+     "clue": "Coffee dispenser",
+     "answer": "URN"
+    },
+    {
+     "num": 17,
+     "clue": "Years you've lived",
+     "answer": "AGE"
+    },
+    {
+     "num": 18,
+     "clue": "Plead",
+     "answer": "BEG"
+    },
+    {
+     "num": 19,
+     "clue": "Not high",
+     "answer": "LOW"
+    }
+   ],
+   "down": [
+    {
+     "num": 1,
+     "clue": "Constricting snake",
+     "answer": "BOA"
+    },
+    {
+     "num": 2,
+     "clue": "Roadside lodging",
+     "answer": "INN"
+    },
+    {
+     "num": 3,
+     "clue": "Obtaining",
+     "answer": "GETTING"
+    },
+    {
+     "num": 4,
+     "clue": "Subscription extension",
+     "answer": "RENEWAL"
+    },
+    {
+     "num": 5,
+     "clue": "Possess",
+     "answer": "OWN"
+    },
+    {
+     "num": 6,
+     "clue": "Steeped drink",
+     "answer": "TEA"
+    },
+    {
+     "num": 10,
+     "clue": "Slippery swimmer",
+     "answer": "EEL"
+    },
+    {
+     "num": 12,
+     "clue": "Massage",
+     "answer": "RUB"
+    },
+    {
+     "num": 13,
+     "clue": "\"You ___ here\"",
+     "answer": "ARE"
+    },
+    {
+     "num": 14,
+     "clue": "In the past",
+     "answer": "AGO"
+    },
+    {
+     "num": 15,
+     "clue": "Evergreen with red berries",
+     "answer": "YEW"
+    }
+   ]
+  }
+ },
+ {
+  "issue": 5,
+  "title": "The Daily 7",
+  "author": "The Gazette",
+  "size": 7,
+  "grid": [
+   [
+    "A",
+    "N",
+    "D",
+    "#",
+    "W",
+    "E",
+    "E"
+   ],
+   [
+    "P",
+    "E",
+    "R",
+    "#",
+    "I",
+    "R",
+    "E"
+   ],
+   [
+    "E",
+    "T",
+    "E",
+    "R",
+    "N",
+    "A",
+    "L"
+   ],
+   [
+    "#",
+    "#",
+    "S",
+    "I",
+    "N",
+    "#",
+    "#"
+   ],
+   [
+    "D",
+    "E",
+    "S",
+    "P",
+    "I",
+    "T",
+    "E"
+   ],
+   [
+    "A",
+    "G",
+    "E",
+    "#",
+    "N",
+    "I",
+    "L"
+   ],
+   [
+    "M",
+    "O",
+    "D",
+    "#",
+    "G",
+    "E",
+    "M"
+   ]
+  ],
+  "clues": {
+   "across": [
+    {
+     "num": 1,
+     "clue": "Ampersand's meaning",
+     "answer": "AND"
+    },
+    {
+     "num": 4,
+     "clue": "Tiny",
+     "answer": "WEE"
+    },
+    {
+     "num": 7,
+     "clue": "For each",
+     "answer": "PER"
+    },
+    {
+     "num": 8,
+     "clue": "Anger",
+     "answer": "IRE"
+    },
+    {
+     "num": 9,
+     "clue": "Lasting for all time",
+     "answer": "ETERNAL"
+    },
+    {
+     "num": 11,
+     "clue": "Moral wrong",
+     "answer": "SIN"
+    },
+    {
+     "num": 12,
+     "clue": "In spite of",
+     "answer": "DESPITE"
+    },
+    {
+     "num": 16,
+     "clue": "Years you've lived",
+     "answer": "AGE"
+    },
+    {
+     "num": 17,
+     "clue": "Nothing, in soccer",
+     "answer": "NIL"
+    },
+    {
+     "num": 18,
+     "clue": "Trendy, in '60s London",
+     "answer": "MOD"
+    },
+    {
+     "num": 19,
+     "clue": "Precious stone",
+     "answer": "GEM"
+    }
+   ],
+   "down": [
+    {
+     "num": 1,
+     "clue": "Gorilla, for one",
+     "answer": "APE"
+    },
+    {
+     "num": 2,
+     "clue": "Goal's mesh",
+     "answer": "NET"
+    },
+    {
+     "num": 3,
+     "clue": "Put on clothes",
+     "answer": "DRESSED"
+    },
+    {
+     "num": 4,
+     "clue": "Finishing in first place",
+     "answer": "WINNING"
+    },
+    {
+     "num": 5,
+     "clue": "Historical period",
+     "answer": "ERA"
+    },
+    {
+     "num": 6,
+     "clue": "Slippery swimmer",
+     "answer": "EEL"
+    },
+    {
+     "num": 10,
+     "clue": "Tear",
+     "answer": "RIP"
+    },
+    {
+     "num": 12,
+     "clue": "Beaver's build",
+     "answer": "DAM"
+    },
+    {
+     "num": 13,
+     "clue": "Sense of self",
+     "answer": "EGO"
+    },
+    {
+     "num": 14,
+     "clue": "Necktie, or a draw",
+     "answer": "TIE"
+    },
+    {
+     "num": 15,
+     "clue": "Street of horror films",
+     "answer": "ELM"
+    }
+   ]
+  }
+ },
+ {
+  "issue": 6,
+  "title": "The Daily 7",
+  "author": "The Gazette",
+  "size": 7,
+  "grid": [
+   [
+    "A",
+    "N",
+    "D",
+    "#",
+    "S",
+    "I",
+    "R"
+   ],
+   [
+    "R",
+    "U",
+    "E",
+    "#",
+    "O",
+    "R",
+    "E"
+   ],
+   [
+    "E",
+    "N",
+    "A",
+    "B",
+    "L",
+    "E",
+    "D"
+   ],
+   [
+    "#",
+    "#",
+    "L",
+    "E",
+    "D",
+    "#",
+    "#"
+   ],
+   [
+    "I",
+    "N",
+    "I",
+    "T",
+    "I",
+    "A",
+    "L"
+   ],
+   [
+    "C",
+    "A",
+    "N",
+    "#",
+    "E",
+    "G",
+    "O"
+   ],
+   [
+    "E",
+    "G",
+    "G",
+    "#",
+    "R",
+    "O",
+    "B"
+   ]
+  ],
+  "clues": {
+   "across": [
+    {
+     "num": 1,
+     "clue": "Ampersand's meaning",
+     "answer": "AND"
+    },
+    {
+     "num": 4,
+     "clue": "Knight's title",
+     "answer": "SIR"
+    },
+    {
+     "num": 7,
+     "clue": "Regret",
+     "answer": "RUE"
+    },
+    {
+     "num": 8,
+     "clue": "Rock you mine metal from",
+     "answer": "ORE"
+    },
+    {
+     "num": 9,
+     "clue": "Made possible",
+     "answer": "ENABLED"
+    },
+    {
+     "num": 11,
+     "clue": "Guided",
+     "answer": "LED"
+    },
+    {
+     "num": 12,
+     "clue": "First, or a monogram letter",
+     "answer": "INITIAL"
+    },
+    {
+     "num": 16,
+     "clue": "Aluminum container",
+     "answer": "CAN"
+    },
+    {
+     "num": 17,
+     "clue": "Sense of self",
+     "answer": "EGO"
+    },
+    {
+     "num": 18,
+     "clue": "Breakfast staple",
+     "answer": "EGG"
+    },
+    {
+     "num": 19,
+     "clue": "Hold up",
+     "answer": "ROB"
+    }
+   ],
+   "down": [
+    {
+     "num": 1,
+     "clue": "\"You ___ here\"",
+     "answer": "ARE"
+    },
+    {
+     "num": 2,
+     "clue": "Convent dweller",
+     "answer": "NUN"
+    },
+    {
+     "num": 3,
+     "clue": "Handing out the cards",
+     "answer": "DEALING"
+    },
+    {
+     "num": 4,
+     "clue": "Member of an army",
+     "answer": "SOLDIER"
+    },
+    {
+     "num": 5,
+     "clue": "Anger",
+     "answer": "IRE"
+    },
+    {
+     "num": 6,
+     "clue": "Stop-light color",
+     "answer": "RED"
+    },
+    {
+     "num": 10,
+     "clue": "Wager",
+     "answer": "BET"
+    },
+    {
+     "num": 12,
+     "clue": "Frozen water",
+     "answer": "ICE"
+    },
+    {
+     "num": 13,
+     "clue": "Pester",
+     "answer": "NAG"
+    },
+    {
+     "num": 14,
+     "clue": "In the past",
+     "answer": "AGO"
+    },
+    {
+     "num": 15,
+     "clue": "High, arcing throw",
+     "answer": "LOB"
+    }
+   ]
+  }
+ },
+ {
+  "issue": 7,
+  "title": "The Daily 7",
+  "author": "The Gazette",
+  "size": 7,
+  "grid": [
+   [
+    "B",
+    "U",
+    "D",
+    "#",
+    "W",
+    "O",
+    "W"
+   ],
+   [
+    "O",
+    "R",
+    "E",
+    "#",
+    "E",
+    "W",
+    "E"
+   ],
+   [
+    "A",
+    "N",
+    "C",
+    "I",
+    "E",
+    "N",
+    "T"
+   ],
+   [
+    "#",
+    "#",
+    "I",
+    "L",
+    "K",
+    "#",
+    "#"
+   ],
+   [
+    "E",
+    "N",
+    "D",
+    "L",
+    "E",
+    "S",
+    "S"
+   ],
+   [
+    "R",
+    "O",
+    "E",
+    "#",
+    "N",
+    "E",
+    "T"
+   ],
+   [
+    "A",
+    "D",
+    "D",
+    "#",
+    "D",
+    "A",
+    "Y"
+   ]
+  ],
+  "clues": {
+   "across": [
+    {
+     "num": 1,
+     "clue": "Flower before it opens",
+     "answer": "BUD"
+    },
+    {
+     "num": 4,
+     "clue": "Impress greatly",
+     "answer": "WOW"
+    },
+    {
+     "num": 7,
+     "clue": "Rock you mine metal from",
+     "answer": "ORE"
+    },
+    {
+     "num": 8,
+     "clue": "Female sheep",
+     "answer": "EWE"
+    },
+    {
+     "num": 9,
+     "clue": "Very, very old",
+     "answer": "ANCIENT"
+    },
+    {
+     "num": 11,
+     "clue": "Type or kind",
+     "answer": "ILK"
+    },
+    {
+     "num": 12,
+     "clue": "Going on forever",
+     "answer": "ENDLESS"
+    },
+    {
+     "num": 16,
+     "clue": "Fish eggs",
+     "answer": "ROE"
+    },
+    {
+     "num": 17,
+     "clue": "Goal's mesh",
+     "answer": "NET"
+    },
+    {
+     "num": 18,
+     "clue": "Sum up",
+     "answer": "ADD"
+    },
+    {
+     "num": 19,
+     "clue": "Twenty-four hours",
+     "answer": "DAY"
+    }
+   ],
+   "down": [
+    {
+     "num": 1,
+     "clue": "Constricting snake",
+     "answer": "BOA"
+    },
+    {
+     "num": 2,
+     "clue": "Coffee dispenser",
+     "answer": "URN"
+    },
+    {
+     "num": 3,
+     "clue": "Made up one's mind",
+     "answer": "DECIDED"
+    },
+    {
+     "num": 4,
+     "clue": "Saturday and Sunday",
+     "answer": "WEEKEND"
+    },
+    {
+     "num": 5,
+     "clue": "Possess",
+     "answer": "OWN"
+    },
+    {
+     "num": 6,
+     "clue": "Not dry",
+     "answer": "WET"
+    },
+    {
+     "num": 10,
+     "clue": "Under the weather",
+     "answer": "ILL"
+    },
+    {
+     "num": 12,
+     "clue": "Historical period",
+     "answer": "ERA"
+    },
+    {
+     "num": 13,
+     "clue": "Silent yes",
+     "answer": "NOD"
+    },
+    {
+     "num": 14,
+     "clue": "Body of salt water",
+     "answer": "SEA"
+    },
+    {
+     "num": 15,
+     "clue": "Pig's pen",
+     "answer": "STY"
+    }
+   ]
+  }
+ },
+ {
+  "issue": 8,
+  "title": "The Daily 7",
+  "author": "The Gazette",
+  "size": 7,
+  "grid": [
+   [
+    "B",
+    "A",
+    "N",
+    "#",
+    "R",
+    "O",
+    "T"
+   ],
+   [
+    "U",
+    "S",
+    "E",
+    "#",
+    "E",
+    "W",
+    "E"
+   ],
+   [
+    "S",
+    "H",
+    "U",
+    "T",
+    "T",
+    "L",
+    "E"
+   ],
+   [
+    "#",
+    "#",
+    "T",
+    "A",
+    "R",
+    "#",
+    "#"
+   ],
+   [
+    "L",
+    "A",
+    "R",
+    "G",
+    "E",
+    "S",
+    "T"
+   ],
+   [
+    "E",
+    "R",
+    "A",
+    "#",
+    "A",
+    "P",
+    "E"
+   ],
+   [
+    "G",
+    "E",
+    "L",
+    "#",
+    "T",
+    "A",
+    "N"
+   ]
+  ],
+  "clues": {
+   "across": [
+    {
+     "num": 1,
+     "clue": "Official prohibition",
+     "answer": "BAN"
+    },
+    {
+     "num": 4,
+     "clue": "Decay",
+     "answer": "ROT"
+    },
+    {
+     "num": 7,
+     "clue": "Put to work",
+     "answer": "USE"
+    },
+    {
+     "num": 8,
+     "clue": "Female sheep",
+     "answer": "EWE"
+    },
+    {
+     "num": 9,
+     "clue": "Space craft, or an airport bus",
+     "answer": "SHUTTLE"
+    },
+    {
+     "num": 11,
+     "clue": "Road-paving goo",
+     "answer": "TAR"
+    },
+    {
+     "num": 12,
+     "clue": "Biggest of all",
+     "answer": "LARGEST"
+    },
+    {
+     "num": 16,
+     "clue": "Historical period",
+     "answer": "ERA"
+    },
+    {
+     "num": 17,
+     "clue": "Gorilla, for one",
+     "answer": "APE"
+    },
+    {
+     "num": 18,
+     "clue": "Hair-styling goo",
+     "answer": "GEL"
+    },
+    {
+     "num": 19,
+     "clue": "Sun-kissed color",
+     "answer": "TAN"
+    }
+   ],
+   "down": [
+    {
+     "num": 1,
+     "clue": "Public transit ride",
+     "answer": "BUS"
+    },
+    {
+     "num": 2,
+     "clue": "Fireplace leftovers",
+     "answer": "ASH"
+    },
+    {
+     "num": 3,
+     "clue": "Taking no side",
+     "answer": "NEUTRAL"
+    },
+    {
+     "num": 4,
+     "clue": "Withdraw, or a quiet getaway",
+     "answer": "RETREAT"
+    },
+    {
+     "num": 5,
+     "clue": "Nocturnal hooter",
+     "answer": "OWL"
+    },
+    {
+     "num": 6,
+     "clue": "Golf ball's perch",
+     "answer": "TEE"
+    },
+    {
+     "num": 10,
+     "clue": "Playground game of chase",
+     "answer": "TAG"
+    },
+    {
+     "num": 12,
+     "clue": "Table's support",
+     "answer": "LEG"
+    },
+    {
+     "num": 13,
+     "clue": "\"You ___ here\"",
+     "answer": "ARE"
+    },
+    {
+     "num": 14,
+     "clue": "Place for a soak",
+     "answer": "SPA"
+    },
+    {
+     "num": 15,
+     "clue": "Fingers on two hands",
+     "answer": "TEN"
+    }
+   ]
+  }
+ },
+ {
+  "issue": 9,
+  "title": "The Daily 7",
+  "author": "The Gazette",
+  "size": 7,
+  "grid": [
+   [
+    "B",
+    "A",
+    "D",
+    "#",
+    "S",
+    "I",
+    "N"
+   ],
+   [
+    "O",
+    "R",
+    "E",
+    "#",
+    "T",
+    "O",
+    "E"
+   ],
+   [
+    "A",
+    "C",
+    "C",
+    "O",
+    "U",
+    "N",
+    "T"
+   ],
+   [
+    "#",
+    "#",
+    "L",
+    "I",
+    "D",
+    "#",
+    "#"
+   ],
+   [
+    "U",
+    "T",
+    "I",
+    "L",
+    "I",
+    "T",
+    "Y"
+   ],
+   [
+    "S",
+    "O",
+    "N",
+    "#",
+    "E",
+    "W",
+    "E"
+   ],
+   [
+    "E",
+    "Y",
+    "E",
+    "#",
+    "D",
+    "O",
+    "T"
+   ]
+  ],
+  "clues": {
+   "across": [
+    {
+     "num": 1,
+     "clue": "Not good",
+     "answer": "BAD"
+    },
+    {
+     "num": 4,
+     "clue": "Moral wrong",
+     "answer": "SIN"
+    },
+    {
+     "num": 7,
+     "clue": "Rock you mine metal from",
+     "answer": "ORE"
+    },
+    {
+     "num": 8,
+     "clue": "Foot digit",
+     "answer": "TOE"
+    },
+    {
+     "num": 9,
+     "clue": "Bank record",
+     "answer": "ACCOUNT"
+    },
+    {
+     "num": 11,
+     "clue": "Jar topper",
+     "answer": "LID"
+    },
+    {
+     "num": 12,
+     "clue": "Gas or electric service",
+     "answer": "UTILITY"
+    },
+    {
+     "num": 16,
+     "clue": "Male child",
+     "answer": "SON"
+    },
+    {
+     "num": 17,
+     "clue": "Female sheep",
+     "answer": "EWE"
+    },
+    {
+     "num": 18,
+     "clue": "Needle's hole, or what you see with",
+     "answer": "EYE"
+    },
+    {
+     "num": 19,
+     "clue": "Period, essentially",
+     "answer": "DOT"
+    }
+   ],
+   "down": [
+    {
+     "num": 1,
+     "clue": "Constricting snake",
+     "answer": "BOA"
+    },
+    {
+     "num": 2,
+     "clue": "Curved path",
+     "answer": "ARC"
+    },
+    {
+     "num": 3,
+     "clue": "Politely say no",
+     "answer": "DECLINE"
+    },
+    {
+     "num": 4,
+     "clue": "Hit the books",
+     "answer": "STUDIED"
+    },
+    {
+     "num": 5,
+     "clue": "Electrically charged particle",
+     "answer": "ION"
+    },
+    {
+     "num": 6,
+     "clue": "Goal's mesh",
+     "answer": "NET"
+    },
+    {
+     "num": 10,
+     "clue": "Slippery engine fluid",
+     "answer": "OIL"
+    },
+    {
+     "num": 12,
+     "clue": "Put to work",
+     "answer": "USE"
+    },
+    {
+     "num": 13,
+     "clue": "Plaything",
+     "answer": "TOY"
+    },
+    {
+     "num": 14,
+     "clue": "A pair",
+     "answer": "TWO"
+    },
+    {
+     "num": 15,
+     "clue": "So far",
+     "answer": "YET"
+    }
+   ]
+  }
+ },
+ {
+  "issue": 10,
+  "title": "The Daily 7",
+  "author": "The Gazette",
+  "size": 7,
+  "grid": [
+   [
+    "B",
+    "I",
+    "T",
+    "#",
+    "P",
+    "E",
+    "G"
+   ],
+   [
+    "A",
+    "C",
+    "E",
+    "#",
+    "O",
+    "R",
+    "E"
+   ],
+   [
+    "G",
+    "E",
+    "N",
+    "E",
+    "R",
+    "A",
+    "L"
+   ],
+   [
+    "#",
+    "#",
+    "S",
+    "E",
+    "T",
+    "#",
+    "#"
+   ],
+   [
+    "A",
+    "B",
+    "I",
+    "L",
+    "I",
+    "T",
+    "Y"
+   ],
+   [
+    "G",
+    "O",
+    "O",
+    "#",
+    "O",
+    "W",
+    "E"
+   ],
+   [
+    "O",
+    "W",
+    "N",
+    "#",
+    "N",
+    "O",
+    "W"
+   ]
+  ],
+  "clues": {
+   "across": [
+    {
+     "num": 1,
+     "clue": "Small amount",
+     "answer": "BIT"
+    },
+    {
+     "num": 4,
+     "clue": "Coat hook",
+     "answer": "PEG"
+    },
+    {
+     "num": 7,
+     "clue": "Tennis serve nobody returns",
+     "answer": "ACE"
+    },
+    {
+     "num": 8,
+     "clue": "Rock you mine metal from",
+     "answer": "ORE"
+    },
+    {
+     "num": 9,
+     "clue": "Army's top commander",
+     "answer": "GENERAL"
+    },
+    {
+     "num": 11,
+     "clue": "Tennis match segment",
+     "answer": "SET"
+    },
+    {
+     "num": 12,
+     "clue": "Skill or talent",
+     "answer": "ABILITY"
+    },
+    {
+     "num": 16,
+     "clue": "Sticky stuff",
+     "answer": "GOO"
+    },
+    {
+     "num": 17,
+     "clue": "Be in debt",
+     "answer": "OWE"
+    },
+    {
+     "num": 18,
+     "clue": "Possess",
+     "answer": "OWN"
+    },
+    {
+     "num": 19,
+     "clue": "At this moment",
+     "answer": "NOW"
+    }
+   ],
+   "down": [
+    {
+     "num": 1,
+     "clue": "Grocery carrier",
+     "answer": "BAG"
+    },
+    {
+     "num": 2,
+     "clue": "Frozen water",
+     "answer": "ICE"
+    },
+    {
+     "num": 3,
+     "clue": "Nervous strain",
+     "answer": "TENSION"
+    },
+    {
+     "num": 4,
+     "clue": "Serving size",
+     "answer": "PORTION"
+    },
+    {
+     "num": 5,
+     "clue": "Historical period",
+     "answer": "ERA"
+    },
+    {
+     "num": 6,
+     "clue": "Hair-styling goo",
+     "answer": "GEL"
+    },
+    {
+     "num": 10,
+     "clue": "Slippery swimmer",
+     "answer": "EEL"
+    },
+    {
+     "num": 12,
+     "clue": "In the past",
+     "answer": "AGO"
+    },
+    {
+     "num": 13,
+     "clue": "Archer's weapon",
+     "answer": "BOW"
+    },
+    {
+     "num": 14,
+     "clue": "A pair",
+     "answer": "TWO"
+    },
+    {
+     "num": 15,
+     "clue": "Evergreen with red berries",
+     "answer": "YEW"
+    }
+   ]
+  }
+ }
+]

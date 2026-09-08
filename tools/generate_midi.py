@@ -45,15 +45,36 @@ WAD WAG WAR WAS WAX WAY WEB WED WEE WET WHO WHY WIG WIN WIT WOE WOK WON WOO WOW 
 YAK YAM YAP YAW YEA YEN YES YET YEW YOU
 ZAP ZED ZEN ZIP ZOO""".split()
 
+W3 = [w for w in W3 if w != "OVA"]          # OVA reads as a plural; drop it
 by_len = defaultdict(list)
 by_len[3] = sorted(set(W3))
 
-# 7-letter words: common list, alphabetic, minus obvious proper nouns / oddities.
+# Full common-word set (for plural detection by stem lookup).
+ALLWORDS = set(x.strip().lower() for x in open("/tmp/common10k.txt") if x.strip().isalpha())
+
+def is_plural(w):
+    """Heuristic: exclude -s plurals and 3rd-person verb forms (poster s, teaches,
+    stories) while keeping real -s words (gas, bus, chaos, address)."""
+    wl = w.lower()
+    if wl.endswith("ss"):
+        return False
+    if wl.endswith("ies") and (wl[:-3] + "y") in ALLWORDS:
+        return True                         # stories -> story
+    if wl.endswith("es") and wl[:-2] in ALLWORDS and len(wl) - 2 >= 3:
+        return True                         # glasses -> glass, teaches -> teach
+    if wl.endswith("s") and wl[:-1] in ALLWORDS and len(wl) - 1 >= 3:
+        return True                         # posters -> poster, writes -> write
+    return False
+
+# 7-letter words: common list, alphabetic, no plurals, minus obvious proper nouns.
 BLOCK7 = {"BRISTOL", "TRIBUNE", "PACIFIC", "ATLANTA", "ONTARIO", "ANTHONY", "RUSSIAN",
           "MICHAEL", "ANDREWS", "JACKSON", "JOHNSON", "EDWARDS", "DENNIS", "SPENCER"}
 for w in (x.strip().upper() for x in open("/tmp/common10k.txt")):
-    if len(w) == 7 and w.isalpha() and w not in BLOCK7 and w not in by_len[7]:
+    if (len(w) == 7 and w.isalpha() and w not in BLOCK7
+            and not is_plural(w) and w not in by_len[7]):
         by_len[7].append(w)      # keep frequency order (common first)
+# also drop plurals that slipped into the 3-letter list (none expected, but be safe)
+by_len[3] = [w for w in by_len[3] if not is_plural(w)]
 print(f"3-letter: {len(by_len[3])}, 7-letter: {len(by_len[7])}", file=sys.stderr)
 
 # pattern index for fast candidate lookup: (len, pos, char) -> set(words)
@@ -90,10 +111,12 @@ for si, s in enumerate(slots):
     for pos, rc in enumerate(s["cells"]):
         cell_slots[rc].append((si, pos))
 
-grid = {}  # (r,c) -> letter or None
-for r in range(N):
-    for c in range(N):
-        if white(r, c): grid[(r, c)] = None
+grid = {}  # (r,c) -> letter or None (reset per generate())
+def reset_grid():
+    grid.clear()
+    for r in range(N):
+        for c in range(N):
+            if white(r, c): grid[(r, c)] = None
 
 def candidates(si, used):
     s = slots[si]; L = len(s["cells"])
@@ -125,30 +148,35 @@ def solve(unfilled, used):
         for rc in slots[best]["cells"]: grid[rc] = before[rc]
     return False
 
-random.seed(int(sys.argv[1]) if len(sys.argv) > 1 else 1)
-if not solve(list(range(len(slots))), set()):
-    print("no fill", file=sys.stderr); sys.exit(1)
+def generate(seed):
+    """Fill the grid for a given seed; return {size, grid, across, down} or None."""
+    random.seed(seed)
+    reset_grid()
+    if not solve(list(range(len(slots))), set()):
+        return None
+    num = {}
+    counter = 0
+    across, down = [], []
+    for r in range(N):
+        for c in range(N):
+            if not white(r, c): continue
+            sa = not white(r, c - 1) and white(r, c + 1)
+            sd = not white(r - 1, c) and white(r + 1, c)
+            if sa or sd:
+                counter += 1; num[(r, c)] = counter
+    for s in slots:
+        r, c = s["cells"][0]
+        word = "".join(grid[rc] for rc in s["cells"])
+        entry = {"num": num[(r, c)], "answer": word}
+        (across if s["dir"] == "A" else down).append(entry)
+    across.sort(key=lambda e: e["num"]); down.sort(key=lambda e: e["num"])
+    rows = [["#" if cell(r, c) == BLOCK else grid[(r, c)] for c in range(N)] for r in range(N)]
+    return {"size": N, "grid": rows, "across": across, "down": down}
 
-# number the grid + assemble entries
-num = {}
-counter = 0
-across, down = [], []
-for r in range(N):
-    for c in range(N):
-        if not white(r, c): continue
-        sa = not white(r, c - 1) and white(r, c + 1)
-        sd = not white(r - 1, c) and white(r + 1, c)
-        if sa or sd:
-            counter += 1; num[(r, c)] = counter
-for s in slots:
-    r, c = s["cells"][0]
-    word = "".join(grid[rc] for rc in s["cells"])
-    entry = {"num": num[(r, c)], "answer": word}
-    (across if s["dir"] == "A" else down).append(entry)
-across.sort(key=lambda e: e["num"]); down.sort(key=lambda e: e["num"])
 
-rows = []
-for r in range(N):
-    rows.append(["#" if cell(r, c) == BLOCK else grid[(r, c)] for c in range(N)])
-
-print(json.dumps({"size": N, "grid": rows, "across": across, "down": down}, indent=1))
+if __name__ == "__main__":
+    seed = int(sys.argv[1]) if len(sys.argv) > 1 else 1
+    result = generate(seed)
+    if not result:
+        print("no fill", file=sys.stderr); sys.exit(1)
+    print(json.dumps(result, indent=1))
