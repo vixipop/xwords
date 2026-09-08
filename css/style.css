@@ -164,7 +164,16 @@ body {
   display: none;
   z-index: 30;
 }
-.menu.open .menu__list { display: block; }
+.menu.open .menu__list { display: block; max-height: 70vh; overflow-y: auto; }
+.menu--right .menu__list { right: 0; left: auto; }
+.menu__label {
+  font-family: var(--f-print);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink-soft);
+  padding: 4px 10px 2px;
+}
 .menu__item {
   display: flex;
   align-items: center;
@@ -300,6 +309,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;                    /* never let a glyph bleed past the box */
 }
 .cell--block { background: var(--fill); }
 .cell__num {
@@ -313,11 +323,14 @@ body {
 .cell input {
   width: 100%; height: 100%;
   border: 0;
+  padding: 0;
   background: transparent;
   text-align: center;
   text-transform: lowercase;         /* always small letters, never capital */
   font-family: var(--f-hand);
-  font-size: clamp(15px, 3.6vh, 25px); /* Homemade Apple runs large — fit the cell */
+  /* Scale to the box (--cell is set by fitGrid) so the pencil letter is
+     centered and never clipped. Homemade Apple runs large, hence ~0.5. */
+  font-size: calc(var(--cell, 40px) * 0.5);
   line-height: 1;
   color: var(--pencil);
   caret-color: transparent;
@@ -467,32 +480,29 @@ body {
   }
   .stage {
     flex: 1 1 auto; min-height: 0;
-    height: auto; overflow-y: auto;
-    align-items: stretch; padding: 8px;
+    height: auto; overflow: hidden;       /* no scroll — everything fits */
+    align-items: stretch; padding: 6px 8px;
   }
-  .paper { max-height: none; width: 100%; padding: 14px 14px 16px; }
+  .paper { max-height: none; width: 100%; min-height: 0; padding: 10px 12px; }
 
-  .masthead__title { font-size: clamp(26px, 8.5vw, 42px); margin-bottom: 2px; }
-  .masthead__rule { font-size: 8.5px; letter-spacing: 0.01em; padding: 3px 0; }
+  .masthead__title { font-size: clamp(24px, 8vw, 40px); margin-bottom: 2px; }
   .byline { display: none; }              /* save vertical room on the solve screen */
-  #puzzle-title { font-size: 18px; }
+  #puzzle-title { font-size: 17px; }
 
   /* Toolbar wraps instead of overflowing. */
-  .toolbar { display: flex; flex-wrap: wrap; justify-content: center; gap: 4px 8px; margin-top: 4px; }
+  .toolbar { display: flex; flex-wrap: wrap; justify-content: center; gap: 4px 8px; margin-top: 3px; }
   .toolbar__left, .toolbar__center, .toolbar__right { justify-self: auto; }
   .toolbar__right { flex-wrap: wrap; justify-content: center; }
   .menu__list { right: auto; left: 50%; transform: translateX(-50%); }
 
-  /* Solve screen = grid only; clue lists + top clue bar move to the pinned bar. */
-  .edition { display: block; margin-top: 12px; }
+  /* Solve screen = grid only. Flex chain gives grid-wrap a definite height so
+     JS (fitGrid) can size the grid to the exact remaining space -> no scroll. */
   .clues, .puzzle .cluebar, .fineprint { display: none; }
-  .puzzle__head { margin-bottom: 8px; }
-  /* Normal block flow so the grid reserves its aspect-ratio height (no overlap). */
-  .puzzle { display: block; min-height: auto; }
-  .grid-wrap { flex: none; min-height: auto; }
-
-  .grid { width: min(90vw, 58vh); margin: 0 auto; }
-  .cell input { font-size: 7vw; }
+  .puzzle__head { margin: 4px 0 8px; flex: 0 0 auto; }
+  .edition { display: flex; flex-direction: column; flex: 1 1 auto; min-height: 0; margin-top: 8px; }
+  .puzzle { display: flex; flex-direction: column; flex: 1 1 auto; min-height: 0; align-items: stretch; }
+  .grid-wrap { flex: 1 1 auto; min-height: 0; width: 100%; }
+  .grid { margin: 0 auto; }               /* width/height set by fitGrid() */
 
   /* Clue bar + keyboard: last flex child, always visible at the bottom. */
   #mobile-bar {

@@ -690,6 +690,25 @@ function updateAutocheckUI() {
     el.classList.toggle("on", S.puz && S.puz.autocheck));
 }
 
+// On mobile, size the square grid to the space left between the top and the
+// keyboard so the whole page fits with no scrolling. On desktop, CSS handles it.
+function fitGrid() {
+  const grid = document.getElementById("grid");
+  if (!grid) return;
+  const n = S.puz ? S.puz.size : 7;
+  if (window.innerWidth <= 760) {
+    const wrap = grid.parentElement; // .grid-wrap (has a definite height via the flex chain)
+    const size = Math.floor(Math.min(wrap.clientWidth, wrap.clientHeight));
+    if (size > 0) { grid.style.width = `${size}px`; grid.style.height = `${size}px`; }
+  } else {
+    grid.style.width = "";
+    grid.style.height = "";
+  }
+  // Expose the cell size so the pencil letter scales to the box (no clipping).
+  const w = grid.getBoundingClientRect().width;
+  if (w > 0) grid.style.setProperty("--cell", `${w / n}px`);
+}
+
 // Build the page for one issue (fresh grid, clues, timer, saved progress).
 function mountIssue(data) {
   if (S.timer) S.timer.pause();
@@ -753,10 +772,10 @@ function mountIssue(data) {
   S.persist = persist;
   updateAutocheckUI();
   if (puz.autocheck) puz.check("puzzle");
+  requestAnimationFrame(fitGrid); // size the grid to fit once laid out
 }
 
 async function main() {
-  document.getElementById("settings-btn").innerHTML = ICON.gear;
   document.getElementById("timer-reset").innerHTML = ICON.reset;
 
   // Pick the newest published issue not in the future.
@@ -783,15 +802,6 @@ async function main() {
   // Toolbar controls act on whichever issue is currently mounted.
   document.getElementById("timer-toggle").addEventListener("click", () => S.timer.toggle());
   document.getElementById("timer-reset").addEventListener("click", () => S.timer.reset());
-  document.getElementById("settings-btn").addEventListener("click", () => {
-    showInfo(`<h3 class="modal__title">How to play</h3>
-      <p class="modal__msg" style="text-align:left">
-        Click a square and type. Click again (or press space) to switch between
-        Across and Down. Use <b>Check</b> to test letters, <b>Reveal</b> to give up
-        a letter, and <b>Clear</b> to wipe squares. Turn on <b>Autocheck</b> to be
-        told immediately when a letter is wrong. Your progress and time are saved
-        automatically.</p>`);
-  });
 
   // Clue-bar navigator: arrows step through clues; tapping the text flips direction.
   const flipDir = () => { if (S.puz.active) { S.puz.toggleDir(); S.puz.focus(S.puz.active.r, S.puz.active.c); } };
@@ -803,6 +813,20 @@ async function main() {
   document.getElementById("mobile-clue").addEventListener("click", flipDir);
 
   buildKeyboard();
+
+  // Keep the grid sized to fit on resize / rotate / keyboard show.
+  let fitPending = false;
+  const scheduleFit = () => {
+    if (fitPending) return;
+    fitPending = true;
+    requestAnimationFrame(() => { fitPending = false; fitGrid(); });
+  };
+  window.addEventListener("resize", scheduleFit);
+  window.addEventListener("orientationchange", scheduleFit);
+  if (window.visualViewport) window.visualViewport.addEventListener("resize", scheduleFit);
+  // Re-fit whenever the board area's real size settles/changes.
+  const wrap = document.querySelector(".grid-wrap");
+  if (window.ResizeObserver && wrap) new ResizeObserver(scheduleFit).observe(wrap);
 
   let currentId = current.id;
   document.getElementById("archive-btn").addEventListener("click", () => {

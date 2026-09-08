@@ -22,10 +22,9 @@
       <header class="masthead">
         <h1 class="masthead__title">The Word Gazette</h1>
 
-        <!-- Toolbar: settings, timer, actions. -->
+        <!-- Toolbar: Older Issues (left) · timer (center) · one tools menu (right). -->
         <div class="toolbar">
           <div class="toolbar__left">
-            <button class="tool tool--icon" id="settings-btn" title="Settings" aria-label="Settings"></button>
             <button class="tool" id="archive-btn" title="Browse past issues">Older Issues</button>
           </div>
 
@@ -36,36 +35,30 @@
           </div>
 
           <div class="toolbar__right">
-            <div class="menu" data-menu>
-              <button class="tool menu__btn">Check<span class="caret"></span></button>
+            <div class="menu menu--right" data-menu>
+              <button class="tool menu__btn" aria-label="Puzzle tools">
+                <svg viewBox="0 0 24 24" width="20" height="20"><circle cx="12" cy="5" r="2" fill="currentColor"/><circle cx="12" cy="12" r="2" fill="currentColor"/><circle cx="12" cy="19" r="2" fill="currentColor"/></svg>
+              </button>
               <div class="menu__list" role="menu">
                 <button class="menu__item" data-toggle="autocheck" role="menuitemcheckbox">
                   <span class="tick" data-autocheck-ind></span>Autocheck
                 </button>
                 <div class="menu__sep"></div>
-                <button class="menu__item" data-act="check:letter">Check Letter</button>
-                <button class="menu__item" data-act="check:word">Check Word</button>
-                <button class="menu__item" data-act="check:puzzle">Check Puzzle</button>
-              </div>
-            </div>
-
-            <div class="menu" data-menu>
-              <button class="tool menu__btn">Reveal<span class="caret"></span></button>
-              <div class="menu__list" role="menu">
-                <button class="menu__item" data-act="reveal:letter">Reveal Letter</button>
-                <button class="menu__item" data-act="reveal:word">Reveal Word</button>
-                <button class="menu__item" data-act="reveal:puzzle">Reveal Puzzle</button>
-              </div>
-            </div>
-
-            <div class="menu" data-menu>
-              <button class="tool menu__btn">Clear<span class="caret"></span></button>
-              <div class="menu__list" role="menu">
-                <button class="menu__item" data-act="clear:letter">Clear Letter</button>
-                <button class="menu__item" data-act="clear:word">Clear Word</button>
+                <div class="menu__label">Check</div>
+                <button class="menu__item" data-act="check:letter">Letter</button>
+                <button class="menu__item" data-act="check:word">Word</button>
+                <button class="menu__item" data-act="check:puzzle">Puzzle</button>
                 <div class="menu__sep"></div>
-                <button class="menu__item" data-act="clear:puzzle">Clear Puzzle</button>
-                <button class="menu__item" data-act="clear:puzzle+timer">Clear Puzzle &amp; Timer</button>
+                <div class="menu__label">Reveal</div>
+                <button class="menu__item" data-act="reveal:letter">Letter</button>
+                <button class="menu__item" data-act="reveal:word">Word</button>
+                <button class="menu__item" data-act="reveal:puzzle">Puzzle</button>
+                <div class="menu__sep"></div>
+                <div class="menu__label">Clear</div>
+                <button class="menu__item" data-act="clear:letter">Letter</button>
+                <button class="menu__item" data-act="clear:word">Word</button>
+                <button class="menu__item" data-act="clear:puzzle">Puzzle</button>
+                <button class="menu__item" data-act="clear:puzzle+timer">Puzzle &amp; Timer</button>
               </div>
             </div>
           </div>
