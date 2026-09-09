@@ -62,7 +62,9 @@ body {
   overflow: hidden;
 }
 
-/* Content column (the paper texture behind it comes from the body). */
+/* Content column (the paper texture behind it comes from the body).
+   On phones this becomes a distinct sheet on top of a zoomed sheet — see the
+   mobile media query at the end of the file. */
 .paper {
   position: relative;
   display: flex;
@@ -105,21 +107,21 @@ body {
 
 .tool {
   font-family: var(--f-print);
-  font-size: 12px;
+  font-size: 14px;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   background: transparent;
   border: 0;
   color: var(--ink);
   cursor: pointer;
-  padding: 6px 9px;
+  padding: 9px 13px;
   display: inline-flex;
   align-items: center;
   gap: 6px;
 }
-.tool--icon { padding: 6px; }
+.tool--icon { padding: 9px; }
 .tool:hover { color: #000; }
-.tool svg { display: block; }
+.tool svg { display: block; width: 24px; height: 24px; }
 .caret {
   width: 6px; height: 6px;
   border-right: 1.5px solid currentColor;
@@ -138,11 +140,11 @@ body {
   justify-content: center;
   line-height: 1;
   font-family: var(--f-print);
-  font-size: 14px;
+  font-size: 17px;
   font-weight: 700;
   letter-spacing: 0.04em;
-  min-width: 54px;
-  padding: 6px 12px;
+  min-width: 66px;
+  padding: 9px 16px;
   border-radius: 999px;
   background: var(--timer);
   border: 1px solid #b8912a;
@@ -156,7 +158,7 @@ body {
   position: absolute;
   top: 100%; right: 0;
   margin-top: 6px;
-  min-width: 200px;
+  min-width: 230px;
   background: var(--menu-bg);
   border: 1px solid var(--ink);
   box-shadow: 0 8px 22px rgba(0, 0, 0, 0.4);
@@ -168,24 +170,24 @@ body {
 .menu--right .menu__list { right: 0; left: auto; }
 .menu__label {
   font-family: var(--f-print);
-  font-size: 10px;
+  font-size: 11.5px;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: var(--ink-soft);
-  padding: 4px 10px 2px;
+  padding: 6px 12px 3px;
 }
 .menu__item {
   display: flex;
   align-items: center;
-  gap: 9px;
+  gap: 10px;
   width: 100%;
   text-align: left;
   background: transparent;
   border: 0;
   font-family: var(--f-print);
-  font-size: 13px;
+  font-size: 15px;
   color: var(--ink);
-  padding: 8px 10px;
+  padding: 11px 14px;
   cursor: pointer;
 }
 .menu__item:hover { background: var(--hi); }
@@ -286,9 +288,9 @@ body {
   border: 0;
   color: var(--ink);
   font-family: var(--f-display);
-  font-size: 22px;
+  font-size: 26px;
   line-height: 1;
-  padding: 0 12px;
+  padding: 0 14px;
   cursor: pointer;
 }
 .cluebar__nav:hover { background: var(--hi-word); }
@@ -477,13 +479,24 @@ body {
     height: 100vh; height: 100dvh;
     display: flex; flex-direction: column;
     overflow: hidden;
+    /* Phone only: a second newspaper zoomed BIG sits behind, so the crossword
+       sheet reads as a sheet stacked on another sheet — newsprint edge to edge. */
+    background-size: 220% auto;
   }
   .stage {
     flex: 1 1 auto; min-height: 0;
     height: auto; overflow: hidden;       /* no scroll — everything fits */
     align-items: stretch; padding: 6px 8px;
   }
-  .paper { max-height: none; width: 100%; min-height: 0; padding: 10px 12px; }
+  .paper {
+    max-height: none; width: 100%; min-height: 0; padding: 10px 12px;
+    /* The top sheet: its own newsprint at normal scale, lifted off the zoomed
+       sheet behind with a shadow. isolate = the multiply ink bakes onto THIS
+       sheet, not the big one behind it. */
+    isolation: isolate;
+    background: var(--menu-bg) url("/assets/textures/paper.webp") center / cover no-repeat;
+    box-shadow: 0 4px 22px rgba(0, 0, 0, 0.3), 0 1px 3px rgba(0, 0, 0, 0.22);
+  }
 
   .masthead__title { font-size: clamp(24px, 8vw, 40px); margin-bottom: 2px; }
   .byline { display: none; }              /* save vertical room on the solve screen */
