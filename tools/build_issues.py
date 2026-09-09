@@ -10,8 +10,8 @@ import json, os, sys
 from datetime import date, timedelta
 from generate_midi import generate
 from cluebank import CLUES
+from grids import GRIDS          # each: {"pat": [...7 rows...], "seed": int}
 
-SEEDS = [1, 4, 31, 97, 23, 64, 66, 71, 43, 55]
 TITLE = "The Daily 7"
 AUTHOR = "The Gazette"
 ANCHOR = date(2026, 9, 8)   # date of the newest seeded (published) issue
@@ -19,10 +19,10 @@ SEED_PUBLISHED = 3          # how many to pre-publish (rest go to the queue)
 
 DATA = os.path.join(os.path.dirname(__file__), "..", "public", "data")
 
-def build_puzzle(seed, issue):
-    p = generate(seed)
+def build_puzzle(grid, issue):
+    p = generate(grid["seed"], grid["pat"])
     if not p:
-        raise SystemExit(f"seed {seed} failed to fill")
+        raise SystemExit(f"grid {issue} (seed {grid['seed']}) failed to fill")
     def clue_list(entries):
         out = []
         for e in entries:
@@ -42,7 +42,7 @@ def build_puzzle(seed, issue):
 
 def main():
     os.makedirs(DATA, exist_ok=True)
-    puzzles = [build_puzzle(s, i + 1) for i, s in enumerate(SEEDS)]
+    puzzles = [build_puzzle(g, i + 1) for i, g in enumerate(GRIDS)]
 
     # sanity: no repeated clue text within the whole set
     seen = {}
