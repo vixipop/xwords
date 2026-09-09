@@ -5,182 +5,152 @@
  "size": 7,
  "grid": [
   [
-   "B",
-   "I",
-   "G",
    "#",
-   "R",
-   "O",
-   "T"
-  ],
-  [
-   "O",
-   "N",
-   "E",
    "#",
-   "E",
-   "W",
-   "E"
-  ],
-  [
    "A",
-   "N",
-   "T",
-   "E",
-   "N",
-   "N",
-   "A"
-  ],
-  [
-   "#",
-   "#",
-   "T",
-   "E",
+   "L",
    "E",
    "#",
    "#"
   ],
   [
-   "R",
-   "A",
+   "#",
+   "S",
+   "P",
    "I",
-   "L",
-   "W",
-   "A",
-   "Y"
+   "D",
+   "E",
+   "R"
   ],
   [
+   "R",
+   "U",
+   "P",
+   "T",
    "U",
    "R",
-   "N",
-   "#",
-   "A",
-   "G",
    "E"
   ],
   [
-   "B",
-   "E",
-   "G",
-   "#",
-   "L",
    "O",
-   "W"
+   "A",
+   "R",
+   "#",
+   "C",
+   "O",
+   "D"
+  ],
+  [
+   "A",
+   "V",
+   "O",
+   "C",
+   "A",
+   "D",
+   "O"
+  ],
+  [
+   "D",
+   "E",
+   "V",
+   "O",
+   "T",
+   "E",
+   "#"
+  ],
+  [
+   "#",
+   "#",
+   "E",
+   "Y",
+   "E",
+   "#",
+   "#"
   ]
  ],
  "clues": {
   "across": [
    {
     "num": 1,
-    "clue": "Large",
-    "answer": "BIG"
+    "clue": "Pub brew",
+    "answer": "ALE"
    },
    {
     "num": 4,
-    "clue": "Decay",
-    "answer": "ROT"
+    "clue": "Eight-legged web spinner",
+    "answer": "SPIDER"
    },
    {
     "num": 7,
-    "clue": "The loneliest number",
-    "answer": "ONE"
+    "clue": "Burst open",
+    "answer": "RUPTURE"
    },
    {
     "num": 8,
-    "clue": "Female sheep",
-    "answer": "EWE"
+    "clue": "Rowboat paddle",
+    "answer": "OAR"
    },
    {
     "num": 9,
-    "clue": "TV signal catcher",
-    "answer": "ANTENNA"
+    "clue": "Fish in fish sticks",
+    "answer": "COD"
    },
    {
-    "num": 11,
-    "clue": "Golf ball's perch",
-    "answer": "TEE"
+    "num": 10,
+    "clue": "Guacamole fruit",
+    "answer": "AVOCADO"
    },
    {
     "num": 12,
-    "clue": "Train's network of tracks",
-    "answer": "RAILWAY"
+    "clue": "Dedicate, as time",
+    "answer": "DEVOTE"
    },
    {
-    "num": 16,
-    "clue": "Coffee dispenser",
-    "answer": "URN"
-   },
-   {
-    "num": 17,
-    "clue": "Years you've lived",
-    "answer": "AGE"
-   },
-   {
-    "num": 18,
-    "clue": "Plead",
-    "answer": "BEG"
-   },
-   {
-    "num": 19,
-    "clue": "Not high",
-    "answer": "LOW"
+    "num": 13,
+    "clue": "Needle's hole, or what you see with",
+    "answer": "EYE"
    }
   ],
   "down": [
    {
     "num": 1,
-    "clue": "Constricting snake",
-    "answer": "BOA"
+    "clue": "Give the green light to",
+    "answer": "APPROVE"
    },
    {
     "num": 2,
-    "clue": "Roadside lodging",
-    "answer": "INN"
+    "clue": "Illuminated",
+    "answer": "LIT"
    },
    {
     "num": 3,
-    "clue": "Obtaining",
-    "answer": "GETTING"
+    "clue": "Teach",
+    "answer": "EDUCATE"
    },
    {
     "num": 4,
-    "clue": "Subscription extension",
-    "answer": "RENEWAL"
+    "clue": "Smoothly charming",
+    "answer": "SUAVE"
    },
    {
     "num": 5,
-    "clue": "Possess",
-    "answer": "OWN"
+    "clue": "Wear away slowly",
+    "answer": "ERODE"
    },
    {
     "num": 6,
-    "clue": "Steeped drink",
-    "answer": "TEA"
+    "clue": "Do over",
+    "answer": "REDO"
    },
    {
-    "num": 10,
-    "clue": "Slippery swimmer",
-    "answer": "EEL"
+    "num": 7,
+    "clue": "Route for cars",
+    "answer": "ROAD"
    },
    {
-    "num": 12,
-    "clue": "Massage",
-    "answer": "RUB"
-   },
-   {
-    "num": 13,
-    "clue": "\"You ___ here\"",
-    "answer": "ARE"
-   },
-   {
-    "num": 14,
-    "clue": "In the past",
-    "answer": "AGO"
-   },
-   {
-    "num": 15,
-    "clue": "Evergreen with red berries",
-    "answer": "YEW"
+    "num": 11,
+    "clue": "Playfully shy",
+    "answer": "COY"
    }
   ]
  },

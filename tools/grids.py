@@ -1,10 +1,10 @@
 """Chosen grids for the daily issues: each a distinct black-square
-layout plus the seed that fills it cleanly. Generated via the tools in
-this folder; edit by hand freely.
+layout plus a seed that fills it cleanly (common words only, no proper
+nouns), with answers chosen to barely repeat across issues.
 """
 
 GRIDS = [
-    {"seed": 34, "pat": [
+    {"seed": 1, "pat": [
         '...#...',
         '...#...',
         '.......',
@@ -13,7 +13,7 @@ GRIDS = [
         '...#...',
         '...#...',
     ]},
-    {"seed": 18, "pat": [
+    {"seed": 17, "pat": [
         '...#...',
         '.......',
         '.......',
@@ -22,7 +22,7 @@ GRIDS = [
         '.......',
         '...#...',
     ]},
-    {"seed": 46, "pat": [
+    {"seed": 14, "pat": [
         '...#...',
         '...#...',
         '.......',
@@ -31,7 +31,7 @@ GRIDS = [
         '...#...',
         '...#...',
     ]},
-    {"seed": 55, "pat": [
+    {"seed": 24, "pat": [
         '##...##',
         '#......',
         '.......',
@@ -40,7 +40,7 @@ GRIDS = [
         '......#',
         '##...##',
     ]},
-    {"seed": 58, "pat": [
+    {"seed": 19, "pat": [
         '##....#',
         '#.....#',
         '.......',
@@ -49,7 +49,7 @@ GRIDS = [
         '#.....#',
         '#....##',
     ]},
-    {"seed": 2, "pat": [
+    {"seed": 116, "pat": [
         '##...##',
         '......#',
         '.......',
@@ -58,7 +58,7 @@ GRIDS = [
         '#......',
         '##...##',
     ]},
-    {"seed": 1, "pat": [
+    {"seed": 45, "pat": [
         '##.....',
         '#......',
         '#......',
@@ -67,7 +67,7 @@ GRIDS = [
         '......#',
         '.....##',
     ]},
-    {"seed": 21, "pat": [
+    {"seed": 66, "pat": [
         '###....',
         '#......',
         '.......',

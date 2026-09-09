@@ -6,181 +6,171 @@
  "grid": [
   [
    "B",
-   "E",
-   "E",
+   "A",
+   "R",
    "#",
+   "E",
    "O",
-   "W",
-   "E"
+   "N"
   ],
   [
-   "O",
-   "W",
+   "E",
    "L",
-   "#",
-   "P",
-   "I",
-   "G"
+   "E",
+   "C",
+   "T",
+   "R",
+   "O"
   ],
   [
-   "W",
+   "D",
    "E",
-   "D",
-   "D",
-   "I",
-   "N",
-   "G"
+   "C",
+   "R",
+   "E",
+   "E",
+   "D"
   ],
   [
    "#",
    "#",
-   "E",
    "O",
-   "N",
+   "A",
+   "R",
    "#",
    "#"
   ],
   [
-   "M",
-   "A",
-   "R",
+   "S",
    "T",
-   "I",
-   "A",
-   "L"
+   "U",
+   "N",
+   "N",
+   "E",
+   "D"
   ],
   [
-   "O",
-   "I",
    "L",
-   "#",
-   "O",
-   "R",
+   "I",
+   "N",
+   "E",
+   "A",
+   "G",
    "E"
   ],
   [
-   "P",
-   "R",
    "Y",
-   "#",
-   "N",
    "E",
-   "T"
+   "T",
+   "#",
+   "L",
+   "O",
+   "W"
   ]
  ],
  "clues": {
   "across": [
    {
     "num": 1,
-    "clue": "Honey maker",
-    "answer": "BEE"
+    "clue": "Where drinks are served",
+    "answer": "BAR"
    },
    {
     "num": 4,
-    "clue": "Be in debt",
-    "answer": "OWE"
-   },
-   {
-    "num": 7,
-    "clue": "Nocturnal hooter",
-    "answer": "OWL"
-   },
-   {
-    "num": 8,
-    "clue": "Farm oinker",
-    "answer": "PIG"
-   },
-   {
-    "num": 9,
-    "clue": "Marriage ceremony",
-    "answer": "WEDDING"
-   },
-   {
-    "num": 11,
     "clue": "Very long time",
     "answer": "EON"
    },
    {
-    "num": 12,
-    "clue": "___ arts",
-    "answer": "MARTIAL"
+    "num": 7,
+    "clue": "Prefix with magnet",
+    "answer": "ELECTRO"
+   },
+   {
+    "num": 9,
+    "clue": "Ordered by law",
+    "answer": "DECREED"
+   },
+   {
+    "num": 10,
+    "clue": "Rowboat paddle",
+    "answer": "OAR"
+   },
+   {
+    "num": 11,
+    "clue": "Shocked speechless",
+    "answer": "STUNNED"
+   },
+   {
+    "num": 15,
+    "clue": "Line of ancestry",
+    "answer": "LINEAGE"
    },
    {
     "num": 16,
-    "clue": "Slippery engine fluid",
-    "answer": "OIL"
+    "clue": "So far",
+    "answer": "YET"
    },
    {
     "num": 17,
-    "clue": "Rock you mine metal from",
-    "answer": "ORE"
-   },
-   {
-    "num": 18,
-    "clue": "Snoop",
-    "answer": "PRY"
-   },
-   {
-    "num": 19,
-    "clue": "Goal's mesh",
-    "answer": "NET"
+    "clue": "Not high",
+    "answer": "LOW"
    }
   ],
   "down": [
    {
     "num": 1,
-    "clue": "Archer's weapon",
-    "answer": "BOW"
+    "clue": "Place to sleep",
+    "answer": "BED"
    },
    {
     "num": 2,
-    "clue": "Female sheep",
-    "answer": "EWE"
+    "clue": "Pub brew",
+    "answer": "ALE"
    },
    {
     "num": 3,
-    "clue": "On in years",
-    "answer": "ELDERLY"
+    "clue": "Tally the votes again",
+    "answer": "RECOUNT"
    },
    {
     "num": 4,
-    "clue": "Point of view",
-    "answer": "OPINION"
+    "clue": "Lasting for all time",
+    "answer": "ETERNAL"
    },
    {
     "num": 5,
-    "clue": "Be victorious",
-    "answer": "WIN"
+    "clue": "Rock you mine metal from",
+    "answer": "ORE"
    },
    {
     "num": 6,
-    "clue": "Breakfast staple",
-    "answer": "EGG"
+    "clue": "Silent yes",
+    "answer": "NOD"
    },
    {
-    "num": 10,
-    "clue": "Period, essentially",
-    "answer": "DOT"
+    "num": 8,
+    "clue": "Long-necked wading bird",
+    "answer": "CRANE"
+   },
+   {
+    "num": 11,
+    "clue": "Cunning",
+    "answer": "SLY"
    },
    {
     "num": 12,
-    "clue": "Floor-cleaning tool",
-    "answer": "MOP"
+    "clue": "Necktie, or a draw",
+    "answer": "TIE"
    },
    {
     "num": 13,
-    "clue": "What you breathe",
-    "answer": "AIR"
+    "clue": "Sense of self",
+    "answer": "EGO"
    },
    {
     "num": 14,
-    "clue": "\"You ___ here\"",
-    "answer": "ARE"
-   },
-   {
-    "num": 15,
-    "clue": "Allow",
-    "answer": "LET"
+    "clue": "Morning moisture on the grass",
+    "answer": "DEW"
    }
   ]
  },

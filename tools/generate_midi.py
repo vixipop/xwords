@@ -116,8 +116,9 @@ W3 = [w for w in W3 if w != "OVA"]          # OVA reads as a plural; drop it
 import os
 HERE = os.path.dirname(os.path.abspath(__file__))
 
-# A real English dictionary (all lowercase) for plural / stem detection.
-DICT = set(w.strip().lower() for w in open(os.path.join(HERE, "words_alpha.txt"))
+# A Scrabble-style dictionary (ENABLE) — real words with NO proper nouns — is
+# the validity gate, so surnames / place names never become answers.
+DICT = set(w.strip().lower() for w in open(os.path.join(HERE, "enable1.txt"))
            if w.strip().isalpha())
 ALLWORDS = DICT
 
@@ -178,14 +179,44 @@ try:
              if n.strip().isalpha()]
 except OSError:
     NAMES = []
-PROPER_BLOCK = set(COUNTRIES) | set(STATES) | set(NAMES)
+# Common proper nouns that coincide with well-scored, high-frequency entries
+# (surnames, planets, myth, cities, brands) and so slip past the other gates.
+EXTRA_PROPER = """JOHNSON EMERSON WHEELER ABEL DNIEPER BILOXI NEPTUNE PROST
+BOLERO WASSAIL MILORD ABBA CLARK PONTIAC STEPTOE BIRETTA PIERROT SMITH WILSON
+TAYLOR ANDERSON THOMAS JACKSON WHITE HARRIS MARTIN THOMPSON GARCIA ROBINSON
+LEWIS WALKER PEREZ HALL YOUNG ALLEN SANCHEZ WRIGHT TORRES NGUYEN HILL FLORES
+NELSON MITCHELL PARKER COLLINS EDWARDS MORRIS MURPHY COOPER PETERSON BAILEY
+REED KELLY HOWARD RAMOS COX WARD RICHARDSON WATSON BROOKS BENNETT GRAY JAMES
+REYES CRUZ HUGHES PRICE MYERS LONG FOSTER SANDERS ROSS MORALES POWELL SULLIVAN
+RUSSELL ORTIZ JENKINS PERRY BUTLER BARNES FISHER MERCURY VENUS MARS SATURN
+URANUS PLUTO APOLLO ATHENA ZEUS HERA CUPID EROS ODIN THOR LOKI ISIS OSIRIS
+DENVER DALLAS AUSTIN BOSTON SEATTLE ATLANTA PHOENIX DETROIT MEMPHIS FRESNO
+NAIROBI LONDON PARIS BERLIN MADRID VIENNA MOSCOW ATHENS DUBLIN MILAN NAPLES
+GENEVA MONACO OTTAWA TORONTO SYDNEY MUMBAI MANILA BEIJING TAIPEI SEOUL TOKYO
+CAIRO LAGOS ACCRA DAKAR RABAT TUNIS AMMAN DOHA""".split()
+# Off-tone words to keep out of a family puzzle.
+OFFTONE = "BONDAGE EROTICA CONDOM HEROIN COCAINE GESTAPO BRISTOL".split()
+PROPER_BLOCK = (set(COUNTRIES) | set(STATES) | set(NAMES)
+                | set(EXTRA_PROPER) | set(OFFTONE))
+
+# Frequency gate: a word must be reasonably common (appear in a 50k-word
+# frequency list) to be an answer. This drops archaic / obscure fill
+# (PARESIS, HANDSEL, WASSAIL) that the crossword score alone still allows.
+try:
+    COMMON = set(line.split()[0].strip().upper()
+                 for line in open(os.path.join(HERE, "en50k.txt"))
+                 if line.split() and line.split()[0].strip().isalpha())
+except OSError:
+    COMMON = None   # gate disabled if the list is missing
 
 by_len = defaultdict(list)
 by_len[3] = [w for w in sorted(set(W3)) if not is_plural(w)]  # curated clean 3s
 
 def acceptable(w):
-    """A real dictionary word, decently scored, not a plural or a proper noun."""
-    return (w.lower() in DICT and w not in PROPER_BLOCK and not is_plural(w))
+    """A real, common dictionary word: not a plural, not a proper noun, and
+    (when the frequency list is present) common enough to be fair fill."""
+    return (w.lower() in DICT and w not in PROPER_BLOCK and not is_plural(w)
+            and (COMMON is None or w in COMMON))
 
 POOL_CAP = 8000
 for L in (4, 5, 6, 7):

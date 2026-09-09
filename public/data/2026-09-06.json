@@ -10,49 +10,49 @@
    "N",
    "#",
    "A",
-   "L",
+   "C",
    "E"
   ],
   [
+   "A",
+   "L",
    "E",
-   "G",
-   "O",
    "#",
    "T",
-   "I",
+   "O",
+   "O"
+  ],
+  [
+   "G",
+   "L",
+   "U",
+   "T",
+   "T",
+   "O",
    "N"
   ],
   [
-   "D",
-   "E",
-   "V",
-   "O",
+   "#",
+   "#",
    "T",
-   "E",
-   "D"
-  ],
-  [
-   "#",
-   "#",
-   "E",
    "A",
    "R",
    "#",
    "#"
   ],
   [
-   "V",
-   "O",
-   "L",
-   "T",
+   "G",
+   "A",
+   "R",
+   "B",
    "A",
    "G",
    "E"
   ],
   [
    "E",
-   "A",
-   "T",
+   "G",
+   "O",
    "#",
    "C",
    "O",
@@ -60,8 +60,8 @@
   ],
   [
    "T",
-   "R",
-   "Y",
+   "E",
+   "N",
    "#",
    "T",
    "O",
@@ -77,38 +77,38 @@
    },
    {
     "num": 4,
+    "clue": "Tennis serve nobody returns",
+    "answer": "ACE"
+   },
+   {
+    "num": 7,
     "clue": "Pub brew",
     "answer": "ALE"
    },
    {
-    "num": 7,
-    "clue": "Sense of self",
-    "answer": "EGO"
-   },
-   {
     "num": 8,
-    "clue": "Cookie container metal",
-    "answer": "TIN"
+    "clue": "Also",
+    "answer": "TOO"
    },
    {
     "num": 9,
-    "clue": "Loyally dedicated",
-    "answer": "DEVOTED"
+    "clue": "One who overeats",
+    "answer": "GLUTTON"
    },
    {
     "num": 11,
-    "clue": "Corn unit, or hearing organ",
-    "answer": "EAR"
+    "clue": "Road-paving goo",
+    "answer": "TAR"
    },
    {
     "num": 12,
-    "clue": "Electrical force, in volts",
-    "answer": "VOLTAGE"
+    "clue": "Trash",
+    "answer": "GARBAGE"
    },
    {
     "num": 16,
-    "clue": "Have a meal",
-    "answer": "EAT"
+    "clue": "Sense of self",
+    "answer": "EGO"
    },
    {
     "num": 17,
@@ -117,8 +117,8 @@
    },
    {
     "num": 18,
-    "clue": "Attempt",
-    "answer": "TRY"
+    "clue": "Fingers on two hands",
+    "answer": "TEN"
    },
    {
     "num": 19,
@@ -129,18 +129,18 @@
   "down": [
    {
     "num": 1,
-    "clue": "Place to sleep",
-    "answer": "BED"
+    "clue": "Grocery carrier",
+    "answer": "BAG"
    },
    {
     "num": 2,
-    "clue": "Years you've lived",
-    "answer": "AGE"
+    "clue": "Every bit of it",
+    "answer": "ALL"
    },
    {
     "num": 3,
-    "clue": "A new and unusual thing",
-    "answer": "NOVELTY"
+    "clue": "Chargeless atomic particle",
+    "answer": "NEUTRON"
    },
    {
     "num": 4,
@@ -149,28 +149,28 @@
    },
    {
     "num": 5,
-    "clue": "Fib",
-    "answer": "LIE"
+    "clue": "Pigeon's sound",
+    "answer": "COO"
    },
    {
     "num": 6,
-    "clue": "Finish",
-    "answer": "END"
+    "clue": "Very long time",
+    "answer": "EON"
    },
    {
     "num": 10,
-    "clue": "Porridge grain",
-    "answer": "OAT"
+    "clue": "Restaurant bill",
+    "answer": "TAB"
    },
    {
     "num": 12,
-    "clue": "Animal doctor",
-    "answer": "VET"
+    "clue": "Obtain",
+    "answer": "GET"
    },
    {
     "num": 13,
-    "clue": "Rowboat paddle",
-    "answer": "OAR"
+    "clue": "Years you've lived",
+    "answer": "AGE"
    },
    {
     "num": 14,

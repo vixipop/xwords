@@ -14,8 +14,8 @@ from grids import GRIDS          # each: {"pat": [...7 rows...], "seed": int}
 
 TITLE = "The Daily 7"
 AUTHOR = "The Gazette"
-ANCHOR = date(2026, 9, 8)   # date of the newest seeded (published) issue
-SEED_PUBLISHED = 3          # how many to pre-publish (rest go to the queue)
+ANCHOR = date(2026, 9, 9)   # date of the newest seeded (published) issue
+SEED_PUBLISHED = 4          # how many to pre-publish (rest go to the queue)
 
 DATA = os.path.join(os.path.dirname(__file__), "..", "public", "data")
 

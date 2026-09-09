@@ -6,182 +6,152 @@
   "size": 7,
   "grid": [
    [
-    "A",
-    "N",
-    "D",
     "#",
-    "W",
-    "E",
-    "E"
-   ],
-   [
+    "#",
     "P",
-    "E",
-    "R",
-    "#",
-    "I",
-    "R",
-    "E"
-   ],
-   [
-    "E",
-    "T",
-    "E",
-    "R",
-    "N",
     "A",
-    "L"
-   ],
-   [
-    "#",
-    "#",
     "S",
-    "I",
-    "N",
-    "#",
+    "S",
     "#"
    ],
    [
-    "D",
-    "E",
-    "S",
-    "P",
-    "I",
+    "#",
+    "F",
+    "O",
+    "R",
     "T",
-    "E"
+    "H",
+    "#"
+   ],
+   [
+    "C",
+    "I",
+    "R",
+    "C",
+    "U",
+    "I",
+    "T"
    ],
    [
     "A",
-    "G",
-    "E",
-    "#",
     "N",
-    "I",
-    "L"
+    "T",
+    "#",
+    "B",
+    "E",
+    "E"
    ],
    [
-    "M",
-    "O",
+    "P",
+    "A",
+    "R",
+    "A",
+    "B",
+    "L",
+    "E"
+   ],
+   [
+    "#",
+    "L",
+    "A",
+    "C",
+    "E",
+    "D",
+    "#"
+   ],
+   [
+    "#",
+    "E",
+    "Y",
+    "E",
     "D",
     "#",
-    "G",
-    "E",
-    "M"
+    "#"
    ]
   ],
   "clues": {
    "across": [
     {
      "num": 1,
-     "clue": "Ampersand's meaning",
-     "answer": "AND"
+     "clue": "Go by",
+     "answer": "PASS"
     },
     {
-     "num": 4,
-     "clue": "Tiny",
-     "answer": "WEE"
+     "num": 5,
+     "clue": "Onward and out",
+     "answer": "FORTH"
     },
     {
-     "num": 7,
-     "clue": "For each",
-     "answer": "PER"
+     "num": 6,
+     "clue": "Closed electrical loop",
+     "answer": "CIRCUIT"
     },
     {
      "num": 8,
-     "clue": "Anger",
-     "answer": "IRE"
+     "clue": "Picnic pest",
+     "answer": "ANT"
     },
     {
      "num": 9,
-     "clue": "Lasting for all time",
-     "answer": "ETERNAL"
+     "clue": "Honey maker",
+     "answer": "BEE"
     },
     {
-     "num": 11,
-     "clue": "Moral wrong",
-     "answer": "SIN"
+     "num": 10,
+     "clue": "Story with a moral",
+     "answer": "PARABLE"
     },
     {
      "num": 12,
-     "clue": "In spite of",
-     "answer": "DESPITE"
+     "clue": "Tied up, as shoes",
+     "answer": "LACED"
     },
     {
-     "num": 16,
-     "clue": "Years you've lived",
-     "answer": "AGE"
-    },
-    {
-     "num": 17,
-     "clue": "Nothing, in soccer",
-     "answer": "NIL"
-    },
-    {
-     "num": 18,
-     "clue": "Trendy, in '60s London",
-     "answer": "MOD"
-    },
-    {
-     "num": 19,
-     "clue": "Precious stone",
-     "answer": "GEM"
+     "num": 13,
+     "clue": "Looked at",
+     "answer": "EYED"
     }
    ],
    "down": [
     {
      "num": 1,
-     "clue": "Gorilla, for one",
-     "answer": "APE"
+     "clue": "Depict",
+     "answer": "PORTRAY"
     },
     {
      "num": 2,
-     "clue": "Goal's mesh",
-     "answer": "NET"
+     "clue": "Curved path",
+     "answer": "ARC"
     },
     {
      "num": 3,
-     "clue": "Put on clothes",
-     "answer": "DRESSED"
+     "clue": "Banged, as a toe",
+     "answer": "STUBBED"
     },
     {
      "num": 4,
-     "clue": "Finishing in first place",
-     "answer": "WINNING"
+     "clue": "Knight's protective gear",
+     "answer": "SHIELD"
     },
     {
      "num": 5,
-     "clue": "Historical period",
-     "answer": "ERA"
+     "clue": "Grand closing number",
+     "answer": "FINALE"
     },
     {
      "num": 6,
-     "clue": "Slippery swimmer",
-     "answer": "EEL"
+     "clue": "Bottle topper",
+     "answer": "CAP"
     },
     {
-     "num": 10,
-     "clue": "Tear",
-     "answer": "RIP"
+     "num": 7,
+     "clue": "Golf ball's perch",
+     "answer": "TEE"
     },
     {
-     "num": 12,
-     "clue": "Beaver's build",
-     "answer": "DAM"
-    },
-    {
-     "num": 13,
-     "clue": "Sense of self",
-     "answer": "EGO"
-    },
-    {
-     "num": 14,
-     "clue": "Necktie, or a draw",
-     "answer": "TIE"
-    },
-    {
-     "num": 15,
-     "clue": "Street of horror films",
-     "answer": "ELM"
+     "num": 11,
+     "clue": "Tennis serve nobody returns",
+     "answer": "ACE"
     }
    ]
   }
@@ -193,182 +163,152 @@
   "size": 7,
   "grid": [
    [
+    "#",
+    "#",
+    "A",
+    "R",
+    "M",
+    "#",
+    "#"
+   ],
+   [
+    "S",
+    "A",
+    "L",
+    "A",
+    "A",
+    "M",
+    "#"
+   ],
+   [
+    "P",
+    "L",
     "A",
     "N",
-    "D",
-    "#",
-    "S",
+    "N",
+    "E",
+    "D"
+   ],
+   [
+    "A",
     "I",
-    "R"
+    "R",
+    "#",
+    "D",
+    "R",
+    "Y"
    ],
    [
     "R",
-    "U",
-    "E",
-    "#",
-    "O",
-    "R",
+    "A",
+    "M",
+    "P",
+    "A",
+    "G",
     "E"
    ],
    [
+    "#",
+    "S",
     "E",
-    "N",
     "A",
-    "B",
-    "L",
+    "T",
     "E",
     "D"
    ],
    [
     "#",
     "#",
-    "L",
-    "E",
     "D",
+    "Y",
+    "E",
     "#",
     "#"
-   ],
-   [
-    "I",
-    "N",
-    "I",
-    "T",
-    "I",
-    "A",
-    "L"
-   ],
-   [
-    "C",
-    "A",
-    "N",
-    "#",
-    "E",
-    "G",
-    "O"
-   ],
-   [
-    "E",
-    "G",
-    "G",
-    "#",
-    "R",
-    "O",
-    "B"
    ]
   ],
   "clues": {
    "across": [
     {
      "num": 1,
-     "clue": "Ampersand's meaning",
-     "answer": "AND"
+     "clue": "Shoulder-to-hand limb",
+     "answer": "ARM"
     },
     {
      "num": 4,
-     "clue": "Knight's title",
-     "answer": "SIR"
+     "clue": "Respectful bow of greeting",
+     "answer": "SALAAM"
     },
     {
      "num": 7,
-     "clue": "Regret",
-     "answer": "RUE"
-    },
-    {
-     "num": 8,
-     "clue": "Rock you mine metal from",
-     "answer": "ORE"
+     "clue": "Arranged in advance",
+     "answer": "PLANNED"
     },
     {
      "num": 9,
-     "clue": "Made possible",
-     "answer": "ENABLED"
+     "clue": "What you breathe",
+     "answer": "AIR"
+    },
+    {
+     "num": 10,
+     "clue": "Not at all wet",
+     "answer": "DRY"
     },
     {
      "num": 11,
-     "clue": "Guided",
-     "answer": "LED"
+     "clue": "Wild, destructive spree",
+     "answer": "RAMPAGE"
     },
     {
-     "num": 12,
-     "clue": "First, or a monogram letter",
-     "answer": "INITIAL"
+     "num": 13,
+     "clue": "Sitting down",
+     "answer": "SEATED"
     },
     {
-     "num": 16,
-     "clue": "Aluminum container",
-     "answer": "CAN"
-    },
-    {
-     "num": 17,
-     "clue": "Sense of self",
-     "answer": "EGO"
-    },
-    {
-     "num": 18,
-     "clue": "Breakfast staple",
-     "answer": "EGG"
-    },
-    {
-     "num": 19,
-     "clue": "Hold up",
-     "answer": "ROB"
+     "num": 14,
+     "clue": "Fabric coloring agent",
+     "answer": "DYE"
     }
    ],
    "down": [
     {
      "num": 1,
-     "clue": "\"You ___ here\"",
-     "answer": "ARE"
+     "clue": "Suddenly frightened",
+     "answer": "ALARMED"
     },
     {
      "num": 2,
-     "clue": "Convent dweller",
-     "answer": "NUN"
+     "clue": "Sprinted",
+     "answer": "RAN"
     },
     {
      "num": 3,
-     "clue": "Handing out the cards",
-     "answer": "DEALING"
+     "clue": "Official order",
+     "answer": "MANDATE"
     },
     {
      "num": 4,
-     "clue": "Member of an army",
-     "answer": "SOLDIER"
+     "clue": "Practice-box",
+     "answer": "SPAR"
     },
     {
      "num": 5,
-     "clue": "Anger",
-     "answer": "IRE"
+     "clue": "Assumed name",
+     "answer": "ALIAS"
     },
     {
      "num": 6,
-     "clue": "Stop-light color",
-     "answer": "RED"
+     "clue": "Combine into one",
+     "answer": "MERGE"
     },
     {
-     "num": 10,
-     "clue": "Wager",
-     "answer": "BET"
+     "num": 8,
+     "clue": "Colored, as cloth",
+     "answer": "DYED"
     },
     {
      "num": 12,
-     "clue": "Frozen water",
-     "answer": "ICE"
-    },
-    {
-     "num": 13,
-     "clue": "Pester",
-     "answer": "NAG"
-    },
-    {
-     "num": 14,
-     "clue": "In the past",
-     "answer": "AGO"
-    },
-    {
-     "num": 15,
-     "clue": "High, arcing throw",
-     "answer": "LOB"
+     "clue": "Wages",
+     "answer": "PAY"
     }
    ]
   }
@@ -380,182 +320,152 @@
   "size": 7,
   "grid": [
    [
-    "B",
-    "U",
-    "D",
     "#",
-    "W",
-    "O",
-    "W"
-   ],
-   [
-    "O",
-    "R",
-    "E",
     "#",
-    "E",
-    "W",
-    "E"
-   ],
-   [
+    "P",
     "A",
-    "N",
+    "S",
+    "T",
+    "A"
+   ],
+   [
+    "#",
+    "E",
+    "L",
+    "I",
     "C",
     "I",
-    "E",
-    "N",
     "T"
    ],
    [
     "#",
-    "#",
-    "I",
+    "D",
+    "O",
+    "R",
+    "A",
+    "D",
+    "O"
+   ],
+   [
     "L",
-    "K",
+    "I",
+    "T",
     "#",
+    "R",
+    "I",
+    "P"
+   ],
+   [
+    "A",
+    "T",
+    "T",
+    "I",
+    "R",
+    "E",
     "#"
    ],
    [
+    "V",
     "E",
-    "N",
-    "D",
-    "L",
     "E",
-    "S",
-    "S"
-   ],
-   [
     "R",
-    "O",
     "E",
-    "#",
-    "N",
-    "E",
-    "T"
+    "D",
+    "#"
    ],
    [
     "A",
     "D",
     "D",
-    "#",
+    "E",
     "D",
-    "A",
-    "Y"
+    "#",
+    "#"
    ]
   ],
   "clues": {
    "across": [
     {
      "num": 1,
-     "clue": "Flower before it opens",
-     "answer": "BUD"
+     "clue": "Spaghetti or penne",
+     "answer": "PASTA"
     },
     {
-     "num": 4,
-     "clue": "Impress greatly",
-     "answer": "WOW"
+     "num": 6,
+     "clue": "Draw out, as a response",
+     "answer": "ELICIT"
     },
     {
      "num": 7,
-     "clue": "Rock you mine metal from",
-     "answer": "ORE"
+     "clue": "Golden game fish",
+     "answer": "DORADO"
     },
     {
      "num": 8,
-     "clue": "Female sheep",
-     "answer": "EWE"
+     "clue": "Illuminated",
+     "answer": "LIT"
     },
     {
      "num": 9,
-     "clue": "Very, very old",
-     "answer": "ANCIENT"
+     "clue": "Tear",
+     "answer": "RIP"
     },
     {
-     "num": 11,
-     "clue": "Type or kind",
-     "answer": "ILK"
+     "num": 10,
+     "clue": "Clothing",
+     "answer": "ATTIRE"
     },
     {
      "num": 12,
-     "clue": "Going on forever",
-     "answer": "ENDLESS"
+     "clue": "Swerved",
+     "answer": "VEERED"
     },
     {
-     "num": 16,
-     "clue": "Fish eggs",
-     "answer": "ROE"
-    },
-    {
-     "num": 17,
-     "clue": "Goal's mesh",
-     "answer": "NET"
-    },
-    {
-     "num": 18,
-     "clue": "Sum up",
-     "answer": "ADD"
-    },
-    {
-     "num": 19,
-     "clue": "Twenty-four hours",
-     "answer": "DAY"
+     "num": 13,
+     "clue": "Included as an extra",
+     "answer": "ADDED"
     }
    ],
    "down": [
     {
      "num": 1,
-     "clue": "Constricting snake",
-     "answer": "BOA"
+     "clue": "Schemed",
+     "answer": "PLOTTED"
     },
     {
      "num": 2,
-     "clue": "Coffee dispenser",
-     "answer": "URN"
+     "clue": "What you breathe",
+     "answer": "AIR"
     },
     {
      "num": 3,
-     "clue": "Made up one's mind",
-     "answer": "DECIDED"
+     "clue": "Left with a lasting mark",
+     "answer": "SCARRED"
     },
     {
      "num": 4,
-     "clue": "Saturday and Sunday",
-     "answer": "WEEKEND"
+     "clue": "Straightened up",
+     "answer": "TIDIED"
     },
     {
      "num": 5,
-     "clue": "Possess",
-     "answer": "OWN"
+     "clue": "Resting on the top of",
+     "answer": "ATOP"
     },
     {
      "num": 6,
-     "clue": "Not dry",
-     "answer": "WET"
+     "clue": "Revised for print",
+     "answer": "EDITED"
     },
     {
-     "num": 10,
-     "clue": "Under the weather",
-     "answer": "ILL"
+     "num": 8,
+     "clue": "Molten volcanic rock",
+     "answer": "LAVA"
     },
     {
-     "num": 12,
-     "clue": "Historical period",
-     "answer": "ERA"
-    },
-    {
-     "num": 13,
-     "clue": "Silent yes",
-     "answer": "NOD"
-    },
-    {
-     "num": 14,
-     "clue": "Body of salt water",
-     "answer": "SEA"
-    },
-    {
-     "num": 15,
-     "clue": "Pig's pen",
-     "answer": "STY"
+     "num": 11,
+     "clue": "Anger",
+     "answer": "IRE"
     }
    ]
   }
@@ -567,556 +477,152 @@
   "size": 7,
   "grid": [
    [
+    "#",
+    "#",
+    "#",
     "B",
     "A",
-    "N",
-    "#",
     "R",
+    "D"
+   ],
+   [
+    "#",
+    "L",
     "O",
-    "T"
-   ],
-   [
     "U",
-    "S",
-    "E",
-    "#",
-    "E",
-    "W",
-    "E"
-   ],
-   [
-    "S",
-    "H",
-    "U",
-    "T",
-    "T",
-    "L",
-    "E"
-   ],
-   [
-    "#",
-    "#",
-    "T",
-    "A",
-    "R",
-    "#",
-    "#"
-   ],
-   [
-    "L",
-    "A",
-    "R",
-    "G",
-    "E",
-    "S",
-    "T"
-   ],
-   [
-    "E",
-    "R",
-    "A",
-    "#",
-    "A",
-    "P",
-    "E"
-   ],
-   [
-    "G",
-    "E",
-    "L",
-    "#",
-    "T",
-    "A",
-    "N"
-   ]
-  ],
-  "clues": {
-   "across": [
-    {
-     "num": 1,
-     "clue": "Official prohibition",
-     "answer": "BAN"
-    },
-    {
-     "num": 4,
-     "clue": "Decay",
-     "answer": "ROT"
-    },
-    {
-     "num": 7,
-     "clue": "Put to work",
-     "answer": "USE"
-    },
-    {
-     "num": 8,
-     "clue": "Female sheep",
-     "answer": "EWE"
-    },
-    {
-     "num": 9,
-     "clue": "Space craft, or an airport bus",
-     "answer": "SHUTTLE"
-    },
-    {
-     "num": 11,
-     "clue": "Road-paving goo",
-     "answer": "TAR"
-    },
-    {
-     "num": 12,
-     "clue": "Biggest of all",
-     "answer": "LARGEST"
-    },
-    {
-     "num": 16,
-     "clue": "Historical period",
-     "answer": "ERA"
-    },
-    {
-     "num": 17,
-     "clue": "Gorilla, for one",
-     "answer": "APE"
-    },
-    {
-     "num": 18,
-     "clue": "Hair-styling goo",
-     "answer": "GEL"
-    },
-    {
-     "num": 19,
-     "clue": "Sun-kissed color",
-     "answer": "TAN"
-    }
-   ],
-   "down": [
-    {
-     "num": 1,
-     "clue": "Public transit ride",
-     "answer": "BUS"
-    },
-    {
-     "num": 2,
-     "clue": "Fireplace leftovers",
-     "answer": "ASH"
-    },
-    {
-     "num": 3,
-     "clue": "Taking no side",
-     "answer": "NEUTRAL"
-    },
-    {
-     "num": 4,
-     "clue": "Withdraw, or a quiet getaway",
-     "answer": "RETREAT"
-    },
-    {
-     "num": 5,
-     "clue": "Nocturnal hooter",
-     "answer": "OWL"
-    },
-    {
-     "num": 6,
-     "clue": "Golf ball's perch",
-     "answer": "TEE"
-    },
-    {
-     "num": 10,
-     "clue": "Playground game of chase",
-     "answer": "TAG"
-    },
-    {
-     "num": 12,
-     "clue": "Table's support",
-     "answer": "LEG"
-    },
-    {
-     "num": 13,
-     "clue": "\"You ___ here\"",
-     "answer": "ARE"
-    },
-    {
-     "num": 14,
-     "clue": "Place for a soak",
-     "answer": "SPA"
-    },
-    {
-     "num": 15,
-     "clue": "Fingers on two hands",
-     "answer": "TEN"
-    }
-   ]
-  }
- },
- {
-  "issue": 9,
-  "title": "The Daily 7",
-  "author": "The Gazette",
-  "size": 7,
-  "grid": [
-   [
-    "B",
-    "A",
     "D",
-    "#",
-    "S",
-    "I",
-    "N"
-   ],
-   [
-    "O",
-    "R",
     "E",
-    "#",
-    "T",
-    "O",
-    "E"
+    "R"
    ],
    [
-    "A",
-    "C",
     "C",
     "O",
-    "U",
-    "N",
-    "T"
-   ],
-   [
-    "#",
-    "#",
-    "L",
-    "I",
-    "D",
-    "#",
-    "#"
-   ],
-   [
-    "U",
-    "T",
-    "I",
-    "L",
-    "I",
-    "T",
-    "Y"
-   ],
-   [
-    "S",
-    "O",
-    "N",
-    "#",
-    "E",
-    "W",
-    "E"
-   ],
-   [
-    "E",
-    "Y",
-    "E",
-    "#",
+    "R",
     "D",
     "O",
-    "T"
-   ]
-  ],
-  "clues": {
-   "across": [
-    {
-     "num": 1,
-     "clue": "Not good",
-     "answer": "BAD"
-    },
-    {
-     "num": 4,
-     "clue": "Moral wrong",
-     "answer": "SIN"
-    },
-    {
-     "num": 7,
-     "clue": "Rock you mine metal from",
-     "answer": "ORE"
-    },
-    {
-     "num": 8,
-     "clue": "Foot digit",
-     "answer": "TOE"
-    },
-    {
-     "num": 9,
-     "clue": "Bank record",
-     "answer": "ACCOUNT"
-    },
-    {
-     "num": 11,
-     "clue": "Jar topper",
-     "answer": "LID"
-    },
-    {
-     "num": 12,
-     "clue": "Gas or electric service",
-     "answer": "UTILITY"
-    },
-    {
-     "num": 16,
-     "clue": "Male child",
-     "answer": "SON"
-    },
-    {
-     "num": 17,
-     "clue": "Female sheep",
-     "answer": "EWE"
-    },
-    {
-     "num": 18,
-     "clue": "Needle's hole, or what you see with",
-     "answer": "EYE"
-    },
-    {
-     "num": 19,
-     "clue": "Period, essentially",
-     "answer": "DOT"
-    }
-   ],
-   "down": [
-    {
-     "num": 1,
-     "clue": "Constricting snake",
-     "answer": "BOA"
-    },
-    {
-     "num": 2,
-     "clue": "Curved path",
-     "answer": "ARC"
-    },
-    {
-     "num": 3,
-     "clue": "Politely say no",
-     "answer": "DECLINE"
-    },
-    {
-     "num": 4,
-     "clue": "Hit the books",
-     "answer": "STUDIED"
-    },
-    {
-     "num": 5,
-     "clue": "Electrically charged particle",
-     "answer": "ION"
-    },
-    {
-     "num": 6,
-     "clue": "Goal's mesh",
-     "answer": "NET"
-    },
-    {
-     "num": 10,
-     "clue": "Slippery engine fluid",
-     "answer": "OIL"
-    },
-    {
-     "num": 12,
-     "clue": "Put to work",
-     "answer": "USE"
-    },
-    {
-     "num": 13,
-     "clue": "Plaything",
-     "answer": "TOY"
-    },
-    {
-     "num": 14,
-     "clue": "A pair",
-     "answer": "TWO"
-    },
-    {
-     "num": 15,
-     "clue": "So far",
-     "answer": "YET"
-    }
-   ]
-  }
- },
- {
-  "issue": 10,
-  "title": "The Daily 7",
-  "author": "The Gazette",
-  "size": 7,
-  "grid": [
-   [
     "B",
-    "I",
-    "T",
-    "#",
-    "P",
-    "E",
-    "G"
+    "A"
    ],
    [
-    "A",
-    "C",
-    "E",
-    "#",
-    "O",
     "R",
-    "E"
-   ],
-   [
-    "G",
-    "E",
-    "N",
-    "E",
-    "R",
-    "A",
-    "L"
-   ],
-   [
-    "#",
-    "#",
-    "S",
-    "E",
-    "T",
-    "#",
-    "#"
-   ],
-   [
-    "A",
-    "B",
-    "I",
-    "L",
-    "I",
-    "T",
-    "Y"
-   ],
-   [
-    "G",
-    "O",
-    "O",
-    "#",
-    "O",
-    "W",
-    "E"
-   ],
-   [
-    "O",
-    "W",
+    "U",
     "N",
     "#",
     "N",
     "O",
     "W"
+   ],
+   [
+    "O",
+    "V",
+    "A",
+    "T",
+    "I",
+    "O",
+    "N"
+   ],
+   [
+    "A",
+    "R",
+    "T",
+    "I",
+    "S",
+    "T",
+    "#"
+   ],
+   [
+    "K",
+    "E",
+    "E",
+    "N",
+    "#",
+    "#",
+    "#"
    ]
   ],
   "clues": {
    "across": [
     {
      "num": 1,
-     "clue": "Small amount",
-     "answer": "BIT"
+     "clue": "Poet of old",
+     "answer": "BARD"
     },
     {
-     "num": 4,
-     "clue": "Coat hook",
-     "answer": "PEG"
+     "num": 5,
+     "clue": "At a higher volume",
+     "answer": "LOUDER"
     },
     {
      "num": 7,
-     "clue": "Tennis serve nobody returns",
-     "answer": "ACE"
+     "clue": "Nicaraguan currency",
+     "answer": "CORDOBA"
     },
     {
      "num": 8,
-     "clue": "Rock you mine metal from",
-     "answer": "ORE"
+     "clue": "Move at a jog",
+     "answer": "RUN"
     },
     {
      "num": 9,
-     "clue": "Army's top commander",
-     "answer": "GENERAL"
+     "clue": "At this moment",
+     "answer": "NOW"
     },
     {
-     "num": 11,
-     "clue": "Tennis match segment",
-     "answer": "SET"
+     "num": 10,
+     "clue": "Enthusiastic applause",
+     "answer": "OVATION"
     },
     {
      "num": 12,
-     "clue": "Skill or talent",
-     "answer": "ABILITY"
+     "clue": "Painter or sculptor",
+     "answer": "ARTIST"
     },
     {
-     "num": 16,
-     "clue": "Sticky stuff",
-     "answer": "GOO"
-    },
-    {
-     "num": 17,
-     "clue": "Be in debt",
-     "answer": "OWE"
-    },
-    {
-     "num": 18,
-     "clue": "Possess",
-     "answer": "OWN"
-    },
-    {
-     "num": 19,
-     "clue": "At this moment",
-     "answer": "NOW"
+     "num": 13,
+     "clue": "Sharp, or eager",
+     "answer": "KEEN"
     }
    ],
    "down": [
     {
      "num": 1,
-     "clue": "Grocery carrier",
-     "answer": "BAG"
+     "clue": "Flower before it opens",
+     "answer": "BUD"
     },
     {
      "num": 2,
-     "clue": "Frozen water",
-     "answer": "ICE"
+     "clue": "Strikingly handsome man",
+     "answer": "ADONIS"
     },
     {
      "num": 3,
-     "clue": "Nervous strain",
-     "answer": "TENSION"
+     "clue": "Restart, as a computer",
+     "answer": "REBOOT"
     },
     {
      "num": 4,
-     "clue": "Serving size",
-     "answer": "PORTION"
+     "clue": "Sketched",
+     "answer": "DRAWN"
     },
     {
      "num": 5,
-     "clue": "Historical period",
-     "answer": "ERA"
+     "clue": "Angled slat in a vent",
+     "answer": "LOUVRE"
     },
     {
      "num": 6,
-     "clue": "Hair-styling goo",
-     "answer": "GEL"
+     "clue": "Elaborately decorated",
+     "answer": "ORNATE"
     },
     {
-     "num": 10,
-     "clue": "Slippery swimmer",
-     "answer": "EEL"
+     "num": 7,
+     "clue": "Frog's sound",
+     "answer": "CROAK"
     },
     {
-     "num": 12,
-     "clue": "In the past",
-     "answer": "AGO"
-    },
-    {
-     "num": 13,
-     "clue": "Archer's weapon",
-     "answer": "BOW"
-    },
-    {
-     "num": 14,
-     "clue": "A pair",
-     "answer": "TWO"
-    },
-    {
-     "num": 15,
-     "clue": "Evergreen with red berries",
-     "answer": "YEW"
+     "num": 11,
+     "clue": "Cookie container metal",
+     "answer": "TIN"
     }
    ]
   }

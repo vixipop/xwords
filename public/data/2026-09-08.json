@@ -5,182 +5,172 @@
  "size": 7,
  "grid": [
   [
-   "A",
-   "N",
-   "T",
-   "#",
-   "A",
-   "R",
-   "C"
-  ],
-  [
-   "P",
-   "E",
-   "R",
-   "#",
-   "C",
+   "B",
    "O",
-   "O"
-  ],
-  [
-   "T",
-   "W",
-   "I",
-   "S",
-   "T",
-   "E",
-   "D"
-  ],
-  [
-   "#",
-   "#",
-   "N",
-   "O",
-   "R",
-   "#",
-   "#"
-  ],
-  [
-   "E",
-   "V",
-   "I",
-   "D",
-   "E",
-   "N",
-   "T"
-  ],
-  [
-   "L",
-   "I",
-   "T",
-   "#",
-   "S",
-   "I",
-   "R"
-  ],
-  [
-   "K",
-   "E",
    "Y",
    "#",
    "S",
    "P",
-   "Y"
+   "A"
+  ],
+  [
+   "A",
+   "R",
+   "E",
+   "#",
+   "T",
+   "A",
+   "R"
+  ],
+  [
+   "D",
+   "I",
+   "A",
+   "L",
+   "E",
+   "C",
+   "T"
+  ],
+  [
+   "#",
+   "F",
+   "R",
+   "E",
+   "A",
+   "K",
+   "#"
+  ],
+  [
+   "W",
+   "I",
+   "N",
+   "G",
+   "M",
+   "A",
+   "N"
+  ],
+  [
+   "A",
+   "C",
+   "E",
+   "#",
+   "E",
+   "G",
+   "O"
+  ],
+  [
+   "R",
+   "E",
+   "D",
+   "#",
+   "D",
+   "E",
+   "W"
   ]
  ],
  "clues": {
   "across": [
    {
     "num": 1,
-    "clue": "Picnic pest",
-    "answer": "ANT"
+    "clue": "Young lad",
+    "answer": "BOY"
    },
    {
     "num": 4,
-    "clue": "Curved path",
-    "answer": "ARC"
+    "clue": "Place for a soak",
+    "answer": "SPA"
    },
    {
     "num": 7,
-    "clue": "For each",
-    "answer": "PER"
+    "clue": "\"You ___ here\"",
+    "answer": "ARE"
    },
    {
     "num": 8,
-    "clue": "Pigeon's sound",
-    "answer": "COO"
+    "clue": "Road-paving goo",
+    "answer": "TAR"
    },
    {
     "num": 9,
-    "clue": "Wrung, or warped",
-    "answer": "TWISTED"
+    "clue": "Regional way of speaking",
+    "answer": "DIALECT"
    },
    {
     "num": 11,
-    "clue": "Neither's partner",
-    "answer": "NOR"
+    "clue": "Sudden and odd, as an accident",
+    "answer": "FREAK"
    },
    {
     "num": 12,
-    "clue": "Plain to see",
-    "answer": "EVIDENT"
+    "clue": "Loyal sidekick",
+    "answer": "WINGMAN"
+   },
+   {
+    "num": 14,
+    "clue": "Tennis serve nobody returns",
+    "answer": "ACE"
+   },
+   {
+    "num": 15,
+    "clue": "Sense of self",
+    "answer": "EGO"
    },
    {
     "num": 16,
-    "clue": "Illuminated",
-    "answer": "LIT"
+    "clue": "Stop-light color",
+    "answer": "RED"
    },
    {
     "num": 17,
-    "clue": "Knight's title",
-    "answer": "SIR"
-   },
-   {
-    "num": 18,
-    "clue": "It opens a lock",
-    "answer": "KEY"
-   },
-   {
-    "num": 19,
-    "clue": "Secret agent",
-    "answer": "SPY"
+    "clue": "Morning moisture on the grass",
+    "answer": "DEW"
    }
   ],
   "down": [
    {
     "num": 1,
-    "clue": "Fitting",
-    "answer": "APT"
+    "clue": "Not good",
+    "answer": "BAD"
    },
    {
     "num": 2,
-    "clue": "Fresh out of the box",
-    "answer": "NEW"
+    "clue": "Body opening",
+    "answer": "ORIFICE"
    },
    {
     "num": 3,
-    "clue": "A group of three",
-    "answer": "TRINITY"
+    "clue": "Longed",
+    "answer": "YEARNED"
    },
    {
     "num": 4,
-    "clue": "Woman with a film role",
-    "answer": "ACTRESS"
+    "clue": "Cooked over boiling water",
+    "answer": "STEAMED"
    },
    {
     "num": 5,
-    "clue": "Fish eggs",
-    "answer": "ROE"
+    "clue": "Parcel in the mail",
+    "answer": "PACKAGE"
    },
    {
     "num": 6,
-    "clue": "Fish in fish sticks",
-    "answer": "COD"
+    "clue": "What a gallery displays",
+    "answer": "ART"
    },
    {
     "num": 10,
-    "clue": "Piece of turf",
-    "answer": "SOD"
+    "clue": "Table's support",
+    "answer": "LEG"
    },
    {
     "num": 12,
-    "clue": "Large antlered deer",
-    "answer": "ELK"
+    "clue": "Armed conflict",
+    "answer": "WAR"
    },
    {
     "num": 13,
-    "clue": "Compete",
-    "answer": "VIE"
-   },
-   {
-    "num": 14,
-    "clue": "Small bite",
-    "answer": "NIP"
-   },
-   {
-    "num": 15,
-    "clue": "Attempt",
-    "answer": "TRY"
+    "clue": "At this moment",
+    "answer": "NOW"
    }
   ]
  },
