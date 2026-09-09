@@ -1,0 +1,189 @@
+{
+ "issue": 4,
+ "title": "The Daily 7",
+ "author": "The Gazette",
+ "size": 7,
+ "grid": [
+  [
+   "B",
+   "I",
+   "G",
+   "#",
+   "R",
+   "O",
+   "T"
+  ],
+  [
+   "O",
+   "N",
+   "E",
+   "#",
+   "E",
+   "W",
+   "E"
+  ],
+  [
+   "A",
+   "N",
+   "T",
+   "E",
+   "N",
+   "N",
+   "A"
+  ],
+  [
+   "#",
+   "#",
+   "T",
+   "E",
+   "E",
+   "#",
+   "#"
+  ],
+  [
+   "R",
+   "A",
+   "I",
+   "L",
+   "W",
+   "A",
+   "Y"
+  ],
+  [
+   "U",
+   "R",
+   "N",
+   "#",
+   "A",
+   "G",
+   "E"
+  ],
+  [
+   "B",
+   "E",
+   "G",
+   "#",
+   "L",
+   "O",
+   "W"
+  ]
+ ],
+ "clues": {
+  "across": [
+   {
+    "num": 1,
+    "clue": "Large",
+    "answer": "BIG"
+   },
+   {
+    "num": 4,
+    "clue": "Decay",
+    "answer": "ROT"
+   },
+   {
+    "num": 7,
+    "clue": "The loneliest number",
+    "answer": "ONE"
+   },
+   {
+    "num": 8,
+    "clue": "Female sheep",
+    "answer": "EWE"
+   },
+   {
+    "num": 9,
+    "clue": "TV signal catcher",
+    "answer": "ANTENNA"
+   },
+   {
+    "num": 11,
+    "clue": "Golf ball's perch",
+    "answer": "TEE"
+   },
+   {
+    "num": 12,
+    "clue": "Train's network of tracks",
+    "answer": "RAILWAY"
+   },
+   {
+    "num": 16,
+    "clue": "Coffee dispenser",
+    "answer": "URN"
+   },
+   {
+    "num": 17,
+    "clue": "Years you've lived",
+    "answer": "AGE"
+   },
+   {
+    "num": 18,
+    "clue": "Plead",
+    "answer": "BEG"
+   },
+   {
+    "num": 19,
+    "clue": "Not high",
+    "answer": "LOW"
+   }
+  ],
+  "down": [
+   {
+    "num": 1,
+    "clue": "Constricting snake",
+    "answer": "BOA"
+   },
+   {
+    "num": 2,
+    "clue": "Roadside lodging",
+    "answer": "INN"
+   },
+   {
+    "num": 3,
+    "clue": "Obtaining",
+    "answer": "GETTING"
+   },
+   {
+    "num": 4,
+    "clue": "Subscription extension",
+    "answer": "RENEWAL"
+   },
+   {
+    "num": 5,
+    "clue": "Possess",
+    "answer": "OWN"
+   },
+   {
+    "num": 6,
+    "clue": "Steeped drink",
+    "answer": "TEA"
+   },
+   {
+    "num": 10,
+    "clue": "Slippery swimmer",
+    "answer": "EEL"
+   },
+   {
+    "num": 12,
+    "clue": "Massage",
+    "answer": "RUB"
+   },
+   {
+    "num": 13,
+    "clue": "\"You ___ here\"",
+    "answer": "ARE"
+   },
+   {
+    "num": 14,
+    "clue": "In the past",
+    "answer": "AGO"
+   },
+   {
+    "num": 15,
+    "clue": "Evergreen with red berries",
+    "answer": "YEW"
+   }
+  ]
+ },
+ "id": "2026-09-09",
+ "date": "2026-09-09"
+}
