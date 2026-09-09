@@ -20,6 +20,12 @@
   <div class="stage">
     <div class="paper">
       <header class="masthead">
+        <!-- Rich newspaper chrome (desktop). Hidden on phones via the media query. -->
+        <div class="masthead__rule masthead__rule--top">
+          <span id="issue-no">VOL. I . . . No. 1</span>
+          <span id="dateline">Loading&hellip;</span>
+          <span>FREE FOREVER</span>
+        </div>
         <h1 class="masthead__title">The Word Gazette</h1>
 
         <!-- Toolbar: Older Issues (left) · timer (center) · one tools menu (right). -->
@@ -67,6 +73,7 @@
 
       <div class="puzzle__head">
         <h2 id="puzzle-title">The Daily Crossword</h2>
+        <p class="byline" id="byline">Constructed by the Machine</p>
       </div>
 
       <!-- ===== Three columns: Down | Puzzle | Across ===== -->
@@ -94,6 +101,11 @@
           <ol id="clues-across" class="clues__list"></ol>
         </section>
       </main>
+
+      <footer class="fineprint">
+        <p>The Word Gazette is a free, ad-free daily crossword. A new puzzle every morning.
+        Set in stand-ins for the fonts fit to print. &copy; <span id="year"></span> The Word Gazette.</p>
+      </footer>
     </div>
   </div>
 

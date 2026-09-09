@@ -718,6 +718,7 @@ function mountIssue(data) {
   setText("byline", `Constructed by ${data.author || "The Gazette"}`);
   setText("issue-no", `No. ${data.issue ?? 1}`);
   setText("dateline", data.date ? longDate(data.date) : "");
+  setText("year", String(new Date().getFullYear()));
 
   const STORE_KEY = `tdc:${data.id || "sample"}`;
   let saved = null;
