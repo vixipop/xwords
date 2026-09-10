@@ -1,0 +1,160 @@
+{
+ "issue": 11,
+ "title": "The Wednesday Crossword",
+ "author": "The Gazette",
+ "size": 7,
+ "grid": [
+  [
+   "#",
+   "#",
+   "T",
+   "A",
+   "C",
+   "T",
+   "#"
+  ],
+  [
+   "#",
+   "C",
+   "A",
+   "D",
+   "R",
+   "E",
+   "#"
+  ],
+  [
+   "G",
+   "O",
+   "N",
+   "D",
+   "O",
+   "L",
+   "A"
+  ],
+  [
+   "O",
+   "A",
+   "K",
+   "#",
+   "A",
+   "L",
+   "P"
+  ],
+  [
+   "B",
+   "R",
+   "I",
+   "S",
+   "K",
+   "E",
+   "T"
+  ],
+  [
+   "#",
+   "S",
+   "N",
+   "E",
+   "E",
+   "R",
+   "#"
+  ],
+  [
+   "#",
+   "E",
+   "G",
+   "A",
+   "D",
+   "#",
+   "#"
+  ]
+ ],
+ "clues": {
+  "across": [
+   {
+    "num": 1,
+    "clue": "Diplomatic sensitivity",
+    "answer": "TACT"
+   },
+   {
+    "num": 5,
+    "clue": "Core group of leaders",
+    "answer": "CADRE"
+   },
+   {
+    "num": 6,
+    "clue": "Venetian canal boat",
+    "answer": "GONDOLA"
+   },
+   {
+    "num": 8,
+    "clue": "Sturdy hardwood tree",
+    "answer": "OAK"
+   },
+   {
+    "num": 9,
+    "clue": "Swiss peak",
+    "answer": "ALP"
+   },
+   {
+    "num": 10,
+    "clue": "Barbecue beef cut",
+    "answer": "BRISKET"
+   },
+   {
+    "num": 12,
+    "clue": "Scornful expression",
+    "answer": "SNEER"
+   },
+   {
+    "num": 13,
+    "clue": "Old-fashioned exclamation",
+    "answer": "EGAD"
+   }
+  ],
+  "down": [
+   {
+    "num": 1,
+    "clue": "Deliberately losing",
+    "answer": "TANKING"
+   },
+   {
+    "num": 2,
+    "clue": "Sum up",
+    "answer": "ADD"
+   },
+   {
+    "num": 3,
+    "clue": "Made a frog's sound",
+    "answer": "CROAKED"
+   },
+   {
+    "num": 4,
+    "clue": "Bank-window worker",
+    "answer": "TELLER"
+   },
+   {
+    "num": 5,
+    "clue": "Rough to the touch",
+    "answer": "COARSE"
+   },
+   {
+    "num": 6,
+    "clue": "Big lump, informally",
+    "answer": "GOB"
+   },
+   {
+    "num": 7,
+    "clue": "Fitting",
+    "answer": "APT"
+   },
+   {
+    "num": 11,
+    "clue": "Body of salt water",
+    "answer": "SEA"
+   }
+  ]
+ },
+ "id": "2026-09-16",
+ "date": "2026-09-16",
+ "reviewed": false
+}

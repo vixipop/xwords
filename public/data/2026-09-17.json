@@ -1,0 +1,160 @@
+{
+ "issue": 12,
+ "title": "The Thursday Crossword",
+ "author": "The Gazette",
+ "size": 7,
+ "grid": [
+  [
+   "#",
+   "S",
+   "E",
+   "A",
+   "R",
+   "#",
+   "#"
+  ],
+  [
+   "#",
+   "I",
+   "N",
+   "N",
+   "E",
+   "R",
+   "#"
+  ],
+  [
+   "S",
+   "E",
+   "T",
+   "T",
+   "L",
+   "E",
+   "R"
+  ],
+  [
+   "E",
+   "R",
+   "R",
+   "#",
+   "A",
+   "C",
+   "E"
+  ],
+  [
+   "T",
+   "R",
+   "U",
+   "S",
+   "T",
+   "E",
+   "D"
+  ],
+  [
+   "#",
+   "A",
+   "S",
+   "K",
+   "E",
+   "D",
+   "#"
+  ],
+  [
+   "#",
+   "#",
+   "T",
+   "I",
+   "D",
+   "E",
+   "#"
+  ]
+ ],
+ "clues": {
+  "across": [
+   {
+    "num": 1,
+    "clue": "Brown quickly in a hot pan",
+    "answer": "SEAR"
+   },
+   {
+    "num": 5,
+    "clue": "On the inside",
+    "answer": "INNER"
+   },
+   {
+    "num": 7,
+    "clue": "Frontier homesteader",
+    "answer": "SETTLER"
+   },
+   {
+    "num": 9,
+    "clue": "Make a mistake",
+    "answer": "ERR"
+   },
+   {
+    "num": 10,
+    "clue": "Tennis serve nobody returns",
+    "answer": "ACE"
+   },
+   {
+    "num": 11,
+    "clue": "Relied upon",
+    "answer": "TRUSTED"
+   },
+   {
+    "num": 13,
+    "clue": "Posed a question",
+    "answer": "ASKED"
+   },
+   {
+    "num": 14,
+    "clue": "Ocean's rise and fall",
+    "answer": "TIDE"
+   }
+  ],
+  "down": [
+   {
+    "num": 1,
+    "clue": "Jagged mountain range",
+    "answer": "SIERRA"
+   },
+   {
+    "num": 2,
+    "clue": "Hand over for safekeeping",
+    "answer": "ENTRUST"
+   },
+   {
+    "num": 3,
+    "clue": "Picnic pest",
+    "answer": "ANT"
+   },
+   {
+    "num": 4,
+    "clue": "Part of the same family",
+    "answer": "RELATED"
+   },
+   {
+    "num": 6,
+    "clue": "Draw back",
+    "answer": "RECEDE"
+   },
+   {
+    "num": 7,
+    "clue": "Tennis match segment",
+    "answer": "SET"
+   },
+   {
+    "num": 8,
+    "clue": "Stop-light color",
+    "answer": "RED"
+   },
+   {
+    "num": 12,
+    "clue": "Slope-slider's gear",
+    "answer": "SKI"
+   }
+  ]
+ },
+ "id": "2026-09-17",
+ "date": "2026-09-17",
+ "reviewed": false
+}

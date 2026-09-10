@@ -1,0 +1,160 @@
+{
+ "issue": 9,
+ "title": "The Monday Crossword",
+ "author": "The Gazette",
+ "size": 7,
+ "grid": [
+  [
+   "#",
+   "#",
+   "C",
+   "A",
+   "B",
+   "#",
+   "#"
+  ],
+  [
+   "S",
+   "T",
+   "O",
+   "R",
+   "E",
+   "D",
+   "#"
+  ],
+  [
+   "C",
+   "O",
+   "N",
+   "C",
+   "E",
+   "R",
+   "T"
+  ],
+  [
+   "A",
+   "R",
+   "T",
+   "#",
+   "L",
+   "O",
+   "W"
+  ],
+  [
+   "M",
+   "A",
+   "R",
+   "T",
+   "I",
+   "N",
+   "I"
+  ],
+  [
+   "#",
+   "H",
+   "O",
+   "R",
+   "N",
+   "E",
+   "T"
+  ],
+  [
+   "#",
+   "#",
+   "L",
+   "Y",
+   "E",
+   "#",
+   "#"
+  ]
+ ],
+ "clues": {
+  "across": [
+   {
+    "num": 1,
+    "clue": "Taxi",
+    "answer": "CAB"
+   },
+   {
+    "num": 4,
+    "clue": "Put away for later",
+    "answer": "STORED"
+   },
+   {
+    "num": 7,
+    "clue": "Live music performance",
+    "answer": "CONCERT"
+   },
+   {
+    "num": 9,
+    "clue": "What a gallery displays",
+    "answer": "ART"
+   },
+   {
+    "num": 10,
+    "clue": "Not high",
+    "answer": "LOW"
+   },
+   {
+    "num": 11,
+    "clue": "Shaken-or-stirred cocktail",
+    "answer": "MARTINI"
+   },
+   {
+    "num": 13,
+    "clue": "Stinging insect",
+    "answer": "HORNET"
+   },
+   {
+    "num": 14,
+    "clue": "Caustic soap ingredient",
+    "answer": "LYE"
+   }
+  ],
+  "down": [
+   {
+    "num": 1,
+    "clue": "Remote's job",
+    "answer": "CONTROL"
+   },
+   {
+    "num": 2,
+    "clue": "Curved path",
+    "answer": "ARC"
+   },
+   {
+    "num": 3,
+    "clue": "Direct route (make a ___)",
+    "answer": "BEELINE"
+   },
+   {
+    "num": 4,
+    "clue": "Con artist's scheme",
+    "answer": "SCAM"
+   },
+   {
+    "num": 5,
+    "clue": "Jewish scripture",
+    "answer": "TORAH"
+   },
+   {
+    "num": 6,
+    "clue": "Remote-flown aircraft",
+    "answer": "DRONE"
+   },
+   {
+    "num": 8,
+    "clue": "Foolish person",
+    "answer": "TWIT"
+   },
+   {
+    "num": 12,
+    "clue": "Attempt",
+    "answer": "TRY"
+   }
+  ]
+ },
+ "id": "2026-09-14",
+ "date": "2026-09-14",
+ "reviewed": false
+}

@@ -5,182 +5,152 @@
  "size": 7,
  "grid": [
   [
-   "B",
-   "O",
-   "G",
    "#",
-   "C",
+   "#",
+   "#",
+   "B",
+   "R",
    "A",
-   "W"
+   "T"
+  ],
+  [
+   "#",
+   "A",
+   "R",
+   "O",
+   "U",
+   "S",
+   "E"
+  ],
+  [
+   "C",
+   "L",
+   "E",
+   "A",
+   "N",
+   "S",
+   "E"
   ],
   [
    "R",
    "U",
-   "E",
-   "#",
-   "O",
-   "L",
-   "E"
-  ],
-  [
-   "A",
-   "T",
-   "T",
-   "E",
    "M",
-   "P",
-   "T"
+   "#",
+   "N",
+   "U",
+   "N"
   ],
   [
-   "#",
-   "#",
-   "T",
+   "I",
+   "M",
    "A",
-   "B",
-   "#",
+   "G",
+   "E",
+   "R",
+   "Y"
+  ],
+  [
+   "E",
+   "N",
+   "D",
+   "U",
+   "R",
+   "E",
    "#"
   ],
   [
-   "E",
-   "L",
+   "D",
    "I",
+   "E",
    "T",
-   "I",
-   "S",
-   "T"
-  ],
-  [
-   "V",
-   "A",
-   "N",
    "#",
-   "N",
-   "A",
-   "H"
-  ],
-  [
-   "E",
-   "G",
-   "G",
    "#",
-   "E",
-   "W",
-   "E"
+   "#"
   ]
  ],
  "clues": {
   "across": [
    {
     "num": 1,
-    "clue": "Marshy ground",
-    "answer": "BOG"
+    "clue": "Spoiled child",
+    "answer": "BRAT"
    },
    {
-    "num": 4,
-    "clue": "Crow's cry",
-    "answer": "CAW"
+    "num": 5,
+    "clue": "Stir from sleep",
+    "answer": "AROUSE"
    },
    {
     "num": 7,
-    "clue": "Regret",
-    "answer": "RUE"
+    "clue": "Wash thoroughly",
+    "answer": "CLEANSE"
    },
    {
     "num": 8,
-    "clue": "Bullfight cheer",
-    "answer": "OLE"
+    "clue": "Pirate's spirit",
+    "answer": "RUM"
    },
    {
     "num": 9,
-    "clue": "Give it a try",
-    "answer": "ATTEMPT"
+    "clue": "Convent dweller",
+    "answer": "NUN"
    },
    {
-    "num": 11,
-    "clue": "Restaurant bill",
-    "answer": "TAB"
+    "num": 10,
+    "clue": "Vivid mental pictures",
+    "answer": "IMAGERY"
    },
    {
     "num": 12,
-    "clue": "Snob who feels superior",
-    "answer": "ELITIST"
+    "clue": "Put up with",
+    "answer": "ENDURE"
    },
    {
-    "num": 16,
-    "clue": "Delivery vehicle",
-    "answer": "VAN"
-   },
-   {
-    "num": 17,
-    "clue": "Casual 'no'",
-    "answer": "NAH"
-   },
-   {
-    "num": 18,
-    "clue": "Breakfast staple",
-    "answer": "EGG"
-   },
-   {
-    "num": 19,
-    "clue": "Female sheep",
-    "answer": "EWE"
+    "num": 13,
+    "clue": "Eating plan",
+    "answer": "DIET"
    }
   ],
   "down": [
    {
     "num": 1,
-    "clue": "Undergarment",
-    "answer": "BRA"
+    "clue": "Constricting snake",
+    "answer": "BOA"
    },
    {
     "num": 2,
-    "clue": "Not at home",
-    "answer": "OUT"
+    "clue": "Marathon participant",
+    "answer": "RUNNER"
    },
    {
     "num": 3,
-    "clue": "Obtaining",
-    "answer": "GETTING"
+    "clue": "Promise confidently",
+    "answer": "ASSURE"
    },
    {
     "num": 4,
-    "clue": "Merge together",
-    "answer": "COMBINE"
+    "clue": "Very small",
+    "answer": "TEENY"
    },
    {
     "num": 5,
-    "clue": "Swiss peak",
-    "answer": "ALP"
+    "clue": "College grads",
+    "answer": "ALUMNI"
    },
    {
     "num": 6,
-    "clue": "Not dry",
-    "answer": "WET"
+    "clue": "Filmed anew, as a movie",
+    "answer": "REMADE"
    },
    {
-    "num": 10,
-    "clue": "Have a meal",
-    "answer": "EAT"
+    "num": 7,
+    "clue": "Shed tears",
+    "answer": "CRIED"
    },
    {
-    "num": 12,
-    "clue": "Night before a holiday",
-    "answer": "EVE"
-   },
-   {
-    "num": 13,
-    "clue": "Fall behind",
-    "answer": "LAG"
-   },
-   {
-    "num": 14,
-    "clue": "Toothed cutting tool",
-    "answer": "SAW"
-   },
-   {
-    "num": 15,
-    "clue": "Most common English word",
-    "answer": "THE"
+    "num": 11,
+    "clue": "Belly",
+    "answer": "GUT"
    }
   ]
  },

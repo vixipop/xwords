@@ -1,5 +1,37 @@
 [
  {
+  "date": "2026-09-17",
+  "issue": 12,
+  "id": "2026-09-17",
+  "title": "The Thursday Crossword",
+  "size": 7,
+  "reviewed": false
+ },
+ {
+  "date": "2026-09-16",
+  "issue": 11,
+  "id": "2026-09-16",
+  "title": "The Wednesday Crossword",
+  "size": 7,
+  "reviewed": false
+ },
+ {
+  "date": "2026-09-15",
+  "issue": 10,
+  "id": "2026-09-15",
+  "title": "The Tuesday Crossword",
+  "size": 7,
+  "reviewed": false
+ },
+ {
+  "date": "2026-09-14",
+  "issue": 9,
+  "id": "2026-09-14",
+  "title": "The Monday Crossword",
+  "size": 7,
+  "reviewed": false
+ },
+ {
   "date": "2026-09-13",
   "issue": 8,
   "id": "2026-09-13",
@@ -21,7 +53,7 @@
   "id": "2026-09-11",
   "title": "The Friday Crossword",
   "size": 7,
-  "reviewed": true
+  "reviewed": false
  },
  {
   "date": "2026-09-10",

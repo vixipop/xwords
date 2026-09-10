@@ -5,172 +5,152 @@
  "size": 7,
  "grid": [
   [
-   "B",
-   "O",
-   "P",
-   "#",
-   "A",
    "C",
-   "T"
-  ],
-  [
-   "E",
    "R",
    "A",
+   "B",
    "#",
-   "R",
-   "H",
-   "O"
-  ],
-  [
-   "D",
-   "A",
-   "R",
-   "E",
-   "S",
-   "A",
-   "Y"
-  ],
-  [
    "#",
-   "T",
-   "O",
-   "K",
-   "E",
-   "N",
    "#"
   ],
   [
-   "P",
-   "O",
-   "L",
+   "R",
    "E",
-   "N",
-   "T",
-   "A"
+   "V",
+   "O",
+   "K",
+   "E",
+   "#"
   ],
   [
-   "A",
-   "R",
    "E",
-   "#",
+   "L",
+   "E",
+   "G",
    "A",
-   "R",
+   "N",
    "T"
   ],
   [
+   "S",
+   "I",
+   "N",
+   "#",
    "R",
+   "A",
+   "W"
+  ],
+  [
+   "T",
+   "S",
+   "U",
+   "N",
+   "A",
+   "M",
+   "I"
+  ],
+  [
+   "#",
+   "H",
+   "E",
+   "A",
+   "T",
+   "E",
+   "R"
+  ],
+  [
+   "#",
+   "#",
+   "#",
    "Y",
    "E",
-   "#",
    "L",
-   "Y",
-   "E"
+   "L"
   ]
  ],
  "clues": {
   "across": [
    {
     "num": 1,
-    "clue": "Bebop jazz, casually",
-    "answer": "BOP"
+    "clue": "Sideways-walking shellfish",
+    "answer": "CRAB"
    },
    {
-    "num": 4,
-    "clue": "Part of a play",
-    "answer": "ACT"
-   },
-   {
-    "num": 7,
-    "clue": "Historical period",
-    "answer": "ERA"
+    "num": 5,
+    "clue": "Take back, as a license",
+    "answer": "REVOKE"
    },
    {
     "num": 8,
-    "clue": "Greek letter after pi",
-    "answer": "RHO"
+    "clue": "Gracefully stylish",
+    "answer": "ELEGANT"
    },
    {
-    "num": 9,
-    "clue": "'I ___ so' (venture to say)",
-    "answer": "DARESAY"
+    "num": 10,
+    "clue": "Moral wrong",
+    "answer": "SIN"
    },
    {
     "num": 11,
-    "clue": "Old subway fare piece",
-    "answer": "TOKEN"
+    "clue": "Not cooked",
+    "answer": "RAW"
    },
    {
     "num": 12,
-    "clue": "Cornmeal dish",
-    "answer": "POLENTA"
+    "clue": "Giant sea wave",
+    "answer": "TSUNAMI"
    },
    {
     "num": 14,
-    "clue": "\"You ___ here\"",
-    "answer": "ARE"
+    "clue": "Room-warming device",
+    "answer": "HEATER"
    },
    {
     "num": 15,
-    "clue": "What a gallery displays",
-    "answer": "ART"
-   },
-   {
-    "num": 16,
-    "clue": "Whiskey grain",
-    "answer": "RYE"
-   },
-   {
-    "num": 17,
-    "clue": "Caustic soap ingredient",
-    "answer": "LYE"
+    "clue": "Shout loudly",
+    "answer": "YELL"
    }
   ],
   "down": [
    {
     "num": 1,
-    "clue": "Place to sleep",
-    "answer": "BED"
+    "clue": "Top of a hill or wave",
+    "answer": "CREST"
    },
    {
     "num": 2,
-    "clue": "Art of public speaking",
-    "answer": "ORATORY"
+    "clue": "Hot dog topping",
+    "answer": "RELISH"
    },
    {
     "num": 3,
-    "clue": "One released early from prison",
-    "answer": "PAROLEE"
+    "clue": "Broad city street",
+    "answer": "AVENUE"
    },
    {
     "num": 4,
-    "clue": "Store of weapons",
-    "answer": "ARSENAL"
-   },
-   {
-    "num": 5,
-    "clue": "Chapel endowed for prayers",
-    "answer": "CHANTRY"
+    "clue": "Marshy ground",
+    "answer": "BOG"
    },
    {
     "num": 6,
-    "clue": "Plaything",
-    "answer": "TOY"
+    "clue": "Martial art of chops and kicks",
+    "answer": "KARATE"
    },
    {
-    "num": 10,
-    "clue": "___ out (barely manage)",
-    "answer": "EKE"
+    "num": 7,
+    "clue": "Hard coating on a tooth",
+    "answer": "ENAMEL"
    },
    {
-    "num": 12,
-    "clue": "Golf standard for a hole",
-    "answer": "PAR"
+    "num": 9,
+    "clue": "Spin around",
+    "answer": "TWIRL"
    },
    {
     "num": 13,
-    "clue": "Had a meal",
-    "answer": "ATE"
+    "clue": "Vote against",
+    "answer": "NAY"
    }
   ]
  },

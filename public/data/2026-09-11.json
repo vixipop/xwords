@@ -5,172 +5,152 @@
  "size": 7,
  "grid": [
   [
-   "B",
-   "I",
-   "O",
+   "#",
    "#",
    "C",
-   "U",
-   "R"
-  ],
-  [
-   "E",
-   "N",
-   "C",
-   "L",
-   "O",
+   "A",
    "S",
+   "T",
    "E"
   ],
   [
-   "E",
-   "N",
+   "#",
+   "B",
+   "O",
+   "L",
    "T",
-   "E",
-   "R",
    "E",
    "D"
   ],
   [
    "#",
-   "#",
-   "O",
-   "A",
+   "R",
+   "U",
+   "L",
+   "I",
+   "N",
+   "G"
+  ],
+  [
+   "H",
+   "E",
    "R",
    "#",
+   "P",
+   "A",
+   "Y"
+  ],
+  [
+   "A",
+   "W",
+   "A",
+   "K",
+   "E",
+   "N",
    "#"
   ],
   [
-   "I",
-   "M",
-   "P",
    "R",
    "E",
-   "S",
-   "S"
-  ],
-  [
-   "C",
-   "O",
-   "U",
+   "G",
+   "E",
    "N",
-   "C",
-   "I",
-   "L"
+   "T",
+   "#"
   ],
   [
-   "K",
-   "O",
-   "S",
-   "#",
    "T",
    "R",
-   "Y"
+   "E",
+   "N",
+   "D",
+   "#",
+   "#"
   ]
  ],
  "clues": {
   "across": [
    {
     "num": 1,
-    "clue": "Short life story",
-    "answer": "BIO"
+    "clue": "Rung in a social hierarchy",
+    "answer": "CASTE"
    },
    {
-    "num": 4,
-    "clue": "Mangy mutt",
-    "answer": "CUR"
+    "num": 6,
+    "clue": "Dashed off suddenly",
+    "answer": "BOLTED"
    },
    {
     "num": 7,
-    "clue": "Fence in",
-    "answer": "ENCLOSE"
+    "clue": "Judge's decision",
+    "answer": "RULING"
+   },
+   {
+    "num": 8,
+    "clue": "Belonging to that woman",
+    "answer": "HER"
    },
    {
     "num": 9,
-    "clue": "Went in",
-    "answer": "ENTERED"
+    "clue": "Wages",
+    "answer": "PAY"
    },
    {
     "num": 10,
-    "clue": "Rowboat paddle",
-    "answer": "OAR"
+    "clue": "Rouse from slumber",
+    "answer": "AWAKEN"
    },
    {
-    "num": 11,
-    "clue": "Make a strong impression on",
-    "answer": "IMPRESS"
+    "num": 12,
+    "clue": "Stand-in ruler",
+    "answer": "REGENT"
    },
    {
-    "num": 15,
-    "clue": "Local governing body",
-    "answer": "COUNCIL"
-   },
-   {
-    "num": 16,
-    "clue": "Romaine, by another name",
-    "answer": "KOS"
-   },
-   {
-    "num": 17,
-    "clue": "Attempt",
-    "answer": "TRY"
+    "num": 13,
+    "clue": "Popular direction",
+    "answer": "TREND"
    }
   ],
   "down": [
    {
     "num": 1,
-    "clue": "Honey maker",
-    "answer": "BEE"
+    "clue": "Bravery under fear",
+    "answer": "COURAGE"
    },
    {
     "num": 2,
-    "clue": "Roadside lodging",
-    "answer": "INN"
+    "clue": "Every bit of it",
+    "answer": "ALL"
    },
    {
     "num": 3,
-    "clue": "Eight-armed sea creature",
-    "answer": "OCTOPUS"
+    "clue": "Regular allowance payment",
+    "answer": "STIPEND"
    },
    {
     "num": 4,
-    "clue": "Right, not wrong",
-    "answer": "CORRECT"
+    "clue": "One who rents",
+    "answer": "TENANT"
    },
    {
     "num": 5,
-    "clue": "Put to work",
-    "answer": "USE"
+    "clue": "On edge; tense",
+    "answer": "EDGY"
    },
    {
     "num": 6,
-    "clue": "Stop-light color",
-    "answer": "RED"
+    "clue": "One who makes beer",
+    "answer": "BREWER"
    },
    {
     "num": 8,
-    "clue": "Pick up knowledge",
-    "answer": "LEARN"
+    "clue": "Male deer",
+    "answer": "HART"
    },
    {
     "num": 11,
-    "clue": "'Gross!'",
-    "answer": "ICK"
-   },
-   {
-    "num": 12,
-    "clue": "Cow's sound",
-    "answer": "MOO"
-   },
-   {
-    "num": 13,
-    "clue": "Knight's title",
-    "answer": "SIR"
-   },
-   {
-    "num": 14,
-    "clue": "Cunning",
-    "answer": "SLY"
+    "clue": "Range of one's knowledge",
+    "answer": "KEN"
    }
   ]
  },

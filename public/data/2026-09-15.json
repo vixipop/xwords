@@ -1,0 +1,160 @@
+{
+ "issue": 10,
+ "title": "The Tuesday Crossword",
+ "author": "The Gazette",
+ "size": 7,
+ "grid": [
+  [
+   "#",
+   "#",
+   "B",
+   "O",
+   "W",
+   "#",
+   "#"
+  ],
+  [
+   "#",
+   "B",
+   "A",
+   "N",
+   "I",
+   "S",
+   "H"
+  ],
+  [
+   "M",
+   "A",
+   "G",
+   "E",
+   "N",
+   "T",
+   "A"
+  ],
+  [
+   "E",
+   "R",
+   "G",
+   "#",
+   "D",
+   "O",
+   "N"
+  ],
+  [
+   "R",
+   "O",
+   "A",
+   "R",
+   "I",
+   "N",
+   "G"
+  ],
+  [
+   "E",
+   "N",
+   "G",
+   "I",
+   "N",
+   "E",
+   "#"
+  ],
+  [
+   "#",
+   "#",
+   "E",
+   "G",
+   "G",
+   "#",
+   "#"
+  ]
+ ],
+ "clues": {
+  "across": [
+   {
+    "num": 1,
+    "clue": "Archer's weapon",
+    "answer": "BOW"
+   },
+   {
+    "num": 4,
+    "clue": "Send into exile",
+    "answer": "BANISH"
+   },
+   {
+    "num": 7,
+    "clue": "Pinkish-purple hue",
+    "answer": "MAGENTA"
+   },
+   {
+    "num": 8,
+    "clue": "Tiny unit of work",
+    "answer": "ERG"
+   },
+   {
+    "num": 9,
+    "clue": "Put on, as a coat",
+    "answer": "DON"
+   },
+   {
+    "num": 10,
+    "clue": "Like a loud lion",
+    "answer": "ROARING"
+   },
+   {
+    "num": 12,
+    "clue": "Car's motor",
+    "answer": "ENGINE"
+   },
+   {
+    "num": 13,
+    "clue": "Breakfast staple",
+    "answer": "EGG"
+   }
+  ],
+  "down": [
+   {
+    "num": 1,
+    "clue": "Traveler's suitcases",
+    "answer": "BAGGAGE"
+   },
+   {
+    "num": 2,
+    "clue": "The loneliest number",
+    "answer": "ONE"
+   },
+   {
+    "num": 3,
+    "clue": "Full of twists and turns",
+    "answer": "WINDING"
+   },
+   {
+    "num": 4,
+    "clue": "Low-ranking nobleman",
+    "answer": "BARON"
+   },
+   {
+    "num": 5,
+    "clue": "Rock underfoot",
+    "answer": "STONE"
+   },
+   {
+    "num": 6,
+    "clue": "Suspend from a hook",
+    "answer": "HANG"
+   },
+   {
+    "num": 7,
+    "clue": "Nothing more than",
+    "answer": "MERE"
+   },
+   {
+    "num": 11,
+    "clue": "Set up, as equipment",
+    "answer": "RIG"
+   }
+  ]
+ },
+ "id": "2026-09-15",
+ "date": "2026-09-15",
+ "reviewed": false
+}

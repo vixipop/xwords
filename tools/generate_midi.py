@@ -196,7 +196,10 @@ GENEVA MONACO OTTAWA TORONTO SYDNEY MUMBAI MANILA BEIJING TAIPEI SEOUL TOKYO
 CAIRO LAGOS ACCRA DAKAR RABAT TUNIS AMMAN DOHA""".split()
 # Off-tone / obscure / proper words to keep out of a family puzzle.
 OFFTONE = ("BONDAGE EROTICA CONDOM HEROIN COCAINE GESTAPO BRISTOL "
-           "CALVARY DEY TAO CORDOBA ADONIS LOUVRE MADEIRA REALISE").split()
+           "CALVARY DEY TAO CORDOBA ADONIS LOUVRE MADEIRA REALISE "
+           # off-tone slang, mild profanity, irregular plurals, British spellings
+           "HEINIE HELL DAMN CRAP LOAVES WOLVES OFFENCE COLOUR HONOUR "
+           "FLAVOUR THEATRE FIBRE LITRE METRE").split()
 PROPER_BLOCK = (set(COUNTRIES) | set(STATES) | set(NAMES)
                 | set(EXTRA_PROPER) | set(OFFTONE))
 
@@ -216,6 +219,29 @@ def acceptable(w):
     return (w.lower() in DICT and w not in PROPER_BLOCK and not is_plural(w)
             and (COMMON is None or w in COMMON))
 
+# Tired "crosswordese" — Greek letters, archaic glue, and the handful of
+# over-worn short words solvers see in every puzzle. These stay in the pool (so
+# a grid can still be completed) but are ranked LAST, so the filler reaches for
+# fresh, everyday 3-letter words first and only falls back to these when a
+# crossing truly demands it. This is what stops ERA/ARE/ETA/RHO/ORE/OAR/RYE from
+# showing up over and over.
+OVERUSED = set("""
+ETA RHO PHI PSI CHI TAU ENE ANE ENS ERS ERN ERE OSE OES OER OLE OLA ELS ELD
+AIT ADO AGA ANA ANI AAH AAS UKE ULU OBI OBE NEE NAE TAE ORT URD AVO AVE
+ORE IRE RYE RUE OAR EKE ODE ERA ARE EAR EYE AWE OWE TEE GEE
+""".split())
+
+# Genuinely junky short entries — random-looking abbreviations, plural-ish
+# scraps, obscure interjections, and roll-your-eyes crosswordese. Unlike
+# OVERUSED (demoted but allowed), these are BANNED from ever being an answer.
+SHORTBLOCK = set("""
+ADS IDS INS ITS SRI NAM OHO RAH DEY TAO ABA ABO AAH AAS OES ENS ERS ELS OSE
+OER ORT URD UKE ULU OBI OBE NEE NAE TAE AVO AIT ADO AGA ANA ANI ANE ENE OLA
+OLE ELD SEI TEG UTA UDO ODA OKA OCA NTH PYX HMM HAH HEH AHA AAL ABY ADZ AFF
+PSI ALA AMA MIR NAW ABS PHI CHI TAU RHO ETA
+ARE ERA ORE IRE EAR OAR RYE RUE EKE ODE EYE AVE OWE AWE
+""".split())
+
 by_len = defaultdict(list)
 # A GENEROUS clean 3-letter pool: the curated list plus every decently-scored
 # real 3-letter word. Crosswords lean hard on short glue, so a big pool is what
@@ -223,8 +249,10 @@ by_len = defaultdict(list)
 _three = set(W3) | {w for w, s in SCORE.items()
                     if len(w) == 3 and s >= 55 and w.lower() in DICT
                     and w not in PROPER_BLOCK and not is_plural(w)}
-by_len[3] = sorted((w for w in _three if not is_plural(w)),
-                   key=lambda w: (-SCORE.get(w, 70), w))  # best/most-common first
+_three -= SHORTBLOCK
+# Fresh everyday words first; crosswordese demoted to the very end of the pool.
+by_len[3] = sorted((w for w in _three if not is_plural(w) and w not in SHORTBLOCK),
+                   key=lambda w: (w in OVERUSED, -SCORE.get(w, 70), w))
 
 POOL_CAP = 8000
 for L in (4, 5, 6, 7):
