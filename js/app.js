@@ -791,7 +791,21 @@ async function main() {
   }
   index.sort((a, b) => (a.date < b.date ? 1 : -1)); // newest first
   const today = todayISO();
-  const current = index.find((e) => e.date <= today) || index[0];
+
+  // Production shows the newest issue that is (a) reviewed by the editor and
+  // (b) dated on/before the viewer's local today. Unreviewed or future issues
+  // stay hidden. The admin page can force any issue with ?issue=<id> to preview
+  // it before publishing.
+  const eligible = index.filter((e) => e.reviewed && e.date <= today);
+  const forced = new URLSearchParams(location.search).get("issue");
+  const current =
+    (forced && index.find((e) => e.id === forced)) || eligible[0];
+
+  if (!current) {
+    document.getElementById("grid").textContent =
+      "The next puzzle is being prepared. Please check back soon.";
+    return;
+  }
 
   try {
     mountIssue(await fetchJSON(`data/${current.id}.json`));
@@ -830,15 +844,8 @@ async function main() {
   const wrap = document.querySelector(".grid-wrap");
   if (window.ResizeObserver && wrap) new ResizeObserver(scheduleFit).observe(wrap);
 
-  let currentId = current.id;
-  document.getElementById("archive-btn").addEventListener("click", () => {
-    showArchive(index, currentId, async (id) => {
-      try {
-        mountIssue(await fetchJSON(`data/${id}.json`));
-        currentId = id;
-      } catch (err) { console.error(err); }
-    });
-  });
+  // The public "Older Issues" archive is disabled for now — readers get only
+  // the current day's puzzle. Past issues are browsable from the admin page.
 
   wireMenus(
     async (act) => {

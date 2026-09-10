@@ -12,8 +12,16 @@ from generate_midi import generate
 from cluebank import CLUES
 from grids import GRIDS          # each: {"pat": [...7 rows...], "seed": int}
 
-TITLE = "The Daily 7"
 AUTHOR = "The Gazette"
+# Each issue gets its own name from the weekday it runs (e.g. "The Thursday
+# Crossword") so no two consecutive puzzles read as identically titled.
+def title_for(d):
+    return f"The {d.strftime('%A')} Crossword"
+
+# Issues dated on/before this were already public before the editor-review gate
+# existed, so they ship pre-reviewed. Anything newer starts UNREVIEWED and stays
+# hidden from readers until it is approved on the admin page.
+PUBLISHED_THROUGH = date(2026, 9, 10)
 # Every issue is pre-dated and shipped at once, oldest first from START_DATE
 # (one per day). The front-end reveals each one at the viewer's LOCAL midnight
 # (it only shows issues dated on/before today), so a fresh puzzle appears every
@@ -46,7 +54,7 @@ def build_puzzle(grid, issue, forbid):
         return out
     return {
         "issue": issue,
-        "title": TITLE,
+        "title": None,          # filled in once the issue's date is known
         "author": AUTHOR,
         "size": p["size"],
         "grid": p["grid"],
@@ -89,12 +97,15 @@ def main():
     # today, so future issues stay hidden until their day.
     index = []
     for i, pz in enumerate(puzzles):
-        ds = (START_DATE + timedelta(days=i)).isoformat()
-        issue = dict(pz, id=ds, date=ds)
+        d = START_DATE + timedelta(days=i)
+        ds = d.isoformat()
+        title = title_for(d)
+        reviewed = d <= PUBLISHED_THROUGH
+        issue = dict(pz, id=ds, date=ds, title=title, reviewed=reviewed)
         with open(os.path.join(DATA, f"{ds}.json"), "w") as f:
             json.dump(issue, f, indent=1)
         index.append({"date": ds, "issue": pz["issue"], "id": ds,
-                      "title": pz["title"], "size": pz["size"]})
+                      "title": title, "size": pz["size"], "reviewed": reviewed})
     index.sort(key=lambda x: x["date"], reverse=True)   # newest first
     with open(os.path.join(DATA, "index.json"), "w") as f:
         json.dump(index, f, indent=1)

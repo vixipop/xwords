@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Gazette · Editor's Desk</title>
+  <style>
+    :root {
+      --ink: #1a1712; --paper: #f3ead6; --paper2: #ede0c4; --rule: #c9b892;
+      --muted: #6f6346; --good: #2c5233; --warn: #8f2b1f; --gold: #a9852f;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; color: var(--ink);
+      background: #2a2117;
+      font: 15px/1.5 Georgia, "Times New Roman", serif;
+      padding: 24px 16px 64px;
+    }
+    .wrap { max-width: 920px; margin: 0 auto; background: var(--paper);
+      border: 1px solid var(--rule); border-radius: 4px;
+      box-shadow: 0 14px 40px rgba(0,0,0,.5); padding: 24px 26px 32px; }
+    header.top { border-bottom: 3px double var(--ink); padding-bottom: 12px; margin-bottom: 4px; }
+    h1 { margin: 0; font-size: 30px; letter-spacing: .5px; }
+    .sub { color: var(--muted); font-style: italic; margin: 2px 0 0; font-size: 14px; }
+    .note { background: var(--paper2); border: 1px solid var(--rule); border-radius: 4px;
+      padding: 10px 12px; font-size: 13px; color: var(--muted); margin: 14px 0; }
+    .note b { color: var(--ink); }
+
+    /* connection / token panel */
+    .conn { display: grid; gap: 10px; grid-template-columns: 1fr 1fr; margin: 14px 0 6px; }
+    .conn label { display: block; font-size: 12px; text-transform: uppercase;
+      letter-spacing: .06em; color: var(--muted); margin-bottom: 3px; }
+    .conn input { width: 100%; padding: 8px 9px; border: 1px solid var(--rule);
+      background: #fff; border-radius: 3px; font: inherit; font-size: 14px; }
+    .conn .full { grid-column: 1 / -1; }
+    details.help { grid-column: 1 / -1; font-size: 13px; color: var(--muted); }
+    details.help a { color: var(--gold); }
+    details.help summary { cursor: pointer; }
+
+    .bar { display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+      margin: 16px 0 10px; padding-top: 12px; border-top: 1px solid var(--rule); }
+    .bar h2 { margin: 0; font-size: 18px; flex: 1; }
+    #status { font-size: 13px; color: var(--muted); min-height: 18px; }
+    #status.err { color: var(--warn); } #status.ok { color: var(--good); }
+
+    ul.issues { list-style: none; margin: 0; padding: 0; }
+    li.issue { display: grid; grid-template-columns: 54px 1fr auto; gap: 12px;
+      align-items: center; padding: 12px 6px; border-bottom: 1px solid var(--rule); }
+    li.issue.dirty { background: #fbf3dc; }
+    .no { font-size: 22px; font-weight: bold; text-align: center; color: var(--ink); }
+    .no small { display: block; font-size: 11px; font-weight: normal; color: var(--muted); }
+    .meta .t { font-size: 17px; font-weight: bold; }
+    .meta .d { font-size: 13px; color: var(--muted); }
+    .chips { margin-top: 5px; display: flex; gap: 6px; flex-wrap: wrap; }
+    .chip { font-size: 11px; text-transform: uppercase; letter-spacing: .05em;
+      padding: 2px 8px; border-radius: 999px; border: 1px solid currentColor; }
+    .chip.live { color: var(--good); } .chip.up { color: var(--gold); }
+    .chip.rev { color: var(--good); background: #dcecd9; }
+    .chip.unrev { color: var(--warn); }
+    .chip.solved { color: var(--good); } .chip.unsolved { color: var(--muted); }
+    .acts { display: flex; flex-direction: column; gap: 6px; align-items: stretch; }
+    button.b { font: inherit; font-size: 13px; cursor: pointer; padding: 7px 12px;
+      border: 1px solid var(--ink); background: #fff; border-radius: 3px; white-space: nowrap; }
+    button.b:hover { background: var(--paper2); }
+    button.b.solid { background: var(--ink); color: var(--paper); }
+    button.b.solid:hover { background: #000; }
+    button.b.ghost { border-color: var(--rule); color: var(--muted); }
+    button.b:disabled { opacity: .5; cursor: default; }
+    a.b { text-decoration: none; text-align: center; color: var(--ink); }
+
+    .footer-actions { margin-top: 18px; display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+    button.publish { font: inherit; font-size: 16px; font-weight: bold; cursor: pointer;
+      padding: 12px 22px; border: 2px solid var(--ink); background: var(--gold); color: #1a1712;
+      border-radius: 4px; }
+    button.publish:disabled { opacity: .45; cursor: default; }
+    @media (max-width: 620px) {
+      .conn { grid-template-columns: 1fr; }
+      li.issue { grid-template-columns: 44px 1fr; }
+      .acts { grid-column: 1 / -1; flex-direction: row; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="top">
+      <h1>The Word Gazette — Editor's Desk</h1>
+      <p class="sub">Private review &amp; publishing console. Not linked from the paper; keep this URL to yourself.</p>
+    </header>
+
+    <div class="note">
+      Readers only ever see issues you've marked <b>Reviewed</b>. Approve a puzzle here and it
+      goes live at its date (or immediately, if that date has already arrived).
+      <b>Solved</b> reflects whether you've completed it in your browser — click <b>Preview</b> to test-solve first.
+    </div>
+
+    <div class="conn">
+      <div>
+        <label for="tok">GitHub token (to publish)</label>
+        <input id="tok" type="password" placeholder="github_pat_… or ghp_…" autocomplete="off" />
+      </div>
+      <div>
+        <label for="branch">Publish to branch</label>
+        <input id="branch" type="text" />
+      </div>
+      <details class="help">
+        <summary>How do I get a token? (one-time setup)</summary>
+        <p>Create a <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener">fine-grained personal access token</a>
+        limited to the <b>vixipop/xwords</b> repository, with <b>Contents → Read and write</b> permission.
+        Paste it above — it is stored only in this browser and sent only to github.com when you publish.</p>
+      </details>
+    </div>
+
+    <div class="bar">
+      <h2>All Issues</h2>
+      <span id="status"></span>
+    </div>
+
+    <ul class="issues" id="list"></ul>
+
+    <div class="footer-actions">
+      <button class="publish" id="publishBtn" disabled>Publish changes</button>
+      <span id="dirtyCount" style="color:var(--muted);font-size:13px"></span>
+    </div>
+  </div>
+
+  <script type="module">
+    const REPO = "vixipop/xwords";
+    const FILE = "public/data/index.json";
+    const DEFAULT_BRANCH = "claude/daily-crossword-app-7clfxr";
+    const LS_TOK = "gazette-admin-token";
+    const LS_BRANCH = "gazette-admin-branch";
+
+    const $ = (id) => document.getElementById(id);
+    const tokEl = $("tok"), branchEl = $("branch"), listEl = $("list");
+    const statusEl = $("status"), publishBtn = $("publishBtn"), dirtyEl = $("dirtyCount");
+
+    tokEl.value = localStorage.getItem(LS_TOK) || "";
+    branchEl.value = localStorage.getItem(LS_BRANCH) || DEFAULT_BRANCH;
+    tokEl.addEventListener("change", () => localStorage.setItem(LS_TOK, tokEl.value.trim()));
+    branchEl.addEventListener("change", () =>
+      localStorage.setItem(LS_BRANCH, branchEl.value.trim() || DEFAULT_BRANCH));
+
+    function todayISO() {
+      const d = new Date();
+      return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+    }
+    function longDate(iso) {
+      const [y, m, d] = iso.split("-").map(Number);
+      return new Date(y, m - 1, d).toLocaleDateString("en-US",
+        { weekday: "long", year: "numeric", month: "long", day: "numeric" });
+    }
+    function isSolved(id) {
+      try { return !!(JSON.parse(localStorage.getItem(`tdc:${id}`)) || {}).solved; }
+      catch { return false; }
+    }
+    function setStatus(msg, kind) { statusEl.textContent = msg; statusEl.className = kind || ""; }
+    const b64encode = (s) => btoa(unescape(encodeURIComponent(s)));
+    const b64decode = (s) => decodeURIComponent(escape(atob(s.replace(/\n/g, ""))));
+
+    let index = [];         // live, editable copy (each: {id,date,issue,title,reviewed,...})
+    let original = {};      // id -> original reviewed value, to detect dirty rows
+
+    async function load() {
+      setStatus("Loading issues…");
+      const res = await fetch(`./data/index.json?ts=${Date.now()}`);
+      if (!res.ok) { setStatus("Could not load index.json", "err"); return; }
+      index = await res.json();
+      index.sort((a, b) => (a.date < b.date ? 1 : -1)); // newest first
+      original = {};
+      index.forEach((e) => { original[e.id] = !!e.reviewed; });
+      render();
+      setStatus(`${index.length} issues.`, "ok");
+    }
+
+    function dirtyIds() {
+      return index.filter((e) => !!e.reviewed !== !!original[e.id]).map((e) => e.id);
+    }
+    function refreshDirty() {
+      const n = dirtyIds().length;
+      publishBtn.disabled = n === 0;
+      dirtyEl.textContent = n ? `${n} unpublished change${n > 1 ? "s" : ""}` : "Everything published.";
+    }
+
+    function render() {
+      const today = todayISO();
+      listEl.innerHTML = "";
+      for (const e of index) {
+        const live = e.date <= today;
+        const solved = isSolved(e.id);
+        const dirty = !!e.reviewed !== !!original[e.id];
+        const li = document.createElement("li");
+        li.className = "issue" + (dirty ? " dirty" : "");
+        li.innerHTML = `
+          <div class="no">${e.issue}<small>No.</small></div>
+          <div class="meta">
+            <div class="t">${e.title || "Untitled"}</div>
+            <div class="d">${longDate(e.date)}</div>
+            <div class="chips">
+              <span class="chip ${live ? "live" : "up"}">${live ? "Live date" : "Upcoming"}</span>
+              <span class="chip ${e.reviewed ? "rev" : "unrev"}">${e.reviewed ? "Reviewed" : "Unreviewed"}</span>
+              <span class="chip ${solved ? "solved" : "unsolved"}">${solved ? "Solved ✓" : "Unsolved"}</span>
+              ${dirty ? '<span class="chip up">unsaved</span>' : ""}
+            </div>
+          </div>
+          <div class="acts">
+            <a class="b" href="./?issue=${encodeURIComponent(e.id)}" target="_blank" rel="noopener">Preview</a>
+            ${e.reviewed
+              ? `<button class="b ghost" data-unreview="${e.id}">Un-approve</button>`
+              : `<button class="b solid" data-approve="${e.id}">Approve &amp; Publish</button>`}
+          </div>`;
+        listEl.appendChild(li);
+      }
+      listEl.querySelectorAll("[data-approve]").forEach((b) =>
+        b.addEventListener("click", () => approveAndPublish(b.dataset.approve)));
+      listEl.querySelectorAll("[data-unreview]").forEach((b) =>
+        b.addEventListener("click", () => { setReviewed(b.dataset.unreview, false); }));
+      refreshDirty();
+    }
+
+    function setReviewed(id, val) {
+      const e = index.find((x) => x.id === id);
+      if (e) e.reviewed = val;
+      render();
+    }
+
+    async function approveAndPublish(id) {
+      setReviewed(id, true);
+      await publish();
+    }
+
+    async function publish() {
+      const token = tokEl.value.trim();
+      const branch = branchEl.value.trim() || DEFAULT_BRANCH;
+      if (!token) { setStatus("Add your GitHub token above to publish.", "err"); return; }
+      const changed = dirtyIds();
+      if (!changed.length) { setStatus("No changes to publish.", "ok"); return; }
+
+      publishBtn.disabled = true;
+      setStatus("Publishing…");
+      const api = `https://api.github.com/repos/${REPO}/contents/${FILE}`;
+      const headers = {
+        "Authorization": `Bearer ${token}`,
+        "Accept": "application/vnd.github+json",
+        "X-GitHub-Api-Version": "2022-11-28",
+      };
+      try {
+        // Read the current file (for its sha and authoritative content).
+        const getRes = await fetch(`${api}?ref=${encodeURIComponent(branch)}`, { headers });
+        if (!getRes.ok) throw new Error(`Read failed (${getRes.status}). Check the token and branch.`);
+        const meta = await getRes.json();
+        const repoIndex = JSON.parse(b64decode(meta.content));
+
+        // Apply our reviewed flags onto the repo's copy (leave other fields intact).
+        const want = Object.fromEntries(index.map((e) => [e.id, !!e.reviewed]));
+        for (const row of repoIndex) if (row.id in want) row.reviewed = want[row.id];
+
+        const body = {
+          message: `Editor: publish reviewed issues (${changed.join(", ")})`,
+          content: b64encode(JSON.stringify(repoIndex, null, 1)),
+          sha: meta.sha,
+          branch,
+        };
+        const putRes = await fetch(api, { method: "PUT", headers, body: JSON.stringify(body) });
+        if (!putRes.ok) {
+          const t = await putRes.text();
+          throw new Error(`Publish failed (${putRes.status}). ${t.slice(0, 140)}`);
+        }
+        // Success — the repo now matches our state; reset the dirty baseline.
+        index.forEach((e) => { original[e.id] = !!e.reviewed; });
+        render();
+        setStatus("Published. The site will rebuild in about a minute.", "ok");
+      } catch (err) {
+        setStatus(err.message || String(err), "err");
+        refreshDirty();
+      }
+    }
+
+    publishBtn.addEventListener("click", publish);
+    load();
+  </script>
+</body>
+</html>

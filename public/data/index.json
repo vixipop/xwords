@@ -3,56 +3,64 @@
   "date": "2026-09-13",
   "issue": 8,
   "id": "2026-09-13",
-  "title": "The Daily 7",
-  "size": 7
+  "title": "The Sunday Crossword",
+  "size": 7,
+  "reviewed": false
  },
  {
   "date": "2026-09-12",
   "issue": 7,
   "id": "2026-09-12",
-  "title": "The Daily 7",
-  "size": 7
+  "title": "The Saturday Crossword",
+  "size": 7,
+  "reviewed": false
  },
  {
   "date": "2026-09-11",
   "issue": 6,
   "id": "2026-09-11",
-  "title": "The Daily 7",
-  "size": 7
+  "title": "The Friday Crossword",
+  "size": 7,
+  "reviewed": false
  },
  {
   "date": "2026-09-10",
   "issue": 5,
   "id": "2026-09-10",
-  "title": "The Daily 7",
-  "size": 7
+  "title": "The Thursday Crossword",
+  "size": 7,
+  "reviewed": true
  },
  {
   "date": "2026-09-09",
   "issue": 4,
   "id": "2026-09-09",
-  "title": "The Daily 7",
-  "size": 7
+  "title": "The Wednesday Crossword",
+  "size": 7,
+  "reviewed": true
  },
  {
   "date": "2026-09-08",
   "issue": 3,
   "id": "2026-09-08",
-  "title": "The Daily 7",
-  "size": 7
+  "title": "The Tuesday Crossword",
+  "size": 7,
+  "reviewed": true
  },
  {
   "date": "2026-09-07",
   "issue": 2,
   "id": "2026-09-07",
-  "title": "The Daily 7",
-  "size": 7
+  "title": "The Monday Crossword",
+  "size": 7,
+  "reviewed": true
  },
  {
   "date": "2026-09-06",
   "issue": 1,
   "id": "2026-09-06",
-  "title": "The Daily 7",
-  "size": 7
+  "title": "The Sunday Crossword",
+  "size": 7,
+  "reviewed": true
  }
 ]

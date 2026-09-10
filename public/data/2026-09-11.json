@@ -1,6 +1,6 @@
 {
  "issue": 6,
- "title": "The Daily 7",
+ "title": "The Friday Crossword",
  "author": "The Gazette",
  "size": 7,
  "grid": [
@@ -175,5 +175,6 @@
   ]
  },
  "id": "2026-09-11",
- "date": "2026-09-11"
+ "date": "2026-09-11",
+ "reviewed": false
 }
