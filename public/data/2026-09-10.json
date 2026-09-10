@@ -1,0 +1,159 @@
+{
+ "issue": 5,
+ "title": "The Daily 7",
+ "author": "The Gazette",
+ "size": 7,
+ "grid": [
+  [
+   "#",
+   "#",
+   "C",
+   "A",
+   "P",
+   "O",
+   "#"
+  ],
+  [
+   "#",
+   "P",
+   "O",
+   "L",
+   "A",
+   "R",
+   "#"
+  ],
+  [
+   "G",
+   "E",
+   "N",
+   "E",
+   "T",
+   "I",
+   "C"
+  ],
+  [
+   "E",
+   "L",
+   "F",
+   "#",
+   "T",
+   "E",
+   "A"
+  ],
+  [
+   "E",
+   "V",
+   "I",
+   "D",
+   "E",
+   "N",
+   "T"
+  ],
+  [
+   "#",
+   "I",
+   "N",
+   "E",
+   "R",
+   "T",
+   "#"
+  ],
+  [
+   "#",
+   "S",
+   "E",
+   "W",
+   "N",
+   "#",
+   "#"
+  ]
+ ],
+ "clues": {
+  "across": [
+   {
+    "num": 1,
+    "clue": "Guitar-fret clamp",
+    "answer": "CAPO"
+   },
+   {
+    "num": 5,
+    "clue": "Of the Arctic or Antarctic",
+    "answer": "POLAR"
+   },
+   {
+    "num": 6,
+    "clue": "Relating to genes",
+    "answer": "GENETIC"
+   },
+   {
+    "num": 8,
+    "clue": "Santa's little helper",
+    "answer": "ELF"
+   },
+   {
+    "num": 9,
+    "clue": "Steeped drink",
+    "answer": "TEA"
+   },
+   {
+    "num": 10,
+    "clue": "Plain to see",
+    "answer": "EVIDENT"
+   },
+   {
+    "num": 12,
+    "clue": "Chemically unreactive",
+    "answer": "INERT"
+   },
+   {
+    "num": 13,
+    "clue": "Joined with thread",
+    "answer": "SEWN"
+   }
+  ],
+  "down": [
+   {
+    "num": 1,
+    "clue": "Keep within limits",
+    "answer": "CONFINE"
+   },
+   {
+    "num": 2,
+    "clue": "Pub brew",
+    "answer": "ALE"
+   },
+   {
+    "num": 3,
+    "clue": "Repeating design",
+    "answer": "PATTERN"
+   },
+   {
+    "num": 4,
+    "clue": "Get your bearings",
+    "answer": "ORIENT"
+   },
+   {
+    "num": 5,
+    "clue": "Hip-bone region",
+    "answer": "PELVIS"
+   },
+   {
+    "num": 6,
+    "clue": "'Aw, ___!'",
+    "answer": "GEE"
+   },
+   {
+    "num": 7,
+    "clue": "Feline pet",
+    "answer": "CAT"
+   },
+   {
+    "num": 11,
+    "clue": "Morning moisture on the grass",
+    "answer": "DEW"
+   }
+  ]
+ },
+ "id": "2026-09-10",
+ "date": "2026-09-10"
+}

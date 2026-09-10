@@ -5,182 +5,152 @@
  "size": 7,
  "grid": [
   [
+   "#",
+   "#",
    "B",
-   "A",
-   "N",
-   "#",
-   "A",
-   "C",
-   "E"
-  ],
-  [
-   "A",
-   "L",
-   "E",
-   "#",
-   "T",
    "O",
-   "O"
-  ],
-  [
-   "G",
-   "L",
-   "U",
-   "T",
-   "T",
    "O",
-   "N"
-  ],
-  [
-   "#",
-   "#",
-   "T",
-   "A",
-   "R",
    "#",
    "#"
   ],
   [
-   "G",
+   "S",
+   "C",
    "A",
    "R",
-   "B",
+   "C",
+   "E",
+   "#"
+  ],
+  [
+   "W",
+   "I",
+   "R",
+   "E",
+   "T",
+   "A",
+   "P"
+  ],
+  [
+   "A",
+   "G",
+   "O",
+   "#",
    "A",
    "G",
    "E"
   ],
   [
-   "E",
+   "M",
+   "A",
+   "N",
+   "A",
    "G",
-   "O",
-   "#",
-   "C",
-   "O",
-   "Y"
+   "E",
+   "R"
   ],
   [
+   "#",
+   "R",
+   "E",
+   "W",
+   "O",
+   "R",
+   "K"
+  ],
+  [
+   "#",
+   "#",
    "T",
    "E",
    "N",
    "#",
-   "T",
-   "O",
-   "E"
+   "#"
   ]
  ],
  "clues": {
   "across": [
    {
     "num": 1,
-    "clue": "Official prohibition",
-    "answer": "BAN"
+    "clue": "Ghost's greeting",
+    "answer": "BOO"
    },
    {
     "num": 4,
-    "clue": "Tennis serve nobody returns",
-    "answer": "ACE"
+    "clue": "In short supply",
+    "answer": "SCARCE"
    },
    {
     "num": 7,
-    "clue": "Pub brew",
-    "answer": "ALE"
-   },
-   {
-    "num": 8,
-    "clue": "Also",
-    "answer": "TOO"
+    "clue": "Secret phone surveillance",
+    "answer": "WIRETAP"
    },
    {
     "num": 9,
-    "clue": "One who overeats",
-    "answer": "GLUTTON"
+    "clue": "In the past",
+    "answer": "AGO"
+   },
+   {
+    "num": 10,
+    "clue": "Years you've lived",
+    "answer": "AGE"
    },
    {
     "num": 11,
-    "clue": "Road-paving goo",
-    "answer": "TAR"
+    "clue": "One who runs a team",
+    "answer": "MANAGER"
    },
    {
-    "num": 12,
-    "clue": "Trash",
-    "answer": "GARBAGE"
+    "num": 13,
+    "clue": "Revise thoroughly",
+    "answer": "REWORK"
    },
    {
-    "num": 16,
-    "clue": "Sense of self",
-    "answer": "EGO"
-   },
-   {
-    "num": 17,
-    "clue": "Playfully shy",
-    "answer": "COY"
-   },
-   {
-    "num": 18,
+    "num": 14,
     "clue": "Fingers on two hands",
     "answer": "TEN"
-   },
-   {
-    "num": 19,
-    "clue": "Foot digit",
-    "answer": "TOE"
    }
   ],
   "down": [
    {
     "num": 1,
-    "clue": "Grocery carrier",
-    "answer": "BAG"
+    "clue": "Hereditary 'Sir'",
+    "answer": "BARONET"
    },
    {
     "num": 2,
-    "clue": "Every bit of it",
-    "answer": "ALL"
+    "clue": "Rock you mine metal from",
+    "answer": "ORE"
    },
    {
     "num": 3,
-    "clue": "Chargeless atomic particle",
-    "answer": "NEUTRON"
+    "clue": "Eight-sided figure",
+    "answer": "OCTAGON"
    },
    {
     "num": 4,
-    "clue": "Draw in",
-    "answer": "ATTRACT"
+    "clue": "Did laps in the pool",
+    "answer": "SWAM"
    },
    {
     "num": 5,
-    "clue": "Pigeon's sound",
-    "answer": "COO"
+    "clue": "Rolled tobacco smoke",
+    "answer": "CIGAR"
    },
    {
     "num": 6,
-    "clue": "Very long time",
-    "answer": "EON"
+    "clue": "Keen and enthusiastic",
+    "answer": "EAGER"
    },
    {
-    "num": 10,
-    "clue": "Restaurant bill",
-    "answer": "TAB"
+    "num": 8,
+    "clue": "Job benefit",
+    "answer": "PERK"
    },
    {
     "num": 12,
-    "clue": "Obtain",
-    "answer": "GET"
-   },
-   {
-    "num": 13,
-    "clue": "Years you've lived",
-    "answer": "AGE"
-   },
-   {
-    "num": 14,
-    "clue": "Sticky stuff",
-    "answer": "GOO"
-   },
-   {
-    "num": 15,
-    "clue": "Needle's hole, or what you see with",
-    "answer": "EYE"
+    "clue": "Wonder and amazement",
+    "answer": "AWE"
    }
   ]
  },

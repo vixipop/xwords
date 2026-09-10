@@ -194,8 +194,9 @@ DENVER DALLAS AUSTIN BOSTON SEATTLE ATLANTA PHOENIX DETROIT MEMPHIS FRESNO
 NAIROBI LONDON PARIS BERLIN MADRID VIENNA MOSCOW ATHENS DUBLIN MILAN NAPLES
 GENEVA MONACO OTTAWA TORONTO SYDNEY MUMBAI MANILA BEIJING TAIPEI SEOUL TOKYO
 CAIRO LAGOS ACCRA DAKAR RABAT TUNIS AMMAN DOHA""".split()
-# Off-tone words to keep out of a family puzzle.
-OFFTONE = "BONDAGE EROTICA CONDOM HEROIN COCAINE GESTAPO BRISTOL".split()
+# Off-tone / obscure / proper words to keep out of a family puzzle.
+OFFTONE = ("BONDAGE EROTICA CONDOM HEROIN COCAINE GESTAPO BRISTOL "
+           "CALVARY DEY TAO CORDOBA ADONIS LOUVRE MADEIRA REALISE").split()
 PROPER_BLOCK = (set(COUNTRIES) | set(STATES) | set(NAMES)
                 | set(EXTRA_PROPER) | set(OFFTONE))
 
@@ -209,14 +210,21 @@ try:
 except OSError:
     COMMON = None   # gate disabled if the list is missing
 
-by_len = defaultdict(list)
-by_len[3] = [w for w in sorted(set(W3)) if not is_plural(w)]  # curated clean 3s
-
 def acceptable(w):
     """A real, common dictionary word: not a plural, not a proper noun, and
     (when the frequency list is present) common enough to be fair fill."""
     return (w.lower() in DICT and w not in PROPER_BLOCK and not is_plural(w)
             and (COMMON is None or w in COMMON))
+
+by_len = defaultdict(list)
+# A GENEROUS clean 3-letter pool: the curated list plus every decently-scored
+# real 3-letter word. Crosswords lean hard on short glue, so a big pool is what
+# lets the no-repeat rule (no word twice in a month) stay solvable.
+_three = set(W3) | {w for w, s in SCORE.items()
+                    if len(w) == 3 and s >= 55 and w.lower() in DICT
+                    and w not in PROPER_BLOCK and not is_plural(w)}
+by_len[3] = sorted((w for w in _three if not is_plural(w)),
+                   key=lambda w: (-SCORE.get(w, 70), w))  # best/most-common first
 
 POOL_CAP = 8000
 for L in (4, 5, 6, 7):
@@ -366,10 +374,12 @@ def solve(unfilled, used):
         for rc in slots[best]["cells"]: grid[rc] = before[rc]
     return False
 
-def generate(seed, pattern=None, budget=200000):
+def generate(seed, pattern=None, budget=200000, forbid=None):
     """Fill the grid for a given seed and pattern; return
     {size, grid, across, down} or None. pattern defaults to PATTERNS[0].
-    budget caps backtracking steps so unfillable patterns bail fast."""
+    budget caps backtracking steps so unfillable patterns bail fast.
+    forbid is a set of words that may not appear (e.g. answers used in a recent
+    issue) — they are excluded from every slot's candidates."""
     global _PAT
     _PAT = pattern if pattern is not None else PATTERN
     build_slots()
@@ -377,7 +387,7 @@ def generate(seed, pattern=None, budget=200000):
     reset_grid()
     _budget[0] = budget
     try:
-        if not solve(list(range(len(slots))), set()):
+        if not solve(list(range(len(slots))), set(forbid) if forbid else set()):
             return None
     except TimeoutError:
         return None       # gave up — treat as unfillable for this seed

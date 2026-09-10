@@ -5,172 +5,152 @@
  "size": 7,
  "grid": [
   [
-   "B",
+   "#",
+   "#",
+   "P",
    "A",
-   "R",
-   "#",
-   "E",
-   "O",
-   "N"
-  ],
-  [
-   "E",
-   "L",
-   "E",
-   "C",
-   "T",
-   "R",
-   "O"
-  ],
-  [
-   "D",
-   "E",
-   "C",
-   "R",
-   "E",
-   "E",
-   "D"
-  ],
-  [
-   "#",
-   "#",
-   "O",
-   "A",
-   "R",
-   "#",
-   "#"
-  ],
-  [
    "S",
    "T",
-   "U",
-   "N",
-   "N",
+   "A"
+  ],
+  [
+   "#",
    "E",
-   "D"
+   "L",
+   "I",
+   "C",
+   "I",
+   "T"
+  ],
+  [
+   "#",
+   "D",
+   "O",
+   "R",
+   "A",
+   "D",
+   "O"
   ],
   [
    "L",
    "I",
-   "N",
-   "E",
-   "A",
-   "G",
-   "E"
-  ],
-  [
-   "Y",
-   "E",
    "T",
    "#",
-   "L",
-   "O",
-   "W"
+   "R",
+   "I",
+   "M"
+  ],
+  [
+   "A",
+   "T",
+   "T",
+   "I",
+   "R",
+   "E",
+   "#"
+  ],
+  [
+   "V",
+   "E",
+   "E",
+   "R",
+   "E",
+   "D",
+   "#"
+  ],
+  [
+   "A",
+   "D",
+   "D",
+   "E",
+   "D",
+   "#",
+   "#"
   ]
  ],
  "clues": {
   "across": [
    {
     "num": 1,
-    "clue": "Where drinks are served",
-    "answer": "BAR"
+    "clue": "Spaghetti or penne",
+    "answer": "PASTA"
    },
    {
-    "num": 4,
-    "clue": "Very long time",
-    "answer": "EON"
+    "num": 6,
+    "clue": "Draw out, as a response",
+    "answer": "ELICIT"
    },
    {
     "num": 7,
-    "clue": "Prefix with magnet",
-    "answer": "ELECTRO"
+    "clue": "Golden game fish",
+    "answer": "DORADO"
+   },
+   {
+    "num": 8,
+    "clue": "Illuminated",
+    "answer": "LIT"
    },
    {
     "num": 9,
-    "clue": "Ordered by law",
-    "answer": "DECREED"
+    "clue": "Basketball hoop's edge",
+    "answer": "RIM"
    },
    {
     "num": 10,
-    "clue": "Rowboat paddle",
-    "answer": "OAR"
+    "clue": "Clothing",
+    "answer": "ATTIRE"
    },
    {
-    "num": 11,
-    "clue": "Shocked speechless",
-    "answer": "STUNNED"
+    "num": 12,
+    "clue": "Swerved",
+    "answer": "VEERED"
    },
    {
-    "num": 15,
-    "clue": "Line of ancestry",
-    "answer": "LINEAGE"
-   },
-   {
-    "num": 16,
-    "clue": "So far",
-    "answer": "YET"
-   },
-   {
-    "num": 17,
-    "clue": "Not high",
-    "answer": "LOW"
+    "num": 13,
+    "clue": "Included as an extra",
+    "answer": "ADDED"
    }
   ],
   "down": [
    {
     "num": 1,
-    "clue": "Place to sleep",
-    "answer": "BED"
+    "clue": "Schemed",
+    "answer": "PLOTTED"
    },
    {
     "num": 2,
-    "clue": "Pub brew",
-    "answer": "ALE"
+    "clue": "What you breathe",
+    "answer": "AIR"
    },
    {
     "num": 3,
-    "clue": "Tally the votes again",
-    "answer": "RECOUNT"
+    "clue": "Left with a lasting mark",
+    "answer": "SCARRED"
    },
    {
     "num": 4,
-    "clue": "Lasting for all time",
-    "answer": "ETERNAL"
+    "clue": "Straightened up",
+    "answer": "TIDIED"
    },
    {
     "num": 5,
-    "clue": "Rock you mine metal from",
-    "answer": "ORE"
+    "clue": "Tiny building block of matter",
+    "answer": "ATOM"
    },
    {
     "num": 6,
-    "clue": "Silent yes",
-    "answer": "NOD"
+    "clue": "Revised for print",
+    "answer": "EDITED"
    },
    {
     "num": 8,
-    "clue": "Long-necked wading bird",
-    "answer": "CRANE"
+    "clue": "Molten volcanic rock",
+    "answer": "LAVA"
    },
    {
     "num": 11,
-    "clue": "Cunning",
-    "answer": "SLY"
-   },
-   {
-    "num": 12,
-    "clue": "Necktie, or a draw",
-    "answer": "TIE"
-   },
-   {
-    "num": 13,
-    "clue": "Sense of self",
-    "answer": "EGO"
-   },
-   {
-    "num": 14,
-    "clue": "Morning moisture on the grass",
-    "answer": "DEW"
+    "clue": "Anger",
+    "answer": "IRE"
    }
   ]
  },

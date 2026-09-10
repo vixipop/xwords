@@ -14,21 +14,30 @@ from grids import GRIDS          # each: {"pat": [...7 rows...], "seed": int}
 
 TITLE = "The Daily 7"
 AUTHOR = "The Gazette"
-ANCHOR = date(2026, 9, 9)   # date of the newest seeded (published) issue
-SEED_PUBLISHED = 4          # how many to pre-publish (rest go to the queue)
+ANCHOR = date(2026, 9, 10)  # date of the newest seeded (published) issue
+SEED_PUBLISHED = 5          # how many to pre-publish (rest go to the queue)
+# No answer may repeat within a month. Issues publish one per day, so that is a
+# sliding window of this many consecutive issues (published + queued in order).
+NO_REPEAT_WINDOW = 30
 
 DATA = os.path.join(os.path.dirname(__file__), "..", "public", "data")
 
-def build_puzzle(grid, issue):
-    p = generate(grid["seed"], grid["pat"])
+def answers_of(p):
+    return set(e["answer"] for e in p["across"] + p["down"])
+
+def build_puzzle(grid, issue, forbid):
+    # GRIDS records the seed that fills each layout given the earlier issues'
+    # words, so one deterministic generate() reproduces it — no search needed.
+    p = generate(grid["seed"], grid["pat"], budget=60000, forbid=forbid)
     if not p:
-        raise SystemExit(f"grid {issue} (seed {grid['seed']}) failed to fill")
+        raise SystemExit(f"issue {issue}: seed {grid['seed']} failed to fill "
+                         f"with {len(forbid)} words forbidden")
     def clue_list(entries):
         out = []
         for e in entries:
             w = e["answer"]
             if w not in CLUES:
-                raise SystemExit(f"missing clue for {w} (seed {seed})")
+                raise SystemExit(f"missing clue for {w} (issue {issue})")
             out.append({"num": e["num"], "clue": CLUES[w], "answer": w})
         return out
     return {
@@ -42,7 +51,25 @@ def build_puzzle(grid, issue):
 
 def main():
     os.makedirs(DATA, exist_ok=True)
-    puzzles = [build_puzzle(g, i + 1) for i, g in enumerate(GRIDS)]
+    # Build in publish order, forbidding every answer used in the previous
+    # NO_REPEAT_WINDOW issues, so no word recurs inside a month.
+    puzzles = []
+    recent = []                       # word-sets, one per built issue, in order
+    for i, g in enumerate(GRIDS):
+        forbid = set().union(*recent[-NO_REPEAT_WINDOW:]) if recent else set()
+        pz = build_puzzle(g, i + 1, forbid)
+        puzzles.append(pz)
+        recent.append(answers_of(pz["clues"]))
+        print(f"  built issue {i+1}: {len(recent[-1])} answers, "
+              f"{len(forbid)} forbidden", file=sys.stderr)
+
+    # hard check: no answer repeats within the window
+    for i in range(len(puzzles)):
+        cur = recent[i]
+        for j in range(max(0, i - NO_REPEAT_WINDOW + 1), i):
+            clash = cur & recent[j]
+            if clash:
+                raise SystemExit(f"repeat within window: issues {j+1}&{i+1} share {clash}")
 
     # sanity: no repeated clue text within the whole set
     seen = {}

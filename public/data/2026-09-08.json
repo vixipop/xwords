@@ -5,172 +5,152 @@
  "size": 7,
  "grid": [
   [
-   "B",
-   "O",
-   "Y",
    "#",
-   "S",
-   "P",
-   "A"
+   "#",
+   "#",
+   "A",
+   "I",
+   "D",
+   "E"
   ],
   [
-   "A",
-   "R",
-   "E",
    "#",
-   "T",
-   "A",
+   "S",
+   "H",
+   "I",
+   "N",
+   "E",
    "R"
   ],
   [
-   "D",
+   "S",
+   "H",
    "I",
-   "A",
-   "L",
+   "M",
+   "M",
    "E",
-   "C",
-   "T"
+   "R"
   ],
   [
-   "#",
-   "F",
-   "R",
-   "E",
+   "H",
    "A",
-   "K",
+   "D",
+   "#",
+   "A",
+   "P",
+   "E"
+  ],
+  [
+   "O",
+   "M",
+   "I",
+   "T",
+   "T",
+   "E",
+   "D"
+  ],
+  [
+   "V",
+   "E",
+   "N",
+   "E",
+   "E",
+   "R",
    "#"
   ],
   [
-   "W",
-   "I",
-   "N",
-   "G",
-   "M",
-   "A",
-   "N"
-  ],
-  [
-   "A",
-   "C",
-   "E",
-   "#",
-   "E",
-   "G",
-   "O"
-  ],
-  [
-   "R",
    "E",
    "D",
-   "#",
-   "D",
+   "G",
    "E",
-   "W"
+   "#",
+   "#",
+   "#"
   ]
  ],
  "clues": {
   "across": [
    {
     "num": 1,
-    "clue": "Young lad",
-    "answer": "BOY"
+    "clue": "Helper to an official",
+    "answer": "AIDE"
    },
    {
-    "num": 4,
-    "clue": "Place for a soak",
-    "answer": "SPA"
+    "num": 5,
+    "clue": "Black eye",
+    "answer": "SHINER"
    },
    {
     "num": 7,
-    "clue": "\"You ___ here\"",
-    "answer": "ARE"
+    "clue": "Gleam with a wavering light",
+    "answer": "SHIMMER"
    },
    {
     "num": 8,
-    "clue": "Road-paving goo",
-    "answer": "TAR"
+    "clue": "Possessed",
+    "answer": "HAD"
    },
    {
     "num": 9,
-    "clue": "Regional way of speaking",
-    "answer": "DIALECT"
+    "clue": "Gorilla, for one",
+    "answer": "APE"
    },
    {
-    "num": 11,
-    "clue": "Sudden and odd, as an accident",
-    "answer": "FREAK"
+    "num": 10,
+    "clue": "Left out",
+    "answer": "OMITTED"
    },
    {
     "num": 12,
-    "clue": "Loyal sidekick",
-    "answer": "WINGMAN"
+    "clue": "Thin surface layer",
+    "answer": "VENEER"
    },
    {
-    "num": 14,
-    "clue": "Tennis serve nobody returns",
-    "answer": "ACE"
-   },
-   {
-    "num": 15,
-    "clue": "Sense of self",
-    "answer": "EGO"
-   },
-   {
-    "num": 16,
-    "clue": "Stop-light color",
-    "answer": "RED"
-   },
-   {
-    "num": 17,
-    "clue": "Morning moisture on the grass",
-    "answer": "DEW"
+    "num": 13,
+    "clue": "Border of a table",
+    "answer": "EDGE"
    }
   ],
   "down": [
    {
     "num": 1,
-    "clue": "Not good",
-    "answer": "BAD"
+    "clue": "Point at a target",
+    "answer": "AIM"
    },
    {
     "num": 2,
-    "clue": "Body opening",
-    "answer": "ORIFICE"
+    "clue": "Prison resident",
+    "answer": "INMATE"
    },
    {
     "num": 3,
-    "clue": "Longed",
-    "answer": "YEARNED"
+    "clue": "Further down",
+    "answer": "DEEPER"
    },
    {
     "num": 4,
-    "clue": "Cooked over boiling water",
-    "answer": "STEAMED"
+    "clue": "Made a mistake",
+    "answer": "ERRED"
    },
    {
     "num": 5,
-    "clue": "Parcel in the mail",
-    "answer": "PACKAGE"
+    "clue": "Made to feel guilt",
+    "answer": "SHAMED"
    },
    {
     "num": 6,
-    "clue": "What a gallery displays",
-    "answer": "ART"
+    "clue": "Seek's counterpart",
+    "answer": "HIDING"
    },
    {
-    "num": 10,
-    "clue": "Table's support",
-    "answer": "LEG"
+    "num": 7,
+    "clue": "Push roughly",
+    "answer": "SHOVE"
    },
    {
-    "num": 12,
-    "clue": "Armed conflict",
-    "answer": "WAR"
-   },
-   {
-    "num": 13,
-    "clue": "At this moment",
-    "answer": "NOW"
+    "num": 11,
+    "clue": "Golf ball's perch",
+    "answer": "TEE"
    }
   ]
  },

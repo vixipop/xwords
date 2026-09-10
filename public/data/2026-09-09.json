@@ -7,63 +7,63 @@
   [
    "#",
    "#",
+   "B",
    "A",
-   "L",
-   "E",
+   "N",
    "#",
    "#"
   ],
   [
    "#",
    "S",
-   "P",
-   "I",
-   "D",
    "E",
-   "R"
+   "L",
+   "E",
+   "C",
+   "T"
   ],
   [
-   "R",
-   "U",
-   "P",
+   "C",
+   "E",
+   "N",
    "T",
    "U",
    "R",
+   "Y"
+  ],
+  [
+   "O",
+   "W",
+   "E",
+   "#",
+   "T",
+   "I",
+   "P"
+  ],
+  [
+   "R",
+   "E",
+   "F",
+   "E",
+   "R",
+   "E",
    "E"
   ],
   [
-   "O",
-   "A",
-   "R",
-   "#",
-   "C",
-   "O",
-   "D"
-  ],
-  [
-   "A",
-   "V",
-   "O",
-   "C",
-   "A",
-   "D",
-   "O"
-  ],
-  [
-   "D",
    "E",
-   "V",
-   "O",
+   "D",
+   "I",
    "T",
-   "E",
+   "O",
+   "R",
    "#"
   ],
   [
    "#",
    "#",
-   "E",
-   "Y",
-   "E",
+   "T",
+   "A",
+   "N",
    "#",
    "#"
   ]
@@ -72,85 +72,85 @@
   "across": [
    {
     "num": 1,
-    "clue": "Pub brew",
-    "answer": "ALE"
+    "clue": "Official prohibition",
+    "answer": "BAN"
    },
    {
     "num": 4,
-    "clue": "Eight-legged web spinner",
-    "answer": "SPIDER"
+    "clue": "Pick out",
+    "answer": "SELECT"
    },
    {
     "num": 7,
-    "clue": "Burst open",
-    "answer": "RUPTURE"
+    "clue": "A hundred years",
+    "answer": "CENTURY"
    },
    {
     "num": 8,
-    "clue": "Rowboat paddle",
-    "answer": "OAR"
+    "clue": "Be in debt",
+    "answer": "OWE"
    },
    {
     "num": 9,
-    "clue": "Fish in fish sticks",
-    "answer": "COD"
+    "clue": "Gratuity for service",
+    "answer": "TIP"
    },
    {
     "num": 10,
-    "clue": "Guacamole fruit",
-    "answer": "AVOCADO"
+    "clue": "Match official",
+    "answer": "REFEREE"
    },
    {
     "num": 12,
-    "clue": "Dedicate, as time",
-    "answer": "DEVOTE"
+    "clue": "One who revises copy",
+    "answer": "EDITOR"
    },
    {
     "num": 13,
-    "clue": "Needle's hole, or what you see with",
-    "answer": "EYE"
+    "clue": "Sun-kissed color",
+    "answer": "TAN"
    }
   ],
   "down": [
    {
     "num": 1,
-    "clue": "Give the green light to",
-    "answer": "APPROVE"
+    "clue": "Perk of a job",
+    "answer": "BENEFIT"
    },
    {
     "num": 2,
-    "clue": "Illuminated",
-    "answer": "LIT"
+    "clue": "Keyboard key near Ctrl",
+    "answer": "ALT"
    },
    {
     "num": 3,
-    "clue": "Teach",
-    "answer": "EDUCATE"
+    "clue": "Chargeless atomic particle",
+    "answer": "NEUTRON"
    },
    {
     "num": 4,
-    "clue": "Smoothly charming",
-    "answer": "SUAVE"
+    "clue": "Stitched",
+    "answer": "SEWED"
    },
    {
     "num": 5,
-    "clue": "Wear away slowly",
-    "answer": "ERODE"
+    "clue": "Town ___ (news shouter)",
+    "answer": "CRIER"
    },
    {
     "num": 6,
-    "clue": "Do over",
-    "answer": "REDO"
+    "clue": "Tap on a keyboard",
+    "answer": "TYPE"
    },
    {
     "num": 7,
-    "clue": "Route for cars",
-    "answer": "ROAD"
+    "clue": "Apple's center",
+    "answer": "CORE"
    },
    {
     "num": 11,
-    "clue": "Playfully shy",
-    "answer": "COY"
+    "clue": "Greek letter after zeta",
+    "answer": "ETA"
    }
   ]
  },
