@@ -33,6 +33,11 @@
       letter-spacing: .06em; color: var(--muted); margin-bottom: 3px; }
     .conn input { width: 100%; padding: 8px 9px; border: 1px solid var(--rule);
       background: #fff; border-radius: 3px; font: inherit; font-size: 14px; }
+    .tokrow { display: flex; gap: 8px; }
+    .tokrow input:read-only, .conn input:disabled {
+      background: #e6ddc7; color: var(--muted); cursor: not-allowed; }
+    .tokrow input.locked { background: #e6ddc7; color: var(--muted); }
+    .tokhint { font-size: 12px; color: var(--good); margin-top: 4px; min-height: 15px; }
     .conn .full { grid-column: 1 / -1; }
     details.help { grid-column: 1 / -1; font-size: 13px; color: var(--muted); }
     details.help a { color: var(--gold); }
@@ -97,7 +102,11 @@
     <div class="conn">
       <div>
         <label for="tok">GitHub token (to publish)</label>
-        <input id="tok" type="password" placeholder="github_pat_… or ghp_…" autocomplete="off" />
+        <div class="tokrow">
+          <input id="tok" type="password" placeholder="github_pat_… or ghp_…" autocomplete="off" />
+          <button id="tokBtn" class="b ghost" type="button" hidden>Change</button>
+        </div>
+        <div id="tokHint" class="tokhint"></div>
       </div>
       <div>
         <label for="branch">Publish to branch</label>
@@ -133,11 +142,39 @@
 
     const $ = (id) => document.getElementById(id);
     const tokEl = $("tok"), branchEl = $("branch"), listEl = $("list");
+    const tokBtn = $("tokBtn"), tokHint = $("tokHint");
     const statusEl = $("status"), publishBtn = $("publishBtn"), dirtyEl = $("dirtyCount");
 
-    tokEl.value = localStorage.getItem(LS_TOK) || "";
+    // Token field locks itself once saved so it can't be changed by accident —
+    // GitHub only shows a fine-grained token once. "Change" deliberately unlocks.
+    function lockToken() {
+      tokEl.value = localStorage.getItem(LS_TOK) || "";
+      tokEl.readOnly = true;
+      tokEl.classList.add("locked");
+      tokBtn.hidden = false;
+      tokBtn.textContent = "Change";
+      tokHint.textContent = "✓ Saved & locked in this browser.";
+    }
+    function unlockToken(clear) {
+      tokEl.readOnly = false;
+      tokEl.classList.remove("locked");
+      if (clear) tokEl.value = "";
+      tokBtn.hidden = true;
+      tokHint.textContent = "Paste your token, then click away to save & lock it.";
+      tokEl.focus();
+    }
+    if (localStorage.getItem(LS_TOK)) lockToken();
+    else { tokHint.textContent = ""; }
+
+    tokBtn.addEventListener("click", () => unlockToken(true));
+    tokEl.addEventListener("change", () => {
+      const v = tokEl.value.trim();
+      if (!v) return;
+      localStorage.setItem(LS_TOK, v);
+      lockToken();
+    });
+
     branchEl.value = localStorage.getItem(LS_BRANCH) || DEFAULT_BRANCH;
-    tokEl.addEventListener("change", () => localStorage.setItem(LS_TOK, tokEl.value.trim()));
     branchEl.addEventListener("change", () =>
       localStorage.setItem(LS_BRANCH, branchEl.value.trim() || DEFAULT_BRANCH));
 
