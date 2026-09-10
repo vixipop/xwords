@@ -14,8 +14,12 @@ from grids import GRIDS          # each: {"pat": [...7 rows...], "seed": int}
 
 TITLE = "The Daily 7"
 AUTHOR = "The Gazette"
-ANCHOR = date(2026, 9, 10)  # date of the newest seeded (published) issue
-SEED_PUBLISHED = 5          # how many to pre-publish (rest go to the queue)
+# Every issue is pre-dated and shipped at once, oldest first from START_DATE
+# (one per day). The front-end reveals each one at the viewer's LOCAL midnight
+# (it only shows issues dated on/before today), so a fresh puzzle appears every
+# day with no reliance on a scheduled job. Future issues stay hidden until their
+# date. Add more issues by extending grids.py — they get the next dates.
+START_DATE = date(2026, 9, 6)   # date of the FIRST (oldest) issue
 # No answer may repeat within a month. Issues publish one per day, so that is a
 # sliding window of this many consecutive issues (published + queued in order).
 NO_REPEAT_WINDOW = 30
@@ -80,27 +84,27 @@ def main():
     if dupe_clues:
         print("WARNING: clue text reused for different answers:", dupe_clues, file=sys.stderr)
 
-    # publish the first SEED_PUBLISHED issues on consecutive dates ending at ANCHOR
+    # Date every issue from START_DATE, one per day, and ship them all. The
+    # front-end shows the newest whose date is on/before the viewer's local
+    # today, so future issues stay hidden until their day.
     index = []
-    for offset, pz in enumerate(puzzles[:SEED_PUBLISHED]):
-        d = ANCHOR - timedelta(days=(SEED_PUBLISHED - 1 - offset))
-        ds = d.isoformat()
+    for i, pz in enumerate(puzzles):
+        ds = (START_DATE + timedelta(days=i)).isoformat()
         issue = dict(pz, id=ds, date=ds)
         with open(os.path.join(DATA, f"{ds}.json"), "w") as f:
             json.dump(issue, f, indent=1)
         index.append({"date": ds, "issue": pz["issue"], "id": ds,
                       "title": pz["title"], "size": pz["size"]})
-    index.sort(key=lambda x: x["date"], reverse=True)
+    index.sort(key=lambda x: x["date"], reverse=True)   # newest first
     with open(os.path.join(DATA, "index.json"), "w") as f:
         json.dump(index, f, indent=1)
 
-    # the rest wait in the queue (no date yet); cron assigns dates one per day
-    queue = puzzles[SEED_PUBLISHED:]
+    # Nothing waits in a queue any more — everything is pre-dated above.
     with open(os.path.join(DATA, "queue.json"), "w") as f:
-        json.dump(queue, f, indent=1)
+        json.dump([], f)
 
-    print(f"published {len(index)} issues, {len(queue)} queued")
-    print("published dates:", [e["date"] for e in index])
+    dates = [e["date"] for e in index]
+    print(f"shipped {len(index)} pre-dated issues: {dates[-1]} .. {dates[0]}")
 
 if __name__ == "__main__":
     main()

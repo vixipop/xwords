@@ -1,0 +1,179 @@
+{
+ "issue": 7,
+ "title": "The Daily 7",
+ "author": "The Gazette",
+ "size": 7,
+ "grid": [
+  [
+   "B",
+   "O",
+   "P",
+   "#",
+   "A",
+   "C",
+   "T"
+  ],
+  [
+   "E",
+   "R",
+   "A",
+   "#",
+   "R",
+   "H",
+   "O"
+  ],
+  [
+   "D",
+   "A",
+   "R",
+   "E",
+   "S",
+   "A",
+   "Y"
+  ],
+  [
+   "#",
+   "T",
+   "O",
+   "K",
+   "E",
+   "N",
+   "#"
+  ],
+  [
+   "P",
+   "O",
+   "L",
+   "E",
+   "N",
+   "T",
+   "A"
+  ],
+  [
+   "A",
+   "R",
+   "E",
+   "#",
+   "A",
+   "R",
+   "T"
+  ],
+  [
+   "R",
+   "Y",
+   "E",
+   "#",
+   "L",
+   "Y",
+   "E"
+  ]
+ ],
+ "clues": {
+  "across": [
+   {
+    "num": 1,
+    "clue": "Bebop jazz, casually",
+    "answer": "BOP"
+   },
+   {
+    "num": 4,
+    "clue": "Part of a play",
+    "answer": "ACT"
+   },
+   {
+    "num": 7,
+    "clue": "Historical period",
+    "answer": "ERA"
+   },
+   {
+    "num": 8,
+    "clue": "Greek letter after pi",
+    "answer": "RHO"
+   },
+   {
+    "num": 9,
+    "clue": "'I ___ so' (venture to say)",
+    "answer": "DARESAY"
+   },
+   {
+    "num": 11,
+    "clue": "Old subway fare piece",
+    "answer": "TOKEN"
+   },
+   {
+    "num": 12,
+    "clue": "Cornmeal dish",
+    "answer": "POLENTA"
+   },
+   {
+    "num": 14,
+    "clue": "\"You ___ here\"",
+    "answer": "ARE"
+   },
+   {
+    "num": 15,
+    "clue": "What a gallery displays",
+    "answer": "ART"
+   },
+   {
+    "num": 16,
+    "clue": "Whiskey grain",
+    "answer": "RYE"
+   },
+   {
+    "num": 17,
+    "clue": "Caustic soap ingredient",
+    "answer": "LYE"
+   }
+  ],
+  "down": [
+   {
+    "num": 1,
+    "clue": "Place to sleep",
+    "answer": "BED"
+   },
+   {
+    "num": 2,
+    "clue": "Art of public speaking",
+    "answer": "ORATORY"
+   },
+   {
+    "num": 3,
+    "clue": "One released early from prison",
+    "answer": "PAROLEE"
+   },
+   {
+    "num": 4,
+    "clue": "Store of weapons",
+    "answer": "ARSENAL"
+   },
+   {
+    "num": 5,
+    "clue": "Chapel endowed for prayers",
+    "answer": "CHANTRY"
+   },
+   {
+    "num": 6,
+    "clue": "Plaything",
+    "answer": "TOY"
+   },
+   {
+    "num": 10,
+    "clue": "___ out (barely manage)",
+    "answer": "EKE"
+   },
+   {
+    "num": 12,
+    "clue": "Golf standard for a hole",
+    "answer": "PAR"
+   },
+   {
+    "num": 13,
+    "clue": "Had a meal",
+    "answer": "ATE"
+   }
+  ]
+ },
+ "id": "2026-09-12",
+ "date": "2026-09-12"
+}

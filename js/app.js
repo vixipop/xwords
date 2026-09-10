@@ -601,9 +601,10 @@ function buildKeyboard() {
   });
 }
 
-// Archive ("Older Issues"): list published issues, newest first; pick to open.
+// Archive ("Older Issues"): list issues out on/before today (no future spoilers).
 function showArchive(index, currentId, onPick) {
-  const rows = index.map((e) => `
+  const today = todayISO();
+  const rows = index.filter((e) => e.date <= today).map((e) => `
     <button class="issue-row${e.id === currentId ? " issue-row--current" : ""}" data-id="${e.id}">
       <span class="issue-row__no">No. ${e.issue}</span>
       <span class="issue-row__date">${longDate(e.date)}</span>

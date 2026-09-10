@@ -1,0 +1,189 @@
+{
+ "issue": 8,
+ "title": "The Daily 7",
+ "author": "The Gazette",
+ "size": 7,
+ "grid": [
+  [
+   "B",
+   "O",
+   "G",
+   "#",
+   "C",
+   "A",
+   "W"
+  ],
+  [
+   "R",
+   "U",
+   "E",
+   "#",
+   "O",
+   "L",
+   "E"
+  ],
+  [
+   "A",
+   "T",
+   "T",
+   "E",
+   "M",
+   "P",
+   "T"
+  ],
+  [
+   "#",
+   "#",
+   "T",
+   "A",
+   "B",
+   "#",
+   "#"
+  ],
+  [
+   "E",
+   "L",
+   "I",
+   "T",
+   "I",
+   "S",
+   "T"
+  ],
+  [
+   "V",
+   "A",
+   "N",
+   "#",
+   "N",
+   "A",
+   "H"
+  ],
+  [
+   "E",
+   "G",
+   "G",
+   "#",
+   "E",
+   "W",
+   "E"
+  ]
+ ],
+ "clues": {
+  "across": [
+   {
+    "num": 1,
+    "clue": "Marshy ground",
+    "answer": "BOG"
+   },
+   {
+    "num": 4,
+    "clue": "Crow's cry",
+    "answer": "CAW"
+   },
+   {
+    "num": 7,
+    "clue": "Regret",
+    "answer": "RUE"
+   },
+   {
+    "num": 8,
+    "clue": "Bullfight cheer",
+    "answer": "OLE"
+   },
+   {
+    "num": 9,
+    "clue": "Give it a try",
+    "answer": "ATTEMPT"
+   },
+   {
+    "num": 11,
+    "clue": "Restaurant bill",
+    "answer": "TAB"
+   },
+   {
+    "num": 12,
+    "clue": "Snob who feels superior",
+    "answer": "ELITIST"
+   },
+   {
+    "num": 16,
+    "clue": "Delivery vehicle",
+    "answer": "VAN"
+   },
+   {
+    "num": 17,
+    "clue": "Casual 'no'",
+    "answer": "NAH"
+   },
+   {
+    "num": 18,
+    "clue": "Breakfast staple",
+    "answer": "EGG"
+   },
+   {
+    "num": 19,
+    "clue": "Female sheep",
+    "answer": "EWE"
+   }
+  ],
+  "down": [
+   {
+    "num": 1,
+    "clue": "Undergarment",
+    "answer": "BRA"
+   },
+   {
+    "num": 2,
+    "clue": "Not at home",
+    "answer": "OUT"
+   },
+   {
+    "num": 3,
+    "clue": "Obtaining",
+    "answer": "GETTING"
+   },
+   {
+    "num": 4,
+    "clue": "Merge together",
+    "answer": "COMBINE"
+   },
+   {
+    "num": 5,
+    "clue": "Swiss peak",
+    "answer": "ALP"
+   },
+   {
+    "num": 6,
+    "clue": "Not dry",
+    "answer": "WET"
+   },
+   {
+    "num": 10,
+    "clue": "Have a meal",
+    "answer": "EAT"
+   },
+   {
+    "num": 12,
+    "clue": "Night before a holiday",
+    "answer": "EVE"
+   },
+   {
+    "num": 13,
+    "clue": "Fall behind",
+    "answer": "LAG"
+   },
+   {
+    "num": 14,
+    "clue": "Toothed cutting tool",
+    "answer": "SAW"
+   },
+   {
+    "num": 15,
+    "clue": "Most common English word",
+    "answer": "THE"
+   }
+  ]
+ },
+ "id": "2026-09-13",
+ "date": "2026-09-13"
+}

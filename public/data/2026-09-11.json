@@ -1,0 +1,179 @@
+{
+ "issue": 6,
+ "title": "The Daily 7",
+ "author": "The Gazette",
+ "size": 7,
+ "grid": [
+  [
+   "B",
+   "I",
+   "O",
+   "#",
+   "C",
+   "U",
+   "R"
+  ],
+  [
+   "E",
+   "N",
+   "C",
+   "L",
+   "O",
+   "S",
+   "E"
+  ],
+  [
+   "E",
+   "N",
+   "T",
+   "E",
+   "R",
+   "E",
+   "D"
+  ],
+  [
+   "#",
+   "#",
+   "O",
+   "A",
+   "R",
+   "#",
+   "#"
+  ],
+  [
+   "I",
+   "M",
+   "P",
+   "R",
+   "E",
+   "S",
+   "S"
+  ],
+  [
+   "C",
+   "O",
+   "U",
+   "N",
+   "C",
+   "I",
+   "L"
+  ],
+  [
+   "K",
+   "O",
+   "S",
+   "#",
+   "T",
+   "R",
+   "Y"
+  ]
+ ],
+ "clues": {
+  "across": [
+   {
+    "num": 1,
+    "clue": "Short life story",
+    "answer": "BIO"
+   },
+   {
+    "num": 4,
+    "clue": "Mangy mutt",
+    "answer": "CUR"
+   },
+   {
+    "num": 7,
+    "clue": "Fence in",
+    "answer": "ENCLOSE"
+   },
+   {
+    "num": 9,
+    "clue": "Went in",
+    "answer": "ENTERED"
+   },
+   {
+    "num": 10,
+    "clue": "Rowboat paddle",
+    "answer": "OAR"
+   },
+   {
+    "num": 11,
+    "clue": "Make a strong impression on",
+    "answer": "IMPRESS"
+   },
+   {
+    "num": 15,
+    "clue": "Local governing body",
+    "answer": "COUNCIL"
+   },
+   {
+    "num": 16,
+    "clue": "Romaine, by another name",
+    "answer": "KOS"
+   },
+   {
+    "num": 17,
+    "clue": "Attempt",
+    "answer": "TRY"
+   }
+  ],
+  "down": [
+   {
+    "num": 1,
+    "clue": "Honey maker",
+    "answer": "BEE"
+   },
+   {
+    "num": 2,
+    "clue": "Roadside lodging",
+    "answer": "INN"
+   },
+   {
+    "num": 3,
+    "clue": "Eight-armed sea creature",
+    "answer": "OCTOPUS"
+   },
+   {
+    "num": 4,
+    "clue": "Right, not wrong",
+    "answer": "CORRECT"
+   },
+   {
+    "num": 5,
+    "clue": "Put to work",
+    "answer": "USE"
+   },
+   {
+    "num": 6,
+    "clue": "Stop-light color",
+    "answer": "RED"
+   },
+   {
+    "num": 8,
+    "clue": "Pick up knowledge",
+    "answer": "LEARN"
+   },
+   {
+    "num": 11,
+    "clue": "'Gross!'",
+    "answer": "ICK"
+   },
+   {
+    "num": 12,
+    "clue": "Cow's sound",
+    "answer": "MOO"
+   },
+   {
+    "num": 13,
+    "clue": "Knight's title",
+    "answer": "SIR"
+   },
+   {
+    "num": 14,
+    "clue": "Cunning",
+    "answer": "SLY"
+   }
+  ]
+ },
+ "id": "2026-09-11",
+ "date": "2026-09-11"
+}
