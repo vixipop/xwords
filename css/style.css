@@ -228,7 +228,10 @@ body {
 /* ===== Three-column edition ===== */
 .edition {
   display: grid;
-  grid-template-columns: 1fr auto 1fr;
+  /* minmax(0, 1fr) lets the clue columns shrink (text wraps / list scrolls)
+     instead of forcing the whole row wider than the sheet — without it the grid
+     and clue columns spill off both edges on narrower desktop windows. */
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
   gap: clamp(16px, 2.6vw, 44px);
   align-items: stretch;
   margin-top: clamp(4px, 0.8vw, 10px);
