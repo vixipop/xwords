@@ -1,0 +1,160 @@
+{
+ "issue": 7,
+ "title": "The Saturday Crossword",
+ "author": "The Gazette",
+ "size": 7,
+ "grid": [
+  [
+   "C",
+   "R",
+   "A",
+   "B",
+   "#",
+   "#",
+   "#"
+  ],
+  [
+   "R",
+   "E",
+   "V",
+   "O",
+   "K",
+   "E",
+   "#"
+  ],
+  [
+   "E",
+   "L",
+   "E",
+   "G",
+   "A",
+   "N",
+   "T"
+  ],
+  [
+   "S",
+   "I",
+   "N",
+   "#",
+   "R",
+   "A",
+   "W"
+  ],
+  [
+   "T",
+   "S",
+   "U",
+   "N",
+   "A",
+   "M",
+   "I"
+  ],
+  [
+   "#",
+   "H",
+   "E",
+   "A",
+   "T",
+   "E",
+   "R"
+  ],
+  [
+   "#",
+   "#",
+   "#",
+   "Y",
+   "E",
+   "L",
+   "L"
+  ]
+ ],
+ "clues": {
+  "across": [
+   {
+    "num": 1,
+    "clue": "Sideways-walking shellfish",
+    "answer": "CRAB"
+   },
+   {
+    "num": 5,
+    "clue": "Take back, as a license",
+    "answer": "REVOKE"
+   },
+   {
+    "num": 8,
+    "clue": "Gracefully stylish",
+    "answer": "ELEGANT"
+   },
+   {
+    "num": 10,
+    "clue": "Moral wrong",
+    "answer": "SIN"
+   },
+   {
+    "num": 11,
+    "clue": "Not cooked",
+    "answer": "RAW"
+   },
+   {
+    "num": 12,
+    "clue": "Giant sea wave",
+    "answer": "TSUNAMI"
+   },
+   {
+    "num": 14,
+    "clue": "Room-warming device",
+    "answer": "HEATER"
+   },
+   {
+    "num": 15,
+    "clue": "Shout loudly",
+    "answer": "YELL"
+   }
+  ],
+  "down": [
+   {
+    "num": 1,
+    "clue": "Top of a hill or wave",
+    "answer": "CREST"
+   },
+   {
+    "num": 2,
+    "clue": "Hot dog topping",
+    "answer": "RELISH"
+   },
+   {
+    "num": 3,
+    "clue": "Broad city street",
+    "answer": "AVENUE"
+   },
+   {
+    "num": 4,
+    "clue": "Marshy ground",
+    "answer": "BOG"
+   },
+   {
+    "num": 6,
+    "clue": "Martial art of chops and kicks",
+    "answer": "KARATE"
+   },
+   {
+    "num": 7,
+    "clue": "Hard coating on a tooth",
+    "answer": "ENAMEL"
+   },
+   {
+    "num": 9,
+    "clue": "Spin around",
+    "answer": "TWIRL"
+   },
+   {
+    "num": 13,
+    "clue": "Vote against",
+    "answer": "NAY"
+   }
+  ]
+ },
+ "id": "2026-09-19",
+ "date": "2026-09-19",
+ "reviewed": false
+}
