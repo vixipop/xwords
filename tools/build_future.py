@@ -17,7 +17,7 @@ from cluebank import CLUES
 HERE = os.path.dirname(os.path.abspath(__file__))
 DATA = os.path.join(HERE, "..", "public", "data")
 
-FREEZE_THROUGH = date(2026, 9, 10)   # issues on/before this are untouchable
+FREEZE_THROUGH = date(2026, 9, 17)   # issues on/before this are untouchable
 FUTURE_COUNT = 7                     # how many upcoming issues to (re)build
 NO_REPEAT_WINDOW = 30
 AUTHOR = "The Gazette"
