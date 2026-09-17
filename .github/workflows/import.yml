@@ -1,0 +1,48 @@
+name: Import Crosshare puzzle
+
+# Manual, one-puzzle-at-a-time import of a community crossword from Crosshare.
+# Run it from the Actions tab: paste a Crosshare puzzle URL (or its id), and
+# optionally a publish date. The puzzle is converted into a Word Gazette issue,
+# committed UNREVIEWED, and then the normal deploy runs — so it shows up in your
+# admin queue for approval before any reader sees it.
+
+on:
+  workflow_dispatch:
+    inputs:
+      url:
+        description: "Crosshare puzzle URL or id (e.g. https://crosshare.org/crosswords/ABC123/my-mini)"
+        required: true
+        type: string
+      date:
+        description: "Publish date YYYY-MM-DD (leave blank = day after the latest issue)"
+        required: false
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: claude/daily-crossword-app-7clfxr
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install puzpy
+      - name: Import the puzzle
+        run: |
+          if [ -n "${{ inputs.date }}" ]; then
+            python3 tools/import_crosshare.py "${{ inputs.url }}" --date "${{ inputs.date }}"
+          else
+            python3 tools/import_crosshare.py "${{ inputs.url }}"
+          fi
+      - name: Commit the imported issue
+        run: |
+          git config user.name "Gazette Importer"
+          git config user.email "noreply@github.com"
+          git add public/data
+          git commit -m "Import community puzzle from Crosshare (unreviewed)"
+          git push origin claude/daily-crossword-app-7clfxr
